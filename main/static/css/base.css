@@ -34,7 +34,7 @@ a {
     box-shadow: 0px 0.5px 3px 1px var(--lotte-silver);
 }
 
-.navbar__logo>img {
+.navbar__logo>a>img {
     width: 90px;
     height: 45px;
 }
