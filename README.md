@@ -1,6 +1,6 @@
 # Hackathon_Lionders
 
-***🦁Likelion 8th + Lotte Hackathon👍 ***
+🦁Likelion 8th + Lotte Hackathon👍
 
 
 ### colors
