@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'LotteMartDream';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+}
+
+:root {
+    --lotte-red: #C83B2B;
+    --lotte-gray: #54585A;
+    --lotte-black: #000000;
+    --lotte-silver: #8F9090;
+    --lotte-shampagne-gold: #85766B;
+}
+
+.lottemartdream * {
+    font-family: 'LotteMartDream', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'LotteMartDream';
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    box-shadow: 0px 0.5px 3px 1px var(--lotte-silver);
+}
+
+.navbar__logo>img {
+    width: 90px;
+    height: 45px;
+}
+
+.navbar__link {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
+
+.navbar__link>a>img {
+    width: 98px;
+    height: 21px;
+}
+
+
+.navbar__menu {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.navbar__menu a {
+    padding: 0px 16px;
+    position: relative;
+    color: var(--lotte-silver);
+    /* margin-top: 30px; */
+}
+
+.navbar__user {
+    margin-top: 30px;
+    font-size: 14px;
+    /* text-align: right; */
+}
+
+.navbar__user a {
+    padding: 0px 0px 0px 8px;
+    color: var(--lotte-silver);
+}
+
+.navbar__menu a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    margin-top: 6px;
+    bottom: -12px;
+    left: 15%;
+    border-radius: 1px;
+    background-color: var(--lotte-red);
+    transition: all 0.5s ease;
+}
+
+.navbar__menu a:hover::after {
+    left: 15%;
+    width: 70%;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    width: 100%;
+    height: 150px;
+    background-color: #8F9191;
+}
+
+.footer__right {
+    position: absolute;
+    bottom: 20%;
+    right: 2%;
+}
+
+.footer__right a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px;
+}
+
+.footer__logo>img {
+    margin-left: 12px;
+    margin-top: 15px;
+    width: 120px;
+    height: 33px;
+}
+
+.footer__aboutus,
+.footer__copyright {
+    color: #fff;
+    font-size: 14px;
+    font-weight: lighter;
+    padding-top: 8px;
+    margin-top: 8px;
+    margin-left: 18px;
+}
+
+.footer__copyright a {
+    text-decoration: none;
+    color: white;
+}
