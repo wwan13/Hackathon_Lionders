@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'LotteMartDream';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+}
+
+:root {
+    --lotte-red: #C83B2B;
+    --lotte-gray: #54585A;
+    --lotte-black: #000000;
+    --lotte-silver: #8F9090;
+    --lotte-shampagne-gold: #85766B;
+}
+
+.lottemartdream * {
+    font-family: 'LotteMartDream', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'LotteMartDream';
+    box-sizing: border-box;
+}
+
+body {
+    /* background: linear-gradient(#C83B2B, #e67e22); */
+    /* background-color: var(--lotte-red); */
+}
+
+.login__logo>img {
+    width: 90px;
+    height: 45px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.loginbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    height: 580px;
+    width: 360px;
+    /* box-shadow: 1px 1px 3px 2px var(--lotte-silver); */
+    border-radius: 10px;
+    padding: 80px 40px;
+    border: 1px solid var(--lotte-red);
+}
+
+.loginbox__title {
+    text-align: center;
+    /* padding: 80px 40px; */
+    margin-bottom: 60px;
+}
+
+.loginbox__textbox {
+    border-bottom: 2px solid #adadad;
+    position: relative;
+    margin: 30px 0px;
+}
+
+.loginbox__textbox input {
+    font-size: 15px;
+    color: #333333;
+    border: none;
+    width: 100%;
+    outline: none;
+    background: none;
+    padding: 0 5px;
+    height: 40px;
+}
+
+.loginbox__textbox span::before {
+    content: attr(data-placeholder);
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: .5s;
+}
+
+.loginbox__textbox span::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    top: 100%;
+    left: 0%;
+    background-color: var(--lotte-red);
+    transition: .5s;
+}
+
+.loginbox__btn {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: var(--lotte-red);
+    color: #f1f1f1;
+    outline: none;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 15px;
+    border-radius: 3px;
+    transition: .5s;
+}
+
+.loginbox__text {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.loginbox__text a {
+    text-decoration: none;
+    color: blue;
+}
+
+.focus+span::before {
+    top: -5px;
+    font-size: 13px;
+}
+
+.focus+span::after {
+    width: 100%;
+}
+
+.loginbox__btn:hover {
+    background-color: #fff;
+    border: 1px solid var(--lotte-red);
+    color: var(--lotte-red);
+}
