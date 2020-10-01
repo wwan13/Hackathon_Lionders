@@ -3,6 +3,12 @@
 🦁Likelion 8th + Lotte Hackathon👍
 
 
+### ideas 
+
+- google document https://docs.google.com/document/d/1RMtgnL-47zHa_kJyJIawQ95lg5NWRqVvS3LUrC-PAos/edit
+- google presentation https://docs.google.com/presentation/d/1C5R7A0g1SvU6Gwz1PUry8IocBhYdtk2qZF_eagllNKw/edit#slide=id.p
+
+
 ### colors
 
 - main color(red) - #C83B2B </br>
