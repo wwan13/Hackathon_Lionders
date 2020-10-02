@@ -4,6 +4,8 @@ from django.shortcuts import render
 def login(request):
     return render(request,"login.html")
 
+def usertype(request):
+    return render(request,"usertype.html")
 
 def signup(request):
-    return render(request,"login.html")
+    return render(request,"signup.html")

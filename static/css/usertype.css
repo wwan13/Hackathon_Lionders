@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'LotteMartDream';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+}
+
+:root {
+    --lotte-red: #C83B2B;
+    --lotte-gray: #54585A;
+    --lotte-black: #000000;
+    --lotte-silver: #8F9090;
+    --lotte-shampagne-gold: #85766B;
+}
+
+.lottemartdream * {
+    font-family: 'LotteMartDream', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'LotteMartDream';
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.usertype__logo>img {
+    width: 90px;
+    height: 45px;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.typebox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: #000000; */
+    height: 450px;
+    width: 900px;
+    /* box-shadow: 1px 1px 1px lightgrey;
+    border-radius: 10px; */
+    padding: 80px 40px;
+}
+
+.consumer-box,
+.lionders-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f1f1f1;
+    height: 300px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px lightgrey;
+    transition: .5s;
+}
+
+.consumer-box:hover,
+.lionders-box:hover {
+    border: 2px solid var(--lotte-red);
+    background-color: #ffffff;
+    height: 320px;
+    width: 320px;
+}
+
+.consumer-box>img,
+.lionders-box>img {
+    height: 66%;
+    width: 45%;
+    transition: .5s;
+}
+
+.consumer-box:hover img,
+.lionders-box:hover img {
+    display: none;
+}
+
+.typebox__text {
+    display: none;
+    text-align: center;
+    color: var(--lotte-red);
+    font-size: 17px;
+    font-weight: bolder;
+    transition-delay: .5s;
+    transition: .5s;
+}
+
+.consumer-box:hover .typebox__text,
+.lionders-box:hover .typebox__text {
+    display: flex;
+}

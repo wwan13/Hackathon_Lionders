@@ -33,7 +33,7 @@ body {
     width: 90px;
     height: 45px;
     position: absolute;
-    top: 0%;
+    top: 2%;
     left: 50%;
     transform: translate(-50%, 0);
 }
@@ -46,10 +46,10 @@ body {
     background-color: #f1f1f1;
     height: 580px;
     width: 360px;
-    /* box-shadow: 1px 1px 3px 2px var(--lotte-silver); */
+    box-shadow: 1px 1px 1px lightgrey;
     border-radius: 10px;
     padding: 80px 40px;
-    border: 1px solid var(--lotte-red);
+    /* border: 1px solid var(--lotte-red); */
 }
 
 .loginbox__title {
