@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라이온더스 - 로그인</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/usertype.css' %}">
+</head>
+
+<body>
+
+    <a class="usertype__logo" href="{% url 'home' %}">
+        <img class="login__logo" src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
+    </a>
+
+
+    <div class="typebox">
+        <a href="#">
+            <div class="consumer-box">
+                <img class="login__logo" src="{% static 'image/consumer.png' %}" alt="consumer.png">
+                <p class="typebox__text">나는 일반회원 입니다</p>
+            </div>
+        </a>
+        <a href="#">
+            <div class="lionders-box">
+                <img class="login__logo" src="{% static 'image/lionders.png' %}" alt="lionders.png">
+                <p class="typebox__text">나는 라이온더스 입니다</p>
+            </div>
+        </a>
+    </div>
+
+</body>
+
+</html>
