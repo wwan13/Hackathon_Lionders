@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, request
 from .models import Item, Order, Delivery
+from users import models as usermodel
 from .forms import OrderForm, UpdateOrderForm, ItemForm
 from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
@@ -16,18 +17,31 @@ def order_list(request):
     return render(request, 'order_list.html', context)
 
 
+# def order(request):
+#     if request.method == 'POST':
+#         form = OrderForm(request.POST)
+#         request.POST._mutable = True
+#         # request.POST['user'] = request.user
+#         # items = Item.objects.all()
+#         # request.POST['items'] = items
+#         if form.is_valid():
+#             new_item = form.save()
+#         return HttpResponseRedirect('../order/orderlist')
+#     form = OrderForm()
+#     return render(request, 'order.html', {'form': form})
+
 def order(request):
-    if request.method == 'POST':
-        form = OrderForm(request.POST)
-        request.POST._mutable = True
-        # request.POST['user'] = request.user
-        # items = Item.objects.all()
-        # request.POST['items'] = items
-        if form.is_valid():
-            new_item = form.save()
-        return HttpResponseRedirect('../order/orderlist')
-    form = OrderForm()
-    return render(request, 'order.html', {'form': form})
+    items = Item.objects.all()
+    current_user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
+    new_order = Order(normal_user_info=current_user,total_price=0)
+    new_order.save()
+    return render(request,'order.html',{'items':items,'new_order':new_order})
+
+
+def add_item(request,order_id,item_id):
+    order = get_object_or_404(Order,pk=order_id)
+    order.items.add(item_id)
+    return redirect('order')
 
 
 def order_delete(request, id):
