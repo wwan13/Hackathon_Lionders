@@ -86,18 +86,13 @@ def delivery(request):
     return render(request, 'delivery.html', {'form': form})
 
 
-def delivery_update(request):
-    if request.method == 'POST' and 'id' in request.POST:
-        item = get_object_or_404(Delivery, pk=request.POST.get('id'))
-        form = UpdateDeliveryForm(request.POST, instance=item)
-        if form.is_valid():
-            item = form.save()
-
-    elif 'id' in request.GET:
-        item = get_object_or_404(Delivery, pk=request.GET.get('id'))
-        form = DeliveryForm(instance=item)
-        return render(request, 'delivery_update.html', {'form': form})
-    return HttpResponseRedirect("../deliverylist")
+def delivery_update(request, id):
+    item = get_object_or_404(Delivery, pk=id)
+    if request.method == 'POST':
+        item.state = "completed"
+        item.save()
+        return redirect('delivery-list')
+    return render(request, 'delivery_update.html', {'item': item})
 
 
 def delivery_delete(request, id):

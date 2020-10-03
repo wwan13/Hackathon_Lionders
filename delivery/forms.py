@@ -58,7 +58,7 @@ class UpdateOrderForm(OrderForm):
 class DeliveryForm(forms.ModelForm):
     class Meta:
         model = Delivery
-        fields = ['lionders_info', 'order_sheet', 'delivery_tips', 'grade_limit']
+        fields = ['lionders_info', 'order_sheet', 'delivery_tips', 'grade_limit', 'state']
         labels = {
             'order_sheet': _('주문서'),
             'delivery_tips': _('배달 평'),
@@ -66,6 +66,7 @@ class DeliveryForm(forms.ModelForm):
         }
         widgets = {
             'lionders_info': forms.HiddenInput(),
+            'state': forms.HiddenInput(),
             # 'items': forms.HiddenInput()
         }
         help_texts = {
