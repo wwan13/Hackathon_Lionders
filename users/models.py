@@ -15,7 +15,7 @@ class Users(AbstractUser):
 
     usertype = models.CharField(max_length = 8,choices=USERTYPE_CHOICES)
     name = models.CharField(max_length = 50)
-    adress = models.CharField(max_length = 100)
+    address = models.CharField(max_length = 100)
     phone = models.CharField(max_length = 15)
 
     class meta:
@@ -32,7 +32,13 @@ class Consumer_Users(Users):
 class Lionders_Users(Users):
     """ Lionders User Model """
 
-    grade = models.FloatField(null=True)
+    GRADE_CHOICES = (
+        ('Beginner', "초급자"),
+        ('Intermediate', "중급자"),
+        ('Advanced', "고급자"),
+    )
+
+    grade = models.CharField(max_length = 10, choices=GRADE_CHOICES)
     #rating = models.ManyToManyField(Consumer_Users)
 
     class Meta:
