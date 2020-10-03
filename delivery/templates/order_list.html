@@ -12,6 +12,7 @@
     <br>
     <h3>주문서{{item.id}}</h3>
     <p>주소 : {{item.destination}}</p>
+    <p>배달 품목 : {{item.items}}</p>
     <p>총 금액 : {{item.total_price}}</p>
     <p><sub>{{item.ordered_time}}</sub></p>
     <form action="{% url 'order-update' %}?id={{ item.id }}" name="update" method="post">

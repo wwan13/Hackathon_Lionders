@@ -19,7 +19,7 @@ class Order(models.Model):
     # updated_at = models.DateTimeField(auto_now=True)
     total_price = models.PositiveIntegerField(blank=True, default=0)
     destination = models.CharField(max_length=100, blank=True)
-    items = models.ForeignKey(Item, on_delete=models.CASCADE, blank=True, null=True)
+    items = models.ManyToManyField(Item, blank=True, null=True)
 
     def __str__(self):
         return self.items.store

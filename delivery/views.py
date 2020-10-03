@@ -21,10 +21,12 @@ def order(request):
         form = OrderForm(request.POST)
         request.POST._mutable = True
         # request.POST['user'] = request.user
+        # items = Item.objects.all()
+        # request.POST['items'] = items
         if form.is_valid():
             new_item = form.save()
         return HttpResponseRedirect('../order/orderlist')
-    form = OrderForm(request.FILES)
+    form = OrderForm()
     return render(request, 'order.html', {'form': form})
 
 
@@ -50,26 +52,40 @@ def order_update(request):
     return HttpResponseRedirect("../orderlist")
 
 
-def delivery_list(request):
-    deliveries = Delivery.objects.filter()
-    context = {
-        'deliveries': deliveries,
-    }
-    return render(request, 'delivery_list.html', context)
-
-def delivery(request):
-    if request.method == 'POST':
-        delivery_form = DeliveryForm(request.POST)
-        request.POST._mutable = True
-        # request.POST['user'] = request.user
-        if delivery_form.is_valid():
-            delivery_form.save()
-        return redirect('delivery_list')
-    form = DeliveryForm()
-    return render(request, 'delivery.html', {'delivery_form': form})
+# def delivery_list(request):
+#     deliveries = Delivery.objects.filter()
+#     context = {
+#         'deliveries': deliveries,
+#     }
+#     return render(request, 'delivery_list.html', context)
+#
+# def delivery(request):
+#     if request.method == 'POST':
+#         delivery_form = DeliveryForm(request.POST)
+#         request.POST._mutable = True
+#         # request.POST['user'] = request.user
+#         if delivery_form.is_valid():
+#             delivery_form.save()
+#         return redirect('delivery_list')
+#     form = DeliveryForm()
+#     return render(request, 'delivery.html', {'delivery_form': form})
 
 def delivery_update(request):
     pass
 
 def delivery_delete(request):
     pass
+
+
+def item_create(request):
+    if request.method == 'POST':
+        form = ItemForm(request.POST)
+        request.POST._mutable = True
+        # request.POST['user'] = request.user
+        if form.is_valid():
+            new_item = form.save()
+        return HttpResponseRedirect('../order/orderlist')
+    form = ItemForm()
+    return render(request, 'item_create.html', {'form': form})
+
+

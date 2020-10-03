@@ -25,13 +25,14 @@ class ItemForm(forms.ModelForm):
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['normal_user_info', 'total_price', 'destination']
+        fields = ['normal_user_info', 'total_price', 'destination', 'items']
         labels = {
             'total_price': _('총 금액'),
             'destination': _('주소')
         }
         widgets = {
-            'normal_user_info': forms.HiddenInput()
+            'normal_user_info': forms.HiddenInput(),
+            # 'items': forms.HiddenInput()
         }
         help_texts = {
 
