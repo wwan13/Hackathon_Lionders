@@ -9,7 +9,8 @@
     <title>{% block title %}{% endblock %}</title>
 
     <!-- css files -->
-    <script   src="https://code.jquery.com/jquery-3.5.1.js"   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <script src="https://kit.fontawesome.com/54f85ae94e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% block style %}{% endblock %}">
@@ -31,11 +32,11 @@
         </div>
 
         <div class="navbar__logo">
-            <img src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
+            <a href="{% url 'home' %}"><img src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg"></a>
         </div>
 
         <div class="navbar__menu">
-            <a href="#">커뮤티니</a>
+            <a href="#">커뮤니티</a>
             <a href="{% url 'delivery-list' %}">배달조회</a>
             <a href="{% url 'order-list' %}">주문조회</a>
             <a href="#">자세히</a>
