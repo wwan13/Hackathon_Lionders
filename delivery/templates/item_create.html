@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% endblock %}
+{% block title %}delivery{% endblock %}
+{% block content %}
+배달 품목 작성
+<br>
+<div class="container">
+    <form action="{% url 'item' %}" method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.as_p }}
+        </div>
+        <button type="submit">등록</button>
+    </form>
+</div>
+{% endblock %}

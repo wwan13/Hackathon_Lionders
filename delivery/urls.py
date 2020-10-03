@@ -9,8 +9,10 @@ urlpatterns = [
     path('order/update/',views.order_update,name='order-update'),
 
     # delivery(배달)
-    path('delivery/',views.delivery,name='order'),
-    path('delivery/deliverylist/',views.delivery_list,name='delivery-list'),
-    path('delivery/<int:id>/delete/', views.delivery_delete,name='delivery-delete'),
-    path('delivery/update/',views.delivery_update,name='delivery-update'),
+    # path('delivery/',views.delivery,name='order'),
+    # path('delivery/deliverylist/',views.delivery_list,name='delivery-list'),
+    # path('delivery/<int:id>/delete/', views.delivery_delete,name='delivery-delete'),
+    # path('delivery/update/',views.delivery_update,name='delivery-update'),
+
+    path('item/',views.item_create,name='item'),
 ]
