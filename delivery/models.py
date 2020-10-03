@@ -12,6 +12,9 @@ class Item(models.Model):
     def __str__(self):
         return self.item_name
 
+    def __unicode__(self):
+        return self.item_name
+
 
 class Order(models.Model):
     normal_user_info = models.ForeignKey(user_models.Users, on_delete=models.CASCADE, blank=True, null=True)
@@ -19,10 +22,8 @@ class Order(models.Model):
     # updated_at = models.DateTimeField(auto_now=True)
     total_price = models.PositiveIntegerField(blank=True, default=0)
     destination = models.CharField(max_length=100, blank=True)
-    items = models.ManyToManyField(Item, blank=True, null=True)
+    items = models.ManyToManyField(Item, blank=True)
 
-    def __str__(self):
-        return self.items.store
 
 
 class Delivery(models.Model):
