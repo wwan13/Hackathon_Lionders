@@ -17,40 +17,45 @@
         <img class="login__logo" src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
     </a>
 
-    <form class="signupbox" action="">
-        <h1 class="signupbox__title">회원가입</h1>
+    <form class="signupbox" action="{% url 'signup_consumer' %}">
+        {% csrf_token %}
+        <h1 class="signupbox__title">일반 회원가입</h1>
 
         <div class="signupbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="username">
             <span data-placeholder="아이디"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="password" name="">
+            <input type="password" name="password">
             <span data-placeholder="비밀번호"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="password" name="">
+            <input type="password" name="confirm">
             <span data-placeholder="비밀번호 확인"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="name">
             <span data-placeholder="이름"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="address">
             <span data-placeholder="주소"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="phone">
             <span data-placeholder="전화번호"></span>
         </div>
 
-        <input type="submit" class="signupbox__btn" value="Login">
+        <div class="disvisible">
+            <input type="text" value="consumer" name="usertype">
+        </div>
+
+        <input type="submit" class="signupbox__btn" value="회원가입">
 
     </form>
 
