@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% endblock %}
+{% block title %}delivery{% endblock %}
+{% block content %}
+주문하는 목록
+<div class="order-list">
+    <br>
+    <a href="{% url 'order' %}">주문서 작성하러가기</a>
+    <br>
+    {% for item in orders %}
+    <br>
+    <h3>주문서{{item.id}}</h3>
+    <p>주소 : {{item.destination}}</p>
+    <p>총 금액 : {{item.total_price}}</p>
+    <p><sub>{{item.ordered_time}}</sub></p>
+    <form action="{% url 'order-update' %}?id={{ item.id }}" name="update" method="post">
+        {% csrf_token %}
+        <button type="submit">주문서 수정하기</button>
+    </form>
+
+    </form>
+    <form action="{% url 'order-delete' id=item.id %}" onsubmit="return getConfirmation()" name="delete" method="post">
+        {% csrf_token %}
+        <script>
+            function getConfirmation()
+            {
+                var retVal = confirm("Do you want to continue ?");
+                if (retVal == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        </script>
+        <button type="submit">삭제</button>
+    </form>
+
+    {% endfor %}
+
+    {% endblock %}
