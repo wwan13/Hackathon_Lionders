@@ -25,9 +25,7 @@ class Order(models.Model):
     items = models.ManyToManyField(Item, blank=True)
 
 
-
 class Delivery(models.Model):
-    title = models.CharField(max_length=100, blank=True, null=True)
     state = models.CharField(max_length=30, default="On Call", blank=True)
     lionders_info = models.ForeignKey(user_models.Users, on_delete=models.CASCADE, blank=True, null=True)
     order_sheet = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, null=True)

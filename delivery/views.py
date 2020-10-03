@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, request
 from .models import Item, Order, Delivery
+from .forms import OrderForm, UpdateOrderForm, ItemForm, DeliveryForm
 from users import models as usermodel
-from .forms import OrderForm, UpdateOrderForm, ItemForm
 from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
 
@@ -66,23 +66,25 @@ def order_update(request):
     return HttpResponseRedirect("../orderlist")
 
 
-# def delivery_list(request):
-#     deliveries = Delivery.objects.filter()
-#     context = {
-#         'deliveries': deliveries,
-#     }
-#     return render(request, 'delivery_list.html', context)
-#
-# def delivery(request):
-#     if request.method == 'POST':
-#         delivery_form = DeliveryForm(request.POST)
-#         request.POST._mutable = True
-#         # request.POST['user'] = request.user
-#         if delivery_form.is_valid():
-#             delivery_form.save()
-#         return redirect('delivery_list')
-#     form = DeliveryForm()
-#     return render(request, 'delivery.html', {'delivery_form': form})
+def delivery_list(request):
+    deliveries = Delivery.objects.filter()
+    context = {
+        'deliveries': deliveries,
+    }
+    return render(request, 'delivery_list.html', context)
+
+
+def delivery(request):
+    if request.method == 'POST':
+        form = DeliveryForm(request.POST)
+        request.POST._mutable = True
+        # request.POST['user'] = request.user
+        if form.is_valid():
+            new_item = form.save()
+        return HttpResponseRedirect('../delivery/deliverylist')
+    form = DeliveryForm()
+    return render(request, 'delivery.html', {'form': form})
+
 
 def delivery_update(request):
     pass
