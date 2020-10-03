@@ -48,3 +48,28 @@ def order_update(request):
         form = OrderForm(instance=item)
         return render(request, 'order_update.html', {'form': form})
     return HttpResponseRedirect("../orderlist")
+
+
+def delivery_list(request):
+    deliveries = Delivery.objects.filter()
+    context = {
+        'deliveries': deliveries,
+    }
+    return render(request, 'delivery_list.html', context)
+
+def delivery(request):
+    if request.method == 'POST':
+        delivery_form = DeliveryForm(request.POST)
+        request.POST._mutable = True
+        # request.POST['user'] = request.user
+        if delivery_form.is_valid():
+            delivery_form.save()
+        return redirect('delivery_list')
+    form = DeliveryForm()
+    return render(request, 'delivery.html', {'delivery_form': form})
+
+def delivery_update(request):
+    pass
+
+def delivery_delete(request):
+    pass
