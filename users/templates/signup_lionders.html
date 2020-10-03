@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'js/signup.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <title>라이온더스 - 회원가입</title>
 </head>
@@ -45,6 +46,19 @@
             <span data-placeholder="주소"></span>
         </div>
 
+        <!-- <div id="map"></div>
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6289a633039ed417ac39962594dd1500">
+        </script>
+        <script>
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                level: 3
+            };
+
+            var map = new kakao.maps.Map(container, options);
+        </script> -->
+
         <div class="signupbox__textbox">
             <input type="text" name="">
             <span data-placeholder="전화번호"></span>
@@ -54,7 +68,6 @@
 
     </form>
 
-    <script src="{% static 'js/signup.js' %}"></script>
 </body>
 
 </html>

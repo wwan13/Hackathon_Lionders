@@ -17,16 +17,17 @@
         <img class="login__logo" src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
     </a>
 
-    <form class="loginbox" action="">
+    <form class="loginbox" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
         <h1 class="loginbox__title">로그인</h1>
 
         <div class="loginbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="username" required>
             <span data-placeholder="Username"></span>
         </div>
 
         <div class="loginbox__textbox">
-            <input type="password" name="">
+            <input type="password" name="password" required>
             <span data-placeholder="Password"></span>
         </div>
 

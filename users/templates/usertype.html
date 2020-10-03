@@ -19,13 +19,13 @@
 
 
     <div class="typebox">
-        <a href="#">
+        <a href="{% url 'signup_consumer' %}">
             <div class="consumer-box">
                 <img class="login__logo" src="{% static 'image/consumer.png' %}" alt="consumer.png">
                 <p class="typebox__text">나는 일반회원 입니다</p>
             </div>
         </a>
-        <a href="#">
+        <a href="{% url 'signup_lionders' %}">
             <div class="lionders-box">
                 <img class="login__logo" src="{% static 'image/lionders.png' %}" alt="lionders.png">
                 <p class="typebox__text">나는 라이온더스 입니다</p>
