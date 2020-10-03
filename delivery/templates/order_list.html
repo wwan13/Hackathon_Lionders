@@ -3,6 +3,7 @@
 {% block style %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/order.css' %}">
 주문하는 목록
 <div class="order-list">
     <br>
@@ -10,7 +11,7 @@
     <br>
     {% for order in orders %}
     <br>
-    <h3>주문서{{order.id}}</h3>
+    <h3>{{order.normal_user_info.name}}님의 {{ order.ordered_time|date:'m/d (D)' }} 주문서</h3>
     <p>주소 : {{order.destination}}</p>
     <h4>배달 품목</h4>
     {% for item in order.items.all %}
@@ -21,7 +22,8 @@
     {% endfor %}
     <hr>
     <p>총 금액 : {{order.total_price}}</p>
-    <p><sub>{{order.ordered_time}}</sub></p>
+    <p><sub>주문일시: {{order.ordered_time | date:'Y년 m월 d일 A f'}}</sub></p>
+    <p><sub>주문번호: {{order.id}}</sub></p>
     <form action="{% url 'order-update' %}?id={{ order.id }}" name="update" method="post">
         {% csrf_token %}
         <button type="submit">주문서 수정하기</button>
