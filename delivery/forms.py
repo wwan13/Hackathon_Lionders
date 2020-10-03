@@ -71,3 +71,20 @@ class DeliveryForm(forms.ModelForm):
         help_texts = {
 
         }
+
+
+class UpdateDeliveryForm(OrderForm):
+    class Meta:
+        model = Delivery
+        exclude = ['lionders_info']
+
+    # def __init__(self, *args, **kwargs):
+    #     self.request = kwargs.pop('request', None)
+    #     super(DeliveryForm, self).__init__(*args, **kwargs)
+
+    # def save(self, commit=True):
+    #     instance = super(DeliveryForm, self).save(commit=False)
+    #
+    #     if commit:
+    #         instance.save()
+    #     return instance
