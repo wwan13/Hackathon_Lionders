@@ -25,7 +25,13 @@ def usertype(request):
 def signup_consumer(request):
     if request.method == 'POST':
         if request.POST['password'] == request.POST['confirm']:
-            user = Consumer_Users.objects.create_user(username=request.POST['username'], password=request.POST['password'],usertype=request.POST['usertype'],name=request.POST['name'],gender=request.POST['gender'],phone_number=request.POST['phone_number'],city=request.POST['city'],devision=request.POST['devision'],military_type=request.POST['military_type'],enter_date=request.POST['enter_date'])
+            user = Consumer_Users.objects.create_user(
+                username=request.POST['username'], 
+                password=request.POST['password'],
+                usertype=request.POST['usertype'],
+                name=request.POST['name'],
+                address=request.POST['address'],
+                phone=request.POST['phone'])
             auth.login(request, user)
             return redirect('home')
     return render(request, 'signup_consumer.html')
@@ -33,7 +39,13 @@ def signup_consumer(request):
 def signup_lionders(request):
     if request.method == 'POST':
         if request.POST['password'] == request.POST['confirm']:
-            user = Lionders_Users.objects.create_user(username=request.POST['username'], password=request.POST['password'],usertype=request.POST['usertype'],name=request.POST['name'],gender=request.POST['gender'],phone_number=request.POST['phone_number'],city=request.POST['city'],devision=request.POST['devision'],military_type=request.POST['military_type'],enter_date=request.POST['enter_date'])
+            user = Lionders_Users.objects.create_user(
+                username=request.POST['username'], 
+                password=request.POST['password'],
+                usertype=request.POST['usertype'],
+                name=request.POST['name'],
+                address=request.POST['address'],
+                phone=request.POST['phone'])
             auth.login(request, user)
             return redirect('home')
     return render(request, 'signup_lionders.html')
