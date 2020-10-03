@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, request
 from .models import Item, Order, Delivery
-from .forms import OrderForm, UpdateOrderForm, ItemForm, DeliveryForm
+from .forms import OrderForm, UpdateOrderForm, ItemForm, DeliveryForm, UpdateDeliveryForm
 from users import models as usermodel
 from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
@@ -87,10 +87,25 @@ def delivery(request):
 
 
 def delivery_update(request):
-    pass
+    if request.method == 'POST' and 'id' in request.POST:
+        item = get_object_or_404(Delivery, pk=request.POST.get('id'))
+        form = UpdateDeliveryForm(request.POST, instance=item)
+        if form.is_valid():
+            item = form.save()
 
-def delivery_delete(request):
-    pass
+    elif 'id' in request.GET:
+        item = get_object_or_404(Delivery, pk=request.GET.get('id'))
+        form = DeliveryForm(instance=item)
+        return render(request, 'delivery_update.html', {'form': form})
+    return HttpResponseRedirect("../deliverylist")
+
+
+def delivery_delete(request, id):
+    item = get_object_or_404(Delivery, pk=id)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('delivery-list')  # 리스트 화면으로 이동합니다.
+    return render(request, 'delivery_delete.html', {'item': item})
 
 
 def item_create(request):

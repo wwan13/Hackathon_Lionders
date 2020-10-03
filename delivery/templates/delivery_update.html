@@ -3,6 +3,16 @@
 {% block style %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
-
+배달 목 수정 페이지.
+<div class="container">
+    <form enctype="multipart/form-data" action="{% url 'delivery-update' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ form.instance.id }}"/>
+        <div>
+            {{ form.as_p }}
+        </div>
+        <button type="submit">수정완료</button>
+    </form>
+</div>
 
 {% endblock %}
