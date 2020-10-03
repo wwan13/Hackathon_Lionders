@@ -12,6 +12,9 @@ class Item(models.Model):
     def __str__(self):
         return self.item_name
 
+    def __unicode__(self):
+        return self.item_name
+
 
 class Order(models.Model):
     normal_user_info = models.ForeignKey(user_models.Users, on_delete=models.CASCADE, blank=True, null=True)

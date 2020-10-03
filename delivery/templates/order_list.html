@@ -8,35 +8,37 @@
     <br>
     <a href="{% url 'order' %}">주문서 작성하러가기</a>
     <br>
-    {% for item in orders %}
+    {% for order in orders %}
     <br>
-    <h3>주문서{{item.id}}</h3>
-    <p>주소 : {{item.destination}}</p>
-    <p>배달 품목 : {{item.items}}</p>
-    <p>총 금액 : {{item.total_price}}</p>
-    <p><sub>{{item.ordered_time}}</sub></p>
-    <form action="{% url 'order-update' %}?id={{ item.id }}" name="update" method="post">
+    <h3>주문서{{order.id}}</h3>
+    <p>주소 : {{order.destination}}</p>
+    <h4>배달 품목</h4>
+    {% for item in order.items.all %}
+    <hr>
+    <p>매장: {{item.store}}</p>
+    <p>물품명: {{item.item_name}}</p>
+    <p>가격: {{item.price}}</p>
+    {% endfor %}
+    <hr>
+    <p>총 금액 : {{order.total_price}}</p>
+    <p><sub>{{order.ordered_time}}</sub></p>
+    <form action="{% url 'order-update' %}?id={{ order.id }}" name="update" method="post">
         {% csrf_token %}
         <button type="submit">주문서 수정하기</button>
     </form>
 
     </form>
-    <form action="{% url 'order-delete' id=item.id %}" onsubmit="return getConfirmation()" name="delete" method="post">
+    <form action="{% url 'order-delete' id=order.id %}" onsubmit="return getConfirmation()" name="delete" method="post">
         {% csrf_token %}
         <script>
-            function getConfirmation()
-            {
+            function getConfirmation() {
                 var retVal = confirm("Do you want to continue ?");
-                if (retVal == true)
-                {
+                if (retVal == true) {
                     return true;
-                }
-                else
-                {
+                } else {
                     return false;
                 }
             }
-
         </script>
         <button type="submit">삭제</button>
     </form>
