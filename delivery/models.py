@@ -19,14 +19,10 @@ class Order(models.Model):
     # updated_at = models.DateTimeField(auto_now=True)
     total_price = models.PositiveIntegerField(blank=True, default=0)
     destination = models.CharField(max_length=100, blank=True)
-    items = models.ManyToManyField(Item, blank=True, null=True)
-
-    def __str__(self):
-        return self.items.store
+    items = models.ManyToManyField(Item, blank=True)
 
 
 class Delivery(models.Model):
-    title = models.CharField(max_length=100, blank=True, null=True)
     state = models.CharField(max_length=30, default="On Call", blank=True)
     lionders_info = models.ForeignKey(user_models.Users, on_delete=models.CASCADE, blank=True, null=True)
     order_sheet = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, null=True)
