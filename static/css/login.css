@@ -24,10 +24,10 @@
     box-sizing: border-box;
 }
 
-body {
-    /* background: linear-gradient(#C83B2B, #e67e22); */
-    /* background-color: var(--lotte-red); */
-}
+/* body {
+    background: linear-gradient(#C83B2B, #e67e22);
+    background-color: var(--lotte-red);
+} */
 
 .login__logo>img {
     width: 90px;

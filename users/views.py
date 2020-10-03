@@ -7,5 +7,5 @@ def login(request):
 def usertype(request):
     return render(request,"usertype.html")
 
-def signup(request):
-    return render(request,"signup.html")
+def signup_consumer(request):
+    return render(request,"signup_consumer.html")

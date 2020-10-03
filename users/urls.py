@@ -18,7 +18,7 @@ from . import views
 
 urlpatterns = [
     path('login/',views.login,name='login'),
-    path('signup/',views.signup,name='signup'),
+    path('signup_consumer/',views.signup_consumer,name='signup_consumer'),
     path('usertype/',views.usertype,name='usertype'),
 
 ]
