@@ -9,7 +9,7 @@
     {% for item in deliveries %}
     <br>
     <h3>주문서{{item.id}}</h3>
-    <p>주소 : {{item.order_sheet.normal_user_info.adress}}</p>
+    <p>주소 : {{item.order_sheet.normal_user_info.address}}</p>
     <p>총 금액 : {{item.order_sheet.total_price}}</p>
     <p><sub>{{item.estimated_time}}</sub></p>
     <form action="{% url 'delivery-update' %}?id={{ item.id }}" name="update" method="post">
