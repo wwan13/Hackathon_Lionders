@@ -14,14 +14,14 @@ class ConsumerUserAdmin(UserAdmin):
                 "fields": (
                     "usertype",
                     "name",
-                    "adress",
+                    "address",
                     "is_pro",
                 )
             },
         ),
     )
 
-    list_display = ("name","adress","is_pro")
+    list_display = ("name","address","is_pro")
     
 
 @admin.register(models.Lionders_Users)
@@ -35,7 +35,7 @@ class LiondersUserAdmin(UserAdmin):
                 "fields": (
                     "usertype",
                     "name",
-                    "adress",
+                    "address",
                     "grade",
                 )
             },
@@ -43,6 +43,6 @@ class LiondersUserAdmin(UserAdmin):
     )
     
     #filter_horizontal = ("rating",)
-    list_display = ("name","adress","grade")
+    list_display = ("name","address","grade")
 
     
