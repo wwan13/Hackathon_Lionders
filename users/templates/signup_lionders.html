@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="{% static 'js/signup.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <title>라이온더스 - 회원가입</title>
 </head>
@@ -18,56 +17,48 @@
         <img class="login__logo" src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
     </a>
 
-    <form class="signupbox" action="">
-        <h1 class="signupbox__title">회원가입</h1>
+    <form class="signupbox" method="POST" action="{% url 'signup_lionders' %}">
+        {% csrf_token %}
+        <h1 class="signupbox__title">라이온더스 회원가입</h1>
 
         <div class="signupbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="username">
             <span data-placeholder="아이디"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="password" name="">
+            <input type="password" name="password">
             <span data-placeholder="비밀번호"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="password" name="">
+            <input type="password" name="confirm">
             <span data-placeholder="비밀번호 확인"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="name">
             <span data-placeholder="이름"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="address">
             <span data-placeholder="주소"></span>
         </div>
 
-        <!-- <div id="map"></div>
-        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6289a633039ed417ac39962594dd1500">
-        </script>
-        <script>
-            var container = document.getElementById('map');
-            var options = {
-                center: new kakao.maps.LatLng(33.450701, 126.570667),
-                level: 3
-            };
-
-            var map = new kakao.maps.Map(container, options);
-        </script> -->
-
         <div class="signupbox__textbox">
-            <input type="text" name="">
+            <input type="text" name="phone">
             <span data-placeholder="전화번호"></span>
         </div>
 
-        <input type="submit" class="signupbox__btn" value="Login">
+        <div class="disvisible">
+            <input type="text" value="lionders" name="usertype">
+        </div>
+
+        <input type="submit" class="signupbox__btn" value="회원가입">
 
     </form>
-
+    <script src="{% static 'js/signup.js' %}"></script>
 </body>
 
 </html>
