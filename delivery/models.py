@@ -27,3 +27,12 @@ class Delivery(models.Model):
 
     def __str__(self):
         return self.title + ': ' + self.comment[:3]
+
+
+class Item(models.Model):
+    store = models.CharField(max_length=100, blank=True)
+    item_name = models.CharField(max_length=100, blank=True)
+    price = models.IntegerField()
+
+    def __str__(self):
+        return self.item_name + ': ' + self.comment[:3]
