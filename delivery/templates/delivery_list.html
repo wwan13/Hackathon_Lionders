@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% endblock %}
+{% block title %}delivery{% endblock %}
+{% block content %}
+<h1>배달 목록 조회</h1>
+<div class="delivery-list">
+    <br>
+    {% for item in deliveries %}
+    <br>
+    <h3>주문서{{item.id}}</h3>
+    <p>주소 : {{item.order_sheet.normal_user_info.adress}}</p>
+    <p>총 금액 : {{item.order_sheet.total_price}}</p>
+    <p><sub>{{item.estimated_time}}</sub></p>
+    <form action="{% url 'delivery-update' %}?id={{ item.id }}" name="update" method="post">
+        {% csrf_token %}
+        <button type="submit">주문서 수정하기</button>
+    </form>
+
+    </form>
+    <form action="{% url 'delivery-delete' id=item.id %}" onsubmit="return getConfirmation()" name="delete"
+        method="post">
+        {% csrf_token %}
+        <script>
+            function getConfirmation() {
+                var retVal = confirm("Do you want to continue ?");
+                if (retVal == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
+        <button type="submit">삭제</button>
+    </form>
+
+    {% endfor %}
+
+    {% endblock %}
