@@ -7,6 +7,7 @@ class Item(models.Model):
     store = models.CharField(max_length=100, blank=True)
     item_name = models.CharField(max_length=100, blank=True)
     price = models.PositiveIntegerField(blank=True, default=0)
+    image = models.ImageField(blank=True, null=True, default='default.png')
 
     def __str__(self):
         return self.item_name
