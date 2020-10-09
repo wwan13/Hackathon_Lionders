@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% endblock %}
+{% block style %}{% static 'css/orderlist.css' %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/order.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/order.css' %}">
 주문하는 목록
 <div class="order-list">
     <br>
@@ -45,6 +45,73 @@
         <button type="submit">삭제</button>
     </form>
 
-    {% endfor %}
+    {% endfor %} -->
 
-    {% endblock %}
+<div class="entirebox">
+
+    <div class="cards">
+
+        <div class="order__card">
+
+            <h3 class="card__header">10.08(MON)</h3>
+
+            <div class="card__price"><sup>₩</sup>30,000</div>
+
+            <ul class="item__list">
+
+                <li><strong>불고기버거</strong> 롯데리아</li>
+                <li><strong>치킨버거</strong> 롯데리아</li>
+                <li><strong>밀리터리버거</strong> 롯데리아</li>
+                <li>...</li>
+
+            </ul>
+
+            <a href="#" class="order__btn">주문하기</a>
+
+        </div>
+
+        <div class="order__card">
+
+            <h3 class="card__header">10.08(MON)</h3>
+
+            <div class="card__price"><sup>₩</sup>30,000</div>
+
+            <ul class="item__list">
+
+                <li><strong>불고기버거</strong>롯데리아</li>
+                <li><strong>치킨버거</strong>롯데리아</li>
+                <li><strong>밀리터리버거</strong>롯데리아</li>
+                <li><strong>햄버거</strong>롯데리아</li>
+                <li><strong>양념감자</strong>롯데리아</li>
+
+            </ul>
+
+            <a href="#" class="order__btn">주문하기</a>
+
+        </div>
+
+        <div class="order__card">
+
+            <h3 class="card__header">10.08(MON)</h3>
+
+            <div class="card__price"><sup>₩</sup>30,000</div>
+
+            <ul class="item__list">
+
+                <li><strong>불고기버거</strong>롯데리아</li>
+                <li><strong>치킨버거</strong>롯데리아</li>
+                <li><strong>밀리터리버거</strong>롯데리아</li>
+                <li><strong>햄버거</strong>롯데리아</li>
+                <li><strong>양념감자</strong>롯데리아</li>
+
+            </ul>
+
+            <a href="#" class="order__btn">주문하기</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

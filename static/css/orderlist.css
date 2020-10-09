@@ -1,0 +1,86 @@
+:root {
+    --lotte-red: #C83B2B;
+    --lotte-gray: #54585A;
+    --lotte-black: #000000;
+    --lotte-silver: #8F9090;
+    --lotte-shampagne-gold: #85766B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.entirebox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    padding: 100px 0px;
+    flex-wrap: wrap;
+    width: 80%;
+    /* background-color: beige; */
+}
+
+.order__card {
+    border: 1px solid var(--lotte-red);
+    text-align: center;
+    border-radius: 10px;
+    height: 350px;
+    width: 200px;
+    margin: 20px 20px;
+    color: #2d2d2d;
+    overflow: hidden;
+    transition: .3s linear;
+}
+
+.card__header {
+    background-color: var(--lotte-red);
+    display: inline-block;
+    padding: 12px 30px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 0px 0px 20px 20px;
+    text-transform: uppercase;
+    transition: .4s linear;
+}
+
+.order__card:hover .card__header {
+    box-shadow: 0 0 0 7em var(--lotte-red);
+    color: #ffffff;
+}
+
+.card__price {
+    font-size: 35px;
+    margin: 40px;
+    color: var(--lotte-red);
+    transition: .6s linear;
+}
+
+.card__price sup {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.order__card:hover .card__price {
+    color: #ffffff;
+}
+
+.item__list li {
+    font-size: 13px;
+    padding: 5px;
+}
+
+.order__btn {
+    position: relative;
+    bottom: 3%;
+}

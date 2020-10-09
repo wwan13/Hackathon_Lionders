@@ -17,68 +17,72 @@
 </head>
 
 <body>
-    <!-- navbar -->
-    <div class="navbar">
 
-        <!-- <div class="navbar__logo">
+    <div class="wrap">
+        <!-- navbar -->
+        <div class="navbar">
+
+            <!-- <div class="navbar__logo">
             <img src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
         </div> -->
 
-        <div class="navbar__link">
-            <a
-                href="https://www.lotteon.com/p/display/main/lotteon?mall_no=1&ch_no=100168&ch_dtl_no=1000543&utm_source=naver&utm_medium=cpc&utm_campaign=sa_pc&utm_term=LOTTEON&utm_content=자사명&n_media=27758&n_query=LOTTEON&n_rank=1&n_ad_group=grp-a001-01-000000015113462&n_ad=nad-a001-01-000000107747692&n_keyword_id=nkw-a001-01-000002866244625&n_keyword=LOTTEON&n_campaign_type=1&n_ad_group_type=1">
-                <img src="{% static 'image/go_to_lotteon.png' %}" alt="go_to_lotteon.png">
-            </a>
-        </div>
-
-        <div class="navbar__logo">
-            <a href="{% url 'home' %}"><img src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg"></a>
-        </div>
-
-        <div class="navbar__menu">
-            <a href="#">커뮤니티</a>
-            <a href="{% url 'delivery-list' %}">배달조회</a>
-            <a href="{% url 'order-list' %}">주문조회</a>
-            <a href="#">자세히</a>
-        </div>
-
-        <div class="navbar__user">
-            <a href="{% url 'login' %}">로그인</a>
-            <a href="{% url 'usertype' %}">회원가입</a>
-        </div>
-
-    </div>
-    <!-------------->
-
-    {% block content %}{% endblock %}
-
-
-    <!-- footer -->
-    <div class="footer">
-
-        <div class="footer__left">
-            <div class="footer__logo">
-                <img src="{% static 'image/lionders_logo2.png' %}" alt="lionders_logo2.png">
-            </div>
-            <div class="footer__aboutus">
-                <p>라이온더스는 우리의 팀멍이자 서비스명 으로 멋쟁이 사자처럼 + Lotte On + 라이더스를 합쳐서 만들었습니다.<br></p>
-                <p>팀 라이온더스는 순천향대학교 멋쟁이사자처럼 8기 풀스택 사자들이 모여 제작한 서비스 입니다.</p>
-            </div>
-            <div class="footer__copyright">
-                <a href="https://github.com/wwan13/Hackathon_Lionders">
-                    https://github.com/wwan13/Hackathon_Lionders <br>
+            <div class="navbar__link">
+                <a
+                    href="https://www.lotteon.com/p/display/main/lotteon?mall_no=1&ch_no=100168&ch_dtl_no=1000543&utm_source=naver&utm_medium=cpc&utm_campaign=sa_pc&utm_term=LOTTEON&utm_content=자사명&n_media=27758&n_query=LOTTEON&n_rank=1&n_ad_group=grp-a001-01-000000015113462&n_ad=nad-a001-01-000000107747692&n_keyword_id=nkw-a001-01-000002866244625&n_keyword=LOTTEON&n_campaign_type=1&n_ad_group_type=1">
+                    <img src="{% static 'image/go_to_lotteon.png' %}" alt="go_to_lotteon.png">
                 </a>
-                <p>Copyright @ 2020 TEAM Lionders</p>
             </div>
-        </div>
 
-        <div class="footer__right">
-            <a href="https://github.com/wwan13"><i class="fab fa-github"></i> https://github.com/wwan13</a>
-            <a href="https://github.com/ningpop"><i class="fab fa-github"></i> https://github.com/ningpop</a>
-            <a href="https://github.com/yulhee741"><i class="fab fa-github"></i> https://github.com/yulhee741</a>
-            <a href="https://github.com/junji9072"><i class="fab fa-github"></i> https://github.com/junji9072</a>
-        </div>
+            <div class="navbar__logo">
+                <a href="{% url 'home' %}"><img src="{% static 'image/lionders_logo.jpeg' %}"
+                        alt="lionders_logo.jpeg"></a>
+            </div>
 
+            <div class="navbar__menu">
+                <a href="#">커뮤니티</a>
+                <a href="{% url 'delivery-list' %}">배달조회</a>
+                <a href="{% url 'order-list' %}">주문조회</a>
+                <a href="#">자세히</a>
+            </div>
+
+            <div class="navbar__user">
+                <a href="{% url 'login' %}">로그인</a>
+                <a href="{% url 'usertype' %}">회원가입</a>
+            </div>
+
+        </div>
+        <!-------------->
+
+        {% block content %}{% endblock %}
+
+
+        <!-- footer -->
+        <div class="footer">
+
+            <div class="footer__left">
+                <div class="footer__logo">
+                    <img src="{% static 'image/lionders_logo2.png' %}" alt="lionders_logo2.png">
+                </div>
+                <div class="footer__aboutus">
+                    <p>라이온더스는 우리의 팀멍이자 서비스명 으로 멋쟁이 사자처럼 + Lotte On + 라이더스를 합쳐서 만들었습니다.<br></p>
+                    <p>팀 라이온더스는 순천향대학교 멋쟁이사자처럼 8기 풀스택 사자들이 모여 제작한 서비스 입니다.</p>
+                </div>
+                <div class="footer__copyright">
+                    <a href="https://github.com/wwan13/Hackathon_Lionders">
+                        https://github.com/wwan13/Hackathon_Lionders <br>
+                    </a>
+                    <p>Copyright @ 2020 TEAM Lionders</p>
+                </div>
+            </div>
+
+            <div class="footer__right">
+                <a href="https://github.com/wwan13"><i class="fab fa-github"></i> https://github.com/wwan13</a>
+                <a href="https://github.com/ningpop"><i class="fab fa-github"></i> https://github.com/ningpop</a>
+                <a href="https://github.com/yulhee741"><i class="fab fa-github"></i> https://github.com/yulhee741</a>
+                <a href="https://github.com/junji9072"><i class="fab fa-github"></i> https://github.com/junji9072</a>
+            </div>
+
+        </div>
     </div>
     <!---------------->
 </body>
