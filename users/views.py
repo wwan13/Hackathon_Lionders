@@ -33,7 +33,7 @@ def signup_consumer(request):
                 address=request.POST['address'],
                 phone=request.POST['phone'])
             auth.login(request, user)
-            return redirect('home')
+            return redirect('login')
     return render(request, 'signup_consumer.html')
 
 def signup_lionders(request):
@@ -47,5 +47,5 @@ def signup_lionders(request):
                 address=request.POST['address'],
                 phone=request.POST['phone'])
             auth.login(request, user)
-            return redirect('home')
+            return redirect('login')
     return render(request, 'signup_lionders.html')

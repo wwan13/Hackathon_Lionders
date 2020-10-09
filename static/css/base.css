@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'LotteMartDream';
     font-style: normal;
-    font-weight: 400;
+    /* font-weight: 400; */
     src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
 }
 
@@ -25,6 +25,13 @@
 
 a {
     text-decoration: none;
+}
+
+.wrap {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 150px;
+    /* footer height */
 }
 
 .navbar {
@@ -95,13 +102,14 @@ a {
 }
 
 .footer {
+    position: absolute;
     display: flex;
     justify-content: space-between;
     /* position: absolute; */
     left: 0%;
     bottom: 0%;
     width: 100%;
-    height: 150px;
+    /* height: 150px; */
     background-color: #8F9191;
 }
 
@@ -136,6 +144,7 @@ a {
     padding-top: 8px;
     margin-top: 8px;
     margin-left: 18px;
+    margin-bottom: 10px;
 }
 
 .footer__copyright a {
