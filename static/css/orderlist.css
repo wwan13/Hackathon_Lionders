@@ -14,19 +14,25 @@
     list-style: none;
 }
 
+.title {
+    text-align: center;
+    padding-top: 70px;
+}
+
 
 .entirebox {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .cards {
     display: flex;
     justify-content: center;
-    padding: 100px 0px;
+    padding: 50px 0px;
     flex-wrap: wrap;
-    width: 80%;
+    width: 90%;
     /* background-color: beige; */
 }
 
@@ -34,7 +40,7 @@
     border: 1px solid var(--lotte-red);
     text-align: center;
     border-radius: 10px;
-    height: 350px;
+    height: 320px;
     width: 200px;
     margin: 20px 20px;
     color: #2d2d2d;
@@ -51,19 +57,20 @@
     font-weight: 600;
     border-radius: 0px 0px 20px 20px;
     text-transform: uppercase;
-    transition: .4s linear;
+    transition: .3s linear;
 }
 
 .order__card:hover .card__header {
-    box-shadow: 0 0 0 7em var(--lotte-red);
-    color: #ffffff;
+    box-shadow: 0 0 0 6em var(--lotte-red);
+    color: var(--lotte-red);
+    padding: 5px;
 }
 
 .card__price {
     font-size: 35px;
     margin: 40px;
     color: var(--lotte-red);
-    transition: .6s linear;
+    transition: .4s linear;
 }
 
 .card__price sup {
@@ -81,6 +88,19 @@
 }
 
 .order__btn {
+    display: block;
     position: relative;
-    bottom: 3%;
+    margin-top: 20px;
+    color: #ffffff;
+    transition: .3s;
+}
+
+.order__card:hover .order__btn {
+    color: var(--lotte-red);
+}
+
+.new__btn {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--lotte-shampagne-gold);
 }
