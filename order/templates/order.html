@@ -1,20 +1,82 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% endblock %}
+{% block style %}{% static 'css/order.css' %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
-주문하는 페이지. <br><br>
 
-{% for item in items %}
+{% comment %} {% for item in items %}
 
-{{item.store}} <br>
+<!-- {{item.store}} <br>
 {{item.item_name}} <br>
 {{item.price}} <br>
 <a href="{% url 'add_item' new_order.id item.id %}">
     <button>등록</button>
 </a>
-<br>
+<br> -->
 
-{% endfor %}
+{% endfor %} {% endcomment %}
+
+<h1 class="title">주문하기</h1>
+
+<div class="entirebox">
+
+
+    <div class="cards">
+
+        {% for item in items %}
+        <div class="order__card">
+
+            <h3 class="card__header">{{ item.store }}</h3>
+
+            <div class="card__price"><sup>₩</sup>{{ item.price }}</div>
+
+            <ul class="item__list">
+
+                <li><strong>{{ item.item_name }}</strong></li>
+
+            </ul>
+
+            <a href="#" class="order__btn">주문하기</a>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="totalbox">
+
+        <div class="box__title">목록</div>
+
+        <div class="about__items">
+            <div class="item">상품 이름</div>
+            <div class="item">매장</div>
+            <div class="item">가격</div>
+            <a href="#"></a>
+        </div>
+
+        <div class="about__item">
+            <div class="items">밀리터리 버거</div>
+            <div class="items">롯데리아</div>
+            <div class="items">8000₩</div>
+            <a href="#">
+                <div class="items">삭제</div>
+            </a>
+        </div>
+
+        <div class="about__item">
+            <div class="item">밀리터리 버거</div>
+            <div class="item">롯데리아</div>
+            <div class="item">8000₩</div>
+            <a href="#">
+                <div class="item">삭제</div>
+            </a>
+        </div>
+
+        <div class="btnbox">
+            <div class="total__price">300000원 주문하기</div>
+        </div>
+    </div>
+
+</div>
 
 {% endblock %}
