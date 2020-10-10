@@ -6,7 +6,7 @@ from order.models import Order, Item
 
 
 class Delivery(models.Model):
-    state = models.CharField(max_length=30, default="On Call", blank=True)
+    state = models.CharField(max_length=30, default="배달 대기 중", blank=True)
     lionders_info = models.ForeignKey(user_models.Users, on_delete=models.CASCADE, blank=True, null=True)
     order_sheet = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, null=True)
     estimated_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
