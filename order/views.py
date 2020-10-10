@@ -49,6 +49,7 @@ def order(request):
                 ordered_items = my_order[0].items.all()
                 ex_items = list(set(items) - set(ordered_items))
                 return render(request,'order.html',{'items':items,'order':my_order[0],'ordered_items':ordered_items,'ex_items':ex_items})
+    
     else:
         return redirect('require_login')
 
