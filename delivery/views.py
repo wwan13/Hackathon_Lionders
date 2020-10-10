@@ -1,24 +1,34 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, request
-from .models import Delivery
+from .models import Delivery, Order
 from .forms import DeliveryForm, UpdateDeliveryForm
-from users import models as usermodel
+from users import models
 # Create your views here.
 
 
 def delivery_list(request):
-    deliveries = Delivery.objects.filter()
-    context = {
-        'deliveries': deliveries,
-    }
-    return render(request, 'delivery_list.html', context)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/signin/')
+    if request.user.usertype == 'lionders':
+        deliveries = Delivery.objects.filter(order_sheet__destination = request.user.address, lionders_info_id=request.user.pk)
+        context = {
+            'deliveries': deliveries,
+        }
+        return render(request, 'delivery_list.html', context)
+    else :
+        deliveries = Delivery.objects.filter(lionders_info_id=request.user.pk)
+        context = {
+            'deliveries': deliveries,
+        }
+        return render(request, 'delivery_list.html', context)
+
 
 
 def delivery(request):
     if request.method == 'POST':
         form = DeliveryForm(request.POST)
         request.POST._mutable = True
-        # request.POST['user'] = request.user
+        request.POST['lionders_info'] = request.user
         if form.is_valid():
             new_item = form.save()
         return HttpResponseRedirect('../delivery/deliverylist')
