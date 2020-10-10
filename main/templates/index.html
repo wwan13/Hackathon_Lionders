@@ -3,6 +3,110 @@
 {% block style %}{% endblock %}
 {% block title %}라이온더스 - 홈{% endblock %}
 {% block content %}
+<!-- 외부 css -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<!-- 외부 css 끝 -->
+
+<!-- photo slider -->
+<div class="container">
+    <div class="row heading-box">
+    </div>
+</div>
+<section>
+    <div id="slider-animation" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img id="imagee" src="{% static 'image/b.jpg' %}" alt="...">
+                <div class="text-box">
+                    <h2 class="wow slideInRight" data-wow-duration="2s">#용기내 #제로웨이스트 #롯데ON</h2>
+                    <p class="wow slideInLeft" data-wow-duration="2s">라이온더스와 함께 제로웨이스트를 시작해보세요!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img id="imagee" src="{% static 'image/a.jpg' %}" alt="">
+                <div class="text-box">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="wow fadeInUp" data-wow-duration="4s">라이온더스에 지원하세요!</h2>
+                            <p class="wow fadeInUp" data-wow-duration="2s">누구든 라이온더스가 될 수 있습니다.</p>
+                        </div>
+                        <div class="col-md-6 wow slideInLeft" data-wow-duration="4s">
+                            <img id="image" src="{% static 'image/1.png' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#slider-animation" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#slider-animation" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+</section>
+<!-- photo slider -->
+
+<!-- ======= Features Section ======= -->
+<br>
+<br>
+<section class="features">
+    <div class="container">
+        <div class="row" data-aos="fade-up">
+            <div class="col-md-5">
+                <img src="{% static 'image/side1.png' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-7 pt-4">
+                <h3>라이온더스? 그게 뭐예요?</h3>
+                <p>
+                    라이온더스는 멋쟁이 사자처럼 + 롯데 on + 라이더스를 합쳤습니다.<br>
+                    만 19세 이상 성인이라면, 차가 없는 뚜벅이라도 누구든 라이온더스가 될 수 있습니다. <br>
+                    미성년자 분들은 성인이 되고난 이후 지원해주시길 바랍니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+            <div class="col-md-5 order-1 order-md-2">
+                <img src="{% static 'image/side2.png' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-7 pt-5 order-2 order-md-1">
+                <h3>배달을 해본적 없는데 라이온더스에 지원할 수 있나요?</h3>
+                <p>
+                    라이온더스는 초급, 중급, 고급으로 등급을 나눠서 배달할 수 있어요!<br>초보자분들도 지원하실 수 있답니다.<br>
+                    처음이시라면 라이온더스 게시판에서 다른 라이온더스들이 남긴 팁을 읽어보세요!
+                </p>
+            </div>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+            <div class="col-md-5">
+                <img src="{% static 'image/side3.png' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-7 pt-5">
+                <h3>배달을 하려면 자차가 있어야 하나요? <br>
+                    차를 사기엔 부담되요.</h3>
+                <p>
+                    라이온더스 초급자분들은 도보 혹은 전동 스쿠터, 킥보드 자전거를 이용하시면 됩니다.<br>
+                    배달할 짐이 많거나 배달할 곳이 많다면 롯데 렌터카를 이용하시는 방법도 있답니다.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Features Section -->
+<br>
+<br>
 
 
 {% endblock %}
