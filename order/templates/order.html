@@ -23,7 +23,7 @@
 
     <div class="cards">
 
-        {% for item in items %}
+        {% for item in ex_items %}
         <div class="order__card">
 
             <h3 class="card__header">{{ item.store }}</h3>
@@ -36,7 +36,7 @@
 
             </ul>
 
-            <a href="#" class="order__btn">추가하기</a>
+            <a href="{% url 'add_item' order.id item.id %}" class="order__btn">추가하기</a>
 
         </div>
         {% endfor %}
@@ -54,23 +54,17 @@
             <a href="#"></a>
         </div>
 
+        {% for item in ordered_items %}
         <div class="about__item">
-            <div class="items">밀리터리 버거</div>
-            <div class="items">롯데리아</div>
-            <div class="items">8000₩</div>
+            <div class="items">{{ item.item_name }}</div>
+            <div class="items">{{ item.store }}</div>
+            <div class="items">{{ item.price }}₩</div>
             <a href="#">
                 <div class="items delete">삭제</div>
             </a>
         </div>
 
-        <div class="about__item">
-            <div class="item">밀리터리 버거</div>
-            <div class="item">롯데리아</div>
-            <div class="item">8000₩</div>
-            <a href="#">
-                <div class="item delete">삭제</div>
-            </a>
-        </div>
+        {% endfor %}
 
         <div class="btnbox">
             <div class="total__price">총액 원 주문하기</div>
