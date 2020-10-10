@@ -45,9 +45,14 @@
                 <a href="#">자세히</a>
             </div>
 
+
             <div class="navbar__user">
+                {% if user.is_authenticated %}
+                <a href="#">{{ user.name }} 님</a>
+                {% else %}
                 <a href="{% url 'login' %}">로그인</a>
                 <a href="{% url 'usertype' %}">회원가입</a>
+                {% endif %}
             </div>
 
         </div>
@@ -77,9 +82,12 @@
 
             <div class="footer__right">
                 <a href="https://github.com/wwan13"><i class="fab fa-github"></i> https://github.com/wwan13</a>
-                <a href="https://github.com/ningpop"><i class="fab fa-github"></i> https://github.com/ningpop</a>
-                <a href="https://github.com/yulhee741"><i class="fab fa-github"></i> https://github.com/yulhee741</a>
-                <a href="https://github.com/junji9072"><i class="fab fa-github"></i> https://github.com/junji9072</a>
+                <a href="https://github.com/ningpop"><i class="fab fa-github"></i>
+                    https://github.com/ningpop</a>
+                <a href="https://github.com/yulhee741"><i class="fab fa-github"></i>
+                    https://github.com/yulhee741</a>
+                <a href="https://github.com/junji9072"><i class="fab fa-github"></i>
+                    https://github.com/junji9072</a>
             </div>
 
         </div>

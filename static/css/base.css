@@ -71,6 +71,10 @@ a {
     /* margin-top: 30px; */
 }
 
+.navbar__menu a:hover {
+    color: var(--lotte-silver);
+}
+
 .navbar__user {
     margin-top: 30px;
     font-size: 14px;
