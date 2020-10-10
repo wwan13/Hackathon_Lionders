@@ -32,7 +32,7 @@ def order_list(request):
 def order(request):
     if request.user.is_authenticated:
         if request.user.is_superuser:
-            return redirect('require_login')
+            return redirect('login')
         else:
             items = Item.objects.all()
             current_user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
@@ -51,7 +51,7 @@ def order(request):
                 return render(request,'order.html',{'items':items,'order':my_order[0],'ordered_items':ordered_items,'ex_items':ex_items})
     
     else:
-        return redirect('require_login')
+        return redirect('login')
 
 
 
