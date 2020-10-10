@@ -2,6 +2,13 @@
 
 🦁Likelion 8th + Lotte Hackathon👍
 
+### about us
+
+- full stack developer **주은지
+- full stack developer **이남준
+- full stack developer **김율희
+- full stack developer **김태완
+
 
 ### ideas 
 
@@ -42,3 +49,4 @@
     font-family: 'LotteMartDream', sans-serif;
 }
 ~~~
+
