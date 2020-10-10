@@ -35,11 +35,20 @@ a:link {
     text-decoration: none;
 }
 
-.a:hover {
-    text-decoration: none;
-    color: none;
-}
 
 p {
     margin-bottom: 0;
+}
+
+.footer {
+    height: auto;
+}
+
+a:hover,
+a:focus {
+    color: #fff;
+}
+
+.navbar__user a:hover {
+    color: var(--lotte-silver);
 }
