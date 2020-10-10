@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% endblock %}
+{% block title %}community{% endblock %}
+{% block content %}
+<h1>community - detail</h1>
+
+<br>
+
+<h3>제목: {{ community.title }}</h3>
+<p>작성자: {{ community.user }}</p>
+<p>작성일: {{ community.created_at }}</p>
+<p>내용: </p>
+<p>{{ community.content|safe }}</p>
+{% endblock %}

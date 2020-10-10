@@ -16,6 +16,7 @@ class ConsumerUserAdmin(UserAdmin):
                     "name",
                     "address",
                     "is_pro",
+                    "have_order_sheet",
                 )
             },
         ),

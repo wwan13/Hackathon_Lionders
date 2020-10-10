@@ -39,7 +39,7 @@ def delivery(request):
 def delivery_update(request, id):
     item = get_object_or_404(Delivery, pk=id)
     if request.method == 'POST':
-        item.state = "completed"
+        item.state = "배달 완료"
         item.save()
         return redirect('delivery-list')
     return render(request, 'delivery_update.html', {'item': item})

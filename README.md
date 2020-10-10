@@ -2,7 +2,6 @@
 
 🦁Likelion 8th + Lotte Hackathon👍
 
-
 ### ideas 
 
 - google document https://docs.google.com/document/d/1RMtgnL-47zHa_kJyJIawQ95lg5NWRqVvS3LUrC-PAos/edit
@@ -42,3 +41,4 @@
     font-family: 'LotteMartDream', sans-serif;
 }
 ~~~
+

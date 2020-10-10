@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% static 'css/community.css' %}{% endblock %}
+{% block title %}community{% endblock %}
+{% block content %}
+
+<!-- <div class="delivery-list">
+    <br>
+    {% for item in deliveries %}
+    <br>
+    <h3>배달 목록{{item.id}}</h3>
+    <p>주소 : {{item.order_sheet.destination}}</p>
+    <p>총 금액 : {{item.order_sheet.total_price}}</p>
+    <p>배달 상태 : {{item.state}}</p>
+    <p><sub>{{item.estimated_time}}</sub></p>
+    <p><sub>{{item.delivery_tips}}</sub></p>
+    <form action="{% url 'delivery-update' id=item.id %}" name="update" method="post">
+        {% csrf_token %}
+        <button type="submit">배달 완료</button>
+    </form>
+
+    </form>
+    <form action="{% url 'delivery-delete' id=item.id %}" onsubmit="return getConfirmation()" name="delete"
+        method="post">
+        {% csrf_token %}
+        <script>
+            function getConfirmation() {
+                var retVal = confirm("Do you want to continue ?");
+                if (retVal == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
+        <button type="submit">삭제</button>
+    </form>
+
+    {% endfor %}
+</div> -->
+
+<div class="entirebox">
+
+    <h1 class="title">커뮤니티</h1>
+
+    <div class="totalbox">
+
+        <div class="box__title">글 목록</div>
+
+        <div class="about__items">
+            <div class="item">글 번호</div>
+            <div class="item">제목</div>
+            <div class="item">작성일</div>
+            <div class="item">작성자</div>
+        </div>
+
+        {% for community in community_list %}
+        <div class="about__items">
+            <div class="item">{{ community.id }}</div>
+            <a href="{% url 'community-detail' community.id %}" class="item">{{ community.title }}</a>
+            <div class="item">{{ community.created_at|date:"y.m.d" }}</div>
+            <div class="item">{{ community.user }}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

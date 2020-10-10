@@ -41,7 +41,13 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'delivery.apps.DeliveryConfig',
     'order.apps.OrderConfig',
+    'community.apps.CommunityConfig',
+
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,3 +134,5 @@ STATICFILES_DIRS = (
 ) 
 
 AUTH_USER_MODEL = "users.Users"
+
+LOGOUT_REDIRECT_URL = 'home'
