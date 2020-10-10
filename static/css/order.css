@@ -17,6 +17,7 @@
 .title {
     text-align: center;
     padding-top: 70px;
+    padding-bottom: 15px;
 }
 
 
@@ -33,6 +34,7 @@
     padding: 50px 0px;
     flex-wrap: wrap;
     width: 90%;
+    border-top: 1px solid var(--lotte-shampagne-gold);
     /* background-color: beige; */
 }
 
@@ -40,7 +42,7 @@
     border: 1px solid var(--lotte-red);
     text-align: center;
     border-radius: 10px;
-    height: 320px;
+    height: 250px;
     width: 200px;
     margin: 20px 20px;
     color: #2d2d2d;
@@ -61,7 +63,7 @@
 }
 
 .order__card:hover .card__header {
-    box-shadow: 0 0 0 6em var(--lotte-red);
+    box-shadow: 0 0 0 7em var(--lotte-red);
     color: var(--lotte-red);
     padding: 5px;
 }
@@ -83,7 +85,7 @@
 }
 
 .item__list li {
-    font-size: 13px;
+    font-size: 17px;
     padding: 5px;
 }
 
@@ -92,6 +94,7 @@
     position: relative;
     margin-top: 20px;
     color: #ffffff;
+    font-size: 12px;
     transition: .3s;
 }
 
@@ -103,4 +106,76 @@
     margin-top: 20px;
     text-align: center;
     color: var(--lotte-shampagne-gold);
+}
+
+.totalbox {
+    display: block;
+    /* justify-content: center; */
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    /* background-color: aquamarine; */
+}
+
+
+.box__title {
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 30px;
+    border-bottom: 1px solid var(--lotte-shampagne-gold);
+}
+
+.about__items {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--lotte-shampagne-gold);
+}
+
+.items {
+    text-align: center;
+    font-size: 15px;
+}
+
+.item {
+    text-align: center;
+}
+
+.about__item {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.btnbox {
+    display: flex;
+    justify-content: center;
+}
+
+.total__price {
+    display: flex;
+    width: 90%;
+    height: 50px;
+    border: none;
+    background-color: var(--lotte-red);
+    color: #f1f1f1;
+    outline: none;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 17px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    border-radius: 5px;
+    transition: .5s;
+    justify-content: center;
+    align-items: center;
+}
+
+.total__price:hover {
+    color: var(--lotte-red);
+    background-color: #ffffff;
+    border: 1px solid var(--lotte-red);
 }
