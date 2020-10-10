@@ -23,3 +23,6 @@ class Order(models.Model):
     total_price = models.PositiveIntegerField(blank=True, default=0)
     destination = models.CharField(max_length=100, blank=True)
     items = models.ManyToManyField(Item, blank=True)
+
+    def __str__(self):
+        return self.destination
