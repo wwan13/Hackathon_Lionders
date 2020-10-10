@@ -57,7 +57,7 @@
         {% for community in community_list %}
         <div class="about__items">
             <div class="item">{{ community.id }}</div>
-            <a href="" class="item">{{ community.title }}</a>
+            <a href="{% url 'community-detail' community.id %}" class="item">{{ community.title }}</a>
             <div class="item">{{ community.created_at|date:"y.m.d" }}</div>
             <div class="item">{{ community.user }}</div>
         </div>
