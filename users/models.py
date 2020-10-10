@@ -25,6 +25,7 @@ class Consumer_Users(Users):
     """ Consumer User Moder """
 
     is_pro = models.BooleanField(default=False)
+    have_order_sheet = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Consumer User"

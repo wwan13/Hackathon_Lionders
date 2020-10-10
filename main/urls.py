@@ -18,4 +18,5 @@ from . import views
 
 urlpatterns = [
     path('',views.home,name='home'),
+    path('require_login',views.require_login,name='require_login'),
 ]

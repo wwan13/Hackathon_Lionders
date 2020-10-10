@@ -31,9 +31,10 @@ def order_list(request):
 
 def order(request):
     items = Item.objects.all()
-    # current_user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
-    # new_order = Order(normal_user_info=current_user,total_price=0)
-    # new_order.save()
+    current_user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
+    if current_user.have_order_sheet == False:
+        new_order = Order(normal_user_info=current_user,total_price=0)
+        new_order.save()
     # return render(request,'order.html',{'items':items,'new_order':new_order})
     return render(request,'order.html',{'items':items})
 
