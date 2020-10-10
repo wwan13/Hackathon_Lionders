@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% endblock %}
+{% block style %}{% static 'css/community.css' %}{% endblock %}
 {% block title %}community{% endblock %}
 {% block content %}
-<h1>community - list</h1>
 
 <!-- <div class="delivery-list">
     <br>
@@ -39,4 +38,31 @@
 
     {% endfor %}
 </div> -->
-    {% endblock %}
+
+<div class="entirebox">
+
+    <h1 class="title">커뮤니티</h1>
+
+    <div class="totalbox">
+
+        <div class="box__title">글 목록</div>
+
+        <div class="about__items">
+            <div class="item">글 번호</div>
+            <div class="item">제목</div>
+            <div class="item">작성일</div>
+            <div class="item">작성자</div>
+        </div>
+
+        {% for community in community_list %}
+        <div class="about__items">
+            <div class="item">{{ community.id }}</div>
+            <a href="" class="item">{{ community.title }}</a>
+            <div class="item">{{ community.created_at|date:"y.m.d" }}</div>
+            <div class="item">{{ community.user }}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
