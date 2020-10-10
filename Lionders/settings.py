@@ -128,3 +128,5 @@ STATICFILES_DIRS = (
 ) 
 
 AUTH_USER_MODEL = "users.Users"
+
+LOGOUT_REDIRECT_URL = 'home'
