@@ -9,7 +9,7 @@
     {% for item in deliveries %}
     <br>
     <h3>배달 목록{{item.id}}</h3>
-    <p>주소 : {{item.order_sheet.normal_user_info.address}}</p>
+    <p>주소 : {{item.order_sheet.destination}}</p>
     <p>총 금액 : {{item.order_sheet.total_price}}</p>
     <p>배달 상태 : {{item.state}}</p>
     <p><sub>{{item.estimated_time}}</sub></p>
