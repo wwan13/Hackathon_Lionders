@@ -17,7 +17,7 @@
         <img class="login__logo" src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
     </a>
 
-    <form class="signupbox" action="{% url 'signup_consumer' %}">
+    <form class="signupbox" method="POST" action="{% url 'signup_consumer' %}">
         {% csrf_token %}
         <h1 class="signupbox__title">일반 회원가입</h1>
 
