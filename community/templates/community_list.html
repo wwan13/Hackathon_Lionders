@@ -50,15 +50,15 @@
         <div class="about__items">
             <div class="item">글 번호</div>
             <div class="item">제목</div>
-            <div class="item">작성시간</div>
+            <div class="item">작성일</div>
             <div class="item">작성자</div>
         </div>
 
         {% for community in community_list %}
-        <div class="about__item">
+        <div class="about__items">
             <div class="item">{{ community.id }}</div>
             <a href="" class="item">{{ community.title }}</a>
-            <div class="item">{{ community.created_at }}</div>
+            <div class="item">{{ community.created_at|date:"y.m.d" }}</div>
             <div class="item">{{ community.user }}</div>
         </div>
         {% endfor %}
