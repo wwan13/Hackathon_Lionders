@@ -128,7 +128,7 @@
 
 .about__items {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding-bottom: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -138,9 +138,11 @@
 .items {
     text-align: center;
     font-size: 15px;
+    width: 25%;
 }
 
 .item {
+    width: 25%;
     text-align: center;
 }
 

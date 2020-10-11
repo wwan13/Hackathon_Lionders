@@ -128,7 +128,7 @@
 
 .about__items {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     padding-bottom: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -138,15 +138,17 @@
 .items {
     text-align: center;
     font-size: 15px;
+    width: 25%;
 }
 
 .item {
     text-align: center;
+    width: 25%;
 }
 
 .about__item {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding-top: 20px;
 }
 
@@ -157,7 +159,7 @@
 
 .total__price {
     display: flex;
-    width: 90%;
+    width: 95%;
     height: 50px;
     border: none;
     background-color: var(--lotte-red);

@@ -1,23 +1,23 @@
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: "montserrat";
 }
 
-.team-section{
+.team-section {
     background: #f1f1f1;
     text-align: center;
 }
 
-.inner-width{
+.inner-width {
     max-width: 1200px;
-    margin:auto;
-    padding:40px;
+    margin: auto;
+    padding: 40px;
     color: #333;
     overflow: hidden;
 }
 
-.team-section h1{
+.team-section h1 {
     font-size: 20px;
     text-transform: uppercase;
     display: imnline-block;
@@ -25,39 +25,39 @@ body{
     padding-bottom: 10px;
 }
 
-.pe{
+.pe {
     float: left;
     width: calc(100% / 2);
     overflow: hidden;
     padding: 40px 0;
 }
 
-.pe img{
-    width:300px;
+.pe img {
+    width: 300px;
     height: 310px;
     transition: 0.5s;
 }
 
-.pe img:hover{
+.pe img:hover {
     transform: scale(1.2);
 }
 
-.p-name{
+.p-name {
     margin: 16px 0;
     text-transform: uppercase;
 
 }
 
-.p-des{
+.p-des {
     font-style: italic;
     color: #3498db;
 }
 
-.p-sm{
+.p-sm {
     margin-top: 12px;
 }
 
-.p-sm a{
+.p-sm a {
     margin: 0 4px;
     display: inline-block;
     width: 30px;
@@ -65,7 +65,7 @@ body{
     transition: 0.6s;
 }
 
-.p-sm a:hover{
+.p-sm a:hover {
     transform: scale(1.3);
 }
 

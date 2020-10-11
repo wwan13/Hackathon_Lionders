@@ -16,25 +16,15 @@ def order_list(request):
     }
     return render(request, 'order_list.html', context)
 
-# def order(request):
-#     if request.method == 'POST':
-#         form = OrderForm(request.POST)
-#         request.POST._mutable = True
-#         # request.POST['user'] = request.user
-#         # items = Item.objects.all()
-#         # request.POST['items'] = items
-#         if form.is_valid():
-#             new_item = form.save()
-#         return HttpResponseRedirect('../order/orderlist')
-#     form = OrderForm()
-#     return render(request, 'order.html', {'form': form})
-
 def order(request):
     if request.user.is_authenticated:
         if request.user.is_superuser:
             return redirect('login')
+        elif request.user.usertype=="lionders":
+            return redirect('login')
         else:
             items = Item.objects.all()
+            total_price=0
             current_user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
             if current_user.have_order_sheet == False:
                 new_order = Order(normal_user_info=current_user,total_price=0)
@@ -42,14 +32,17 @@ def order(request):
                 current_user.have_order_sheet = True
                 current_user.save()
                 ordered_items = new_order.items.all()
+                for item in ordered_items:
+                    total_price += item.price
                 ex_items = list(set(items) - set(ordered_items))
-                return render(request,'order.html',{'items':items,'order':new_order,'ordered_items':ordered_items,'ex_items':ex_items})
+                return render(request,'order.html',{'items':items,'order':new_order,'ordered_items':ordered_items,'ex_items':ex_items,'total_price':total_price})
             else:
                 my_order = current_user.order_set.all().order_by('-ordered_time')
                 ordered_items = my_order[0].items.all()
+                for item in ordered_items:
+                    total_price += item.price
                 ex_items = list(set(items) - set(ordered_items))
-                return render(request,'order.html',{'items':items,'order':my_order[0],'ordered_items':ordered_items,'ex_items':ex_items})
-    
+                return render(request,'order.html',{'items':items,'order':my_order[0],'ordered_items':ordered_items,'ex_items':ex_items,'total_price':total_price})
     else:
         return redirect('login')
 
@@ -58,6 +51,12 @@ def order(request):
 def add_item(request,order_id,item_id):
     order = get_object_or_404(Order,pk=order_id)
     order.items.add(item_id)
+    return redirect('order')
+
+
+def remove_item(request,order_id,item_id):
+    order = get_object_or_404(Order,pk=order_id)
+    order.items.remove(item_id)
     return redirect('order')
 
 
