@@ -122,16 +122,21 @@
 .box__title {
     margin-top: 60px;
     text-align: center;
-    padding-bottom: 30px;
-    font-size: 30px;
-    border-bottom: 1px solid var(--lotte-shampagne-gold);
+    padding: 15px;
+    border: 0;
+    background: #C83B2B;
+    color: #fff;
+    border-radius: 4px;
+    padding: auto;
+    font-size: 20px;
+    border:
 }
 
 .about__items {
     display: flex;
     justify-content: center;
     padding-bottom: 15px;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-bottom: 20px;
     border-bottom: 1px solid var(--lotte-shampagne-gold);
 }
@@ -181,18 +186,6 @@
     color: var(--lotte-red);
     background-color: #ffffff;
     border: 1px solid var(--lotte-red);
-}
-
-.write {
-    margin-top: 30px;
-    right: 0px;
-}
-
-.write__ {
-    position: absolute;
-    right: 100px;
-    top: 145px;
-    color: var(--lotte-red);
 }
 
 a {

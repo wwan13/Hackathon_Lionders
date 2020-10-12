@@ -40,19 +40,16 @@
 </div> -->
 
 <div class="entirebox">
-
-
+    <img class="community-image" src="{% static 'image/community.gif' %}" alt="community.gif">
     <div class="totalbox">
 
         {% if user.is_authenticated %}
         {% if user.usertype == 'lionders' or user.is_superuser %}
         <div class="write">
-            <a class="write__" href="{% url 'community' %}">글쓰기</a>
+            <a class="box__title" href="{% url 'community' %}">글쓰기</a>
         </div>
         {% endif %}
         {% endif %}
-
-        <div class="box__title">커뮤니티</div>
 
         <div class="about__items">
             <div class="item">글 번호</div>
