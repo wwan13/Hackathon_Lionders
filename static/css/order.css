@@ -128,7 +128,7 @@
 
 .about__items {
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-around;
     padding-bottom: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
