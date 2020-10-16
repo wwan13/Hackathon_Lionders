@@ -1,0 +1,10 @@
+<a href="{% url 'create_item_objects' %}">아이템 생성하기</a>
+<hr>
+현제 아이템 객체들
+<hr>
+{% for item in items %}
+{{ item.store }} <br>
+{{ item.item_name }} <br>
+{{ item.price }} <br><br>
+{% endfor %}
+<hr>
