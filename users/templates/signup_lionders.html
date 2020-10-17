@@ -17,7 +17,7 @@
         <img class="login__logo" src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
     </a>
 
-    <form class="signupbox" method="POST" action="{% url 'signup_lionders' %}">
+    <form class="signupbox" id="signupbox" method="POST" action="{% url 'signup_lionders' %}">
         {% csrf_token %}
         <h1 class="signupbox__title">라이온더스 회원가입</h1>
 
@@ -41,9 +41,25 @@
             <span data-placeholder="이름"></span>
         </div>
 
-        <div class="signupbox__textbox">
-            <input type="text" name="address">
-            <span data-placeholder="주소"></span>
+
+        <div class="address">
+            <div class="address__box">
+                <div class="text__address_num">
+                    <input class="postcodify_postcode5" type="text" name="address" value="">
+                    <span data-placeholder="우편번호"></span>
+                </div>
+                <button form="#" class="postcodify_search_button" id="postcodify_search_button">검색</button>
+            </div>
+
+            <div class="signupbox__textbox">
+                <input class="postcodify_address" type="text" name="address" value="">
+                <span data-placeholder="도로명주소"></span>
+            </div>
+
+            <div class="signupbox__textbox">
+                <input class="postcodify_details" type="text" name="address" value="">
+                <span data-placeholder="상세주소"></span>
+            </div>
         </div>
 
         <div class="signupbox__textbox">
@@ -55,10 +71,17 @@
             <input type="text" value="lionders" name="usertype">
         </div>
 
-        <input type="submit" class="signupbox__btn" value="회원가입">
+        <input form="signupbox" type="submit" class="signupbox__btn" value="회원가입">
 
     </form>
     <script src="{% static 'js/signup.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <script>
+        $(function () {
+            $("#postcodify_search_button").postcodifyPopUp();
+        });
+    </script>
 </body>
 
 </html>
