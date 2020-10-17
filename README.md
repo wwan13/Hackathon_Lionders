@@ -1,14 +1,25 @@
 # Hackathon_Lionders
 
-🦁Likelion 8th + Lotte Hackathon👍
+🦁 Likelion 8th + Lotte Hackathon 👍
 
-### ideas 
+## Contributor
+### Team Leader
+- 김태완 [![Github Badge](https://img.shields.io/badge/wwan13-black?style=flat-square&logo=github&link=https://github.com/wwan13)](https://github.com/wwan13)
 
-- google document https://docs.google.com/document/d/1RMtgnL-47zHa_kJyJIawQ95lg5NWRqVvS3LUrC-PAos/edit
-- google presentation https://docs.google.com/presentation/d/1C5R7A0g1SvU6Gwz1PUry8IocBhYdtk2qZF_eagllNKw/edit#slide=id.p
+### Full stack Developers
+- 이남준 [![Github Badge](https://img.shields.io/badge/ningpop-black?style=flat-square&logo=github&link=https://github.com/ningpop)](https://github.com/ningpop)
+- 김율희 [![Github Badge](https://img.shields.io/badge/yulhee741-black?style=flat-square&logo=github&link=https://github.com/yulhee741)](https://github.com/yulhee741)
+- 주은지 [![Github Badge](https://img.shields.io/badge/junji9072-black?style=flat-square&logo=github&link=https://github.com/junji9072)](https://github.com/junji9072)
+
+## Ideas 
+
+- Idea Info
+[[Google Document](https://docs.google.com/document/d/1RMtgnL-47zHa_kJyJIawQ95lg5NWRqVvS3LUrC-PAos/edit)]
+- Flow Chart
+[[Google Presentation](https://docs.google.com/presentation/d/1C5R7A0g1SvU6Gwz1PUry8IocBhYdtk2qZF_eagllNKw/edit#slide=id.p)]
 
 
-### colors
+## Colors
 
 - main color(red) - #C83B2B </br>
 - lotte gray - #54585A </br>
@@ -16,7 +27,7 @@
 - lotte silver - #8F9090 </br>
 - lotte shampagne gold - #85766B </br>
 
-### css color variable
+## CSS Color variable
 
  ~~~css
 :root {
@@ -28,7 +39,7 @@
 }
 ~~~
 
-### css font
+## CSS Font
 
 ~~~css
 @font-face {
