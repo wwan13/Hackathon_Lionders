@@ -59,6 +59,11 @@ def remove_item(request,order_id,item_id):
     order.items.remove(item_id)
     return redirect('order')
 
+def delete_item(requestm, item_id):
+    item = get_object_or_404(Item,pk=item_id)
+    item.delete()
+    return redirect('create_objs')
+
 
 def order_delete(request, id):
     item = get_object_or_404(Order, pk=id)
