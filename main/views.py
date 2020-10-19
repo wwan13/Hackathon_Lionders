@@ -9,6 +9,8 @@ def home(request):
 def detail(request):
     return render(request,"detail.html")
 
+def my_page_lionders(request):
+    return render(request,"my_page_lionders.html")
   
 def require_login(request):
     return render(request,"require_login.html")
