@@ -5,6 +5,7 @@ items
 {% for item in items %}
 {{ item.store }} <br>
 {{ item.item_name }} <br>
-{{ item.price }} <br><br>
+{{ item.price }} <br>
+<a href="{% url 'delete_item' item.id %}">삭제</a><br><br>
 {% endfor %}
 <hr>
