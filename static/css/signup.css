@@ -109,13 +109,20 @@
     margin-top: 30px;
 }
 
+
+/* important 쓰면 아마 정상 작동함 좋은 방법은 아님
+   css 선택자에 분명 문제가 있어서 지금 정상 작동 안하는 듯
+   span + 가상 선택자를 쓰는게 최선인가? 싶은 생각이 있음
+   label + negative margin, border-bottom 두개로 충분히 가능할 것 같음
+   괜히 복잡해지는 느낌이 없지않아 있음
+ */
 .focus+span::before {
-    top: -5px;
-    font-size: 13px;
+    top: -5px !important;
+    font-size: 13px !important;
 }
 
 .focus+span::after {
-    width: 100%;
+    width: 100% !important;
 }
 
 .signupbox__btn:hover {
@@ -131,6 +138,23 @@
     cursor: default;
 }
 
+/* 이 부분만 따로 뺀 이유가 아마 width 때문인 것 같은데 
+   하나로 통합해서 사용하고 다른 선택자 추가하는게 더 좋을 듯
+   자주 사용될만한 스타일들은 다른 파일에 묶어서 사용하면 좋음
+   common.css 파일 안에 아래 같은 내용?
+
+   .w-full {
+       width: 100%;
+   }
+
+   .w-4/5 {
+        widtH: 80%;
+   }
+
+   공통 스타일 관리하기도 편하고 지금처럼 불필요하게 다른 선택자 쓸 필요없음
+   class="signupbox__textbox w-4/5" 해주면 text-address_num이랑 비슷한 것 같음
+   margin 같은 것도 반복되는게 많이 보이면 margin-top-30, margin-bottom-30, margin-vertical-30 같이 추상화 가능함
+*/
 .text__address_num {
     border-bottom: 2px solid #adadad;
     width: 80%;
