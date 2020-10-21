@@ -4,40 +4,6 @@
 {% block title %}community{% endblock %}
 {% block content %}
 
-<!-- <div class="delivery-list">
-    <br>
-    {% for item in deliveries %}
-    <br>
-    <h3>배달 목록{{item.id}}</h3>
-    <p>주소 : {{item.order_sheet.destination}}</p>
-    <p>총 금액 : {{item.order_sheet.total_price}}</p>
-    <p>배달 상태 : {{item.state}}</p>
-    <p><sub>{{item.estimated_time}}</sub></p>
-    <p><sub>{{item.delivery_tips}}</sub></p>
-    <form action="{% url 'delivery-update' id=item.id %}" name="update" method="post">
-        {% csrf_token %}
-        <button type="submit">배달 완료</button>
-    </form>
-
-    </form>
-    <form action="{% url 'delivery-delete' id=item.id %}" onsubmit="return getConfirmation()" name="delete"
-        method="post">
-        {% csrf_token %}
-        <script>
-            function getConfirmation() {
-                var retVal = confirm("Do you want to continue ?");
-                if (retVal == true) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        </script>
-        <button type="submit">삭제</button>
-    </form>
-
-    {% endfor %}
-</div> -->
 
 <div class="entirebox">
     <img class="community-image" src="{% static 'image/community.gif' %}" alt="community.gif">
