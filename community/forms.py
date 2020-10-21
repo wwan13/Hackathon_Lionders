@@ -13,9 +13,16 @@ class CommunityForm(forms.ModelForm):
             'title': forms.TextInput(
                 attrs={
                     'placeholder': '제목을 입력하세요.',
+                    'class': 'contact-form-title',
                 }
             ),
             'content': forms.CharField(widget=CKEditorUploadingWidget()),
+            'content': forms.TextInput(
+                attrs={
+                    'placeholder': '본을 입력하세요.',
+                    'class': 'contact-form-content',
+                }
+            )
         }
     
     def __init__(self, *args, **kwargs):
