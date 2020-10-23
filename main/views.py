@@ -5,6 +5,8 @@ from order import models as ordermodel
 def home(request):
     return render(request,"index.html")
 
+def on_going(request):
+    return render(request,"on_going.html")
 
 def detail(request):
     return render(request,"detail.html")
