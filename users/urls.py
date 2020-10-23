@@ -22,5 +22,6 @@ urlpatterns = [
     path('signup_consumer/',views.signup_consumer,name='signup_consumer'),
     path('signup_lionders/',views.signup_lionders,name='signup_lionders'),
     path('usertype/',views.usertype,name='usertype'),
-    path('logout/',LogoutView.as_view(),name='logout')
+    path('logout/',LogoutView.as_view(),name='logout'),
+    path('mypage',views.mypage,name='mypage'),
 ]

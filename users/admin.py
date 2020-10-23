@@ -17,6 +17,7 @@ class ConsumerUserAdmin(UserAdmin):
                     "address_num",
                     "address_road",
                     "address_detail",
+                    "phone",
                     "is_pro",
                     "have_order_sheet",
                 )
@@ -41,6 +42,7 @@ class LiondersUserAdmin(UserAdmin):
                     "address_num",
                     "address_road",
                     "address_detail",
+                    "phone",
                     "grade",
                 )
             },

@@ -110,6 +110,7 @@
             <div class="item">주문총액</div>
             <div class="item">주문일자</div>
             <div class="item">배달주소</div>
+            <!-- <div class="item">담당 라이온더스</div> -->
         </div>
         {% if user.is_authenticated %}
         {% for order in orders %}
@@ -121,6 +122,7 @@
                 <div class="item">{{order.total_price}}</div>
                 <div class="item">{{order.ordered_time}}</div>
                 <div class="item">{{order.short_destination}}</div>
+                <!-- <div class="item">담당 라이온더스</div> -->
             </div>
         </a>
         {# endfor #}

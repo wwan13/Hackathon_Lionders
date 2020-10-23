@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from order import models as ordermodel
-from users import models as usermodel
 
 # Create your views here.
 def home(request):
@@ -32,14 +31,3 @@ def create_item_objects(requset):
         )
         item.save()
     return redirect("create_objs")
-
-def mypage(request):
-    if request.user.usertype=="consumer":
-        user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
-        return render(request,"my_page_user.html",{'user':user})
-    elif request.user.usertype=="lionders":
-        user = get_object_or_404(usermodel.Lionders_Users,pk = request.user.id)
-        return render(request,"my_page_lionders.html",{'user':user})
-    else:
-        return redirect('home')
-    
