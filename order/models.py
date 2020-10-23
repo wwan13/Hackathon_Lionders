@@ -25,6 +25,7 @@ class Order(models.Model):
     grade_limit = models.CharField(max_length=30, default="초급자", blank=True)
     destination = models.CharField(max_length=100, blank=True)
     is_complete = models.BooleanField(default=False)
+    can_delivery = models.BooleanField(default=False)
 
     def __str__(self):
         return self.destination
