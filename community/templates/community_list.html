@@ -41,17 +41,18 @@
 
 <div class="entirebox">
 
-    <h1 class="title">커뮤니티</h1>
 
     <div class="totalbox">
 
         {% if user.is_authenticated %}
         {% if user.usertype == 'lionders' or user.is_superuser %}
-        <a href="{% url 'community' %}">글쓰기</a>
+        <div class="write">
+            <a class="write__" href="{% url 'community' %}">글쓰기</a>
+        </div>
         {% endif %}
         {% endif %}
 
-        <div class="box__title">글 목록</div>
+        <div class="box__title">커뮤니티</div>
 
         <div class="about__items">
             <div class="item">글 번호</div>
