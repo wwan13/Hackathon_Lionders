@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     # order(주문)
     path('order/',views.order,name='order'),
+    path('order_final/<int:order_id>',views.make_order_final,name='order_final'),
     path('order/orderlist/',views.order_list,name='order-list'),
     path('order/<int:id>/delete/', views.order_delete,name='order-delete'),
     path('order/update/',views.order_update,name='order-update'),
