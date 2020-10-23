@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% endblock %}
+{% block style %}{% static 'css/on_going.css' %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
 
-{{ delivery.state }} <br>
-{{ delivery.lionders_info.username }} <br>
-{{ delivery.estimated_time }} <br>
-{{ delivery.delivery_tips }} <br>
+<div class="entirebox">
+
+    <div class="middlebox">
+
+        <img class="image" src="{% static 'image/side3.png' %}" alt="side3.png">
+        <div class="text">
+            '{{ delivery.lionders_info.username }}'님에게 {{ delivery.state }}입니다.
+        </div>
+        <div class="text txt2">
+            {{ delivery.estimated_time }} <br>
+            {{ delivery.delivery_tips }}<br>
+        </div>
+        <div class="go_home">
+            <a href="{% url 'home' %}">홈으로</a>
+        </div>
+    </div>
+
+</div>
+
 
 {% endblock %}
