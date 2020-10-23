@@ -1,17 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: "Open Sans",sans-serif;
+    font-family: "Open Sans", sans-serif;
     text-decoration: none;
     list-style: none;
 }
 
-body{
+body {
     min-height: 100vh;
 
 }
 
-.container{
+.container {
     max-width: 1000px;
     margin: auto;
     padding: 40px;
@@ -19,20 +19,20 @@ body{
     flex-wrap: wrap;
 }
 
-.pricing-table{
+.pricing-table {
     background: #f1f1f1;
     flex: 1;
     margin: 10px;
     text-transform: uppercase;
 }
 
-.pricing-header{
+.pricing-header {
     color: #fff;
     position: relative;
     margin-bottom: 20px;
 }
 
-.price{
+.price {
     font-size: 40px;
     display: flex;
     align-items: center;
@@ -40,14 +40,14 @@ body{
     padding: 40px 0;
 }
 
-.price span{
+.price span {
     font-size: 30px;
 }
 
-.title{
+.title {
     bottom: 0;
     left: 50%;
-    transform translate(-50%,50%);
+    transform translate(-50%, 50%);
     width: 100%;
     max-width: 100%;
     text-align: center;
@@ -55,100 +55,135 @@ body{
     font-size: 14px;
 }
 
-.pricing-list{
+.pricing-list {
     padding: 10px 20px;
 }
 
-.pricing-list li{
+.pricing-list li {
     margin: 8px 0;
     font-size: 14px;
     color: #344;
     text-align: center;
 }
 
-.border{
+.border {
     width: 80px;
     height: 1px;
     background: #ddd;
     margin: auto;
 }
 
-.pricing-table #order_submit{
+.pricing-table #order_submit {
     display: block;
     width: 80%;
-    background-image: linear-gradient(125deg,#db4837,#ff931f);
+    background-image: linear-gradient(125deg, #db4837, #ff931f);
     margin: auto;
     margin-bottom: 20px;
     text-align: center;
     padding: 8px 0;
     font-size: 14px;
     border: 1px solid;
-    border-color:#c0392b;
+    border-color: #c0392b;
     max-width: 360px;
     transition: .2s linear;
     font-size: 16px;
     color: white;
 }
 
-.table1 .pricing-header{
+.table1 .pricing-header {
     background: #C83B2B;
 }
 
-.table1 .title{
-    background-image: linear-gradient(125deg,#db4837,#ff931f);
+.table1 .title {
+    background-image: linear-gradient(125deg, #db4837, #ff931f);
     font-size: 18px;
 }
 
-#order_submit{
+#order_submit {
     .color: #c0392b;
 }
 
-#order_submit:hover{
+#order_submit:hover {
     background: #ff931f;
     color: #fff;
 }
 
-.pricing-table #order_submit:hover{
+.pricing-table #order_submit:hover {
     border-radius: 30px;
 }
 
-input[type="text"] {
+.text__1 {
+    width: 45vw;
+    height: 30px;
+    font-size: 14px;
+    display: block;
+    /* margin: auto; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.text {
     width: 50vw;
     height: 30px;
     font-size: 14px;
-    display : block;
-	margin : auto;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
-div.select{
+div.select {
     font-size: 18px;
-	margin : auto;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	text-align: center;
-	padding: 5px;
-	color: #3d3d3d;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 5px;
+    color: #3d3d3d;
 }
 
 input[type='radio']:checked:after {
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #ffa500;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #ffffff;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
 
 @media screen and (max-width:780px) {
-    .pricing-table{
-        flex:100%;
+    .pricing-table {
+        flex: 100%;
     }
+}
+
+.address_search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.postcodify_search_button {
+    width: 5vw;
+    height: 34px;
+    margin-left: 3px;
+    background-image: linear-gradient(125deg, #db4837, #ff931f);
+    border: none;
+    color: white;
+}
+
+.address {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-content: center;
+    flex-direction: column; */
+
 }

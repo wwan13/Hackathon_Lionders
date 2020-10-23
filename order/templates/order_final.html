@@ -8,7 +8,7 @@
     <div class="pricing-table table1">
         <div class="pricing-header">
 
-            <div class="price" id="total_price">{{order.total_price}}<span>  원</span></div>
+            <div class="price" id="total_price">{{order.total_price}}<span> 원</span></div>
             <div class="title">Order List</div>
         </div>
         <ul class="pricing-list">
@@ -22,7 +22,18 @@
         </ul>
         <form class="order_sheet" method="POST" action="{% url 'order_final' order.id %}">
             {% csrf_token %}
-            <input type="text" name="destination" placeholder="배달받을 주소" required>
+            <div class="address_search">
+                <input class="text__1 postcodify_postcode5" type="text" name="destination"
+                    value="{{ user.address_num }}" required>
+                <button form="#" class="postcodify_search_button" id="postcodify_search_button">검색</button>
+            </div>
+
+            <div class="address">
+                <input class="text postcodify_address" type="text" name="destination" value="{{ user.address_road }}"
+                    required>
+                <input class="text postcodify_details" type="text" name="" value="{{ user.address_detail }}" required>
+            </div>
+
             <div class="select">
                 <input type="radio" id="초급자" name="grade_limit" value="초급자" checked>
                 <label for="초급자">초급자(배달팁1500원)</label>
@@ -35,6 +46,21 @@
 
 
         </form>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+        <script>
+            $(function () {
+                $("#postcodify_search_button").postcodifyPopUp();
+                // 아마 여기 안에서 속성 중에 선택 관련 속성에 콜백 넣어줘야 할듯
+                // 강의 때 배운게 템플릿을 이용하는 거지만 api 서버를 구현하는게 좋음
+                // drf or 순수 django + front (뭐든)
+                // 코드 관리도 더 쉽고 ui 관리하기도 더 편함
+                // 물론 학습할 내용이 조금 더 많아지긴 할듯
+                // 공부할 내용이 많지만 앞으로 굉장히 중요한 내용이라고 생각함
+                // 템플릿 엔진을 실무에서 쓰는 경우는 많이 없음
+                // 시간이 된다면 시도해보면 좋을 것 같음 (다음꺼부터)
+            });
+        </script>
     </div>
 </div>
 
