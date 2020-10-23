@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% static 'css/order.css' %}{% endblock %}
+{% block style %}{% static 'css/order_final.css' %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
 
-asd
+{% for item in items %}
+
+{{ item.item_name }}
+{{ item.store }}
+
+{% endfor %}
+
+<form class="order_sheet" method="POST" action="{% url 'order_final' order.id %}">
+    {% csrf_token %}
+    <input type="text" name="destination" placeholder="주소" required>
+    <input type="text" name="grade_limit" placeholder="등급" required>
+    <input type="submit" class="submit" value="제출">
+</form>
 
 {% endblock %}

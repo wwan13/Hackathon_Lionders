@@ -125,4 +125,14 @@ def item_create(request):
     return render(request, 'item_create.html', {'form': form})
 
 def make_order_final(request, order_id):
-    return render(request, 'order_final.html')
+    order = get_object_or_404(Order,pk = order_id)
+    items = order.items.all()
+    current_user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
+    if request.method == 'POST':
+        order.destination = request.POST['destination']
+        order.grade_limit = request.POST['grade_limit']
+        order.save()
+        current_user.have_order_sheet = False
+        current_user.save()
+        return redirect('home')
+    return render(request, 'order_final.html', {'items':items,'order':order})

@@ -79,7 +79,9 @@
         {% endfor %}
 
         <div class="btnbox">
-            <div class="total__price">{{ order.total_price }} 원 주문하기</div>
+            <a href="{% url 'order_final' order.id %}">
+                <div class="total__price">{{ order.total_price }} 원 주문하기</div>
+            </a>
         </div>
     </div>
 
