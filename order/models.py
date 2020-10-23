@@ -1,7 +1,6 @@
 from django.db import models
 from users import models as user_models
 
-
 # Create your models here.
 
 class Item(models.Model):
@@ -22,7 +21,7 @@ class Order(models.Model):
     # updated_at = models.DateTimeField(auto_now=True)
     total_price = models.PositiveIntegerField(blank=True, default=0)
     items = models.ManyToManyField(Item, blank=True)
-    grade_limit = models.CharField(max_length=30, default="초급자", blank=True)
+    grade_limit = models.CharField(max_length=30, blank=False)
     destination = models.CharField(max_length=100, blank=True)
     is_complete = models.BooleanField(default=False)
     can_delivery = models.BooleanField(default=False)

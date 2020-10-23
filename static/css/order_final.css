@@ -123,6 +123,29 @@ input[type="text"] {
 	text-align: center;
 }
 
+div.select{
+    font-size: 18px;
+	margin : auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	padding: 5px;
+	color: #3d3d3d;
+}
+
+input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #ffa500;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
 
 @media screen and (max-width:780px) {
     .pricing-table{
