@@ -1,15 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% endblock %}
+{% block style %}{% static 'css/community.css' %}{% endblock %}
 {% block title %}community{% endblock %}
 {% block content %}
-<h1>community - detail</h1>
 
-<br>
 
-<h3>제목: {{ community.title }}</h3>
-<p>작성자: {{ community.user }}</p>
-<p>작성일: {{ community.created_at }}</p>
-<p>내용: </p>
-<p>{{ community.content|safe }}</p>
+<div class="entirebox">
+    <h1 class="title">커뮤니티</h1>
+
+    <div class="totalbox">
+        <div class="box__title"></div>
+
+        <h3>제목: {{ community.title }}</h3>
+        <p>작성자: {{ community.user }}</p>
+        <p>작성일: {{ community.created_at }}</p>
+        <p>내용: </p>
+        <p>{{ community.content|safe }}</p>
+
+    </div>
+    <a href="{% url 'community-list' %}">목록으로 가기</a>
+    {% if community.user == request.user %}
+    <a href="{% url 'community-update' community.id %}">수정</a>
+    <a href="{% url 'community-delete' community.id %}">삭제</a>
+    {% endif %}
+</div>
+
 {% endblock %}

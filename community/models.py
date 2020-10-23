@@ -1,15 +1,18 @@
 from django.db import models
-from users.models import Lionders_Users
+from users import models as user_models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
 class Community(models.Model):
-    user = models.ForeignKey(Lionders_Users, on_delete=models.CASCADE, null=False)
+    user = models.ForeignKey(user_models.Users, on_delete=models.CASCADE, null=False)
     title = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now=True)
     content = RichTextUploadingField()
+
+    def get_user(self):
+        return User.objects.get(pk=self.user_id)
 
     def __str__(self):
         return self.title

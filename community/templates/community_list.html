@@ -45,6 +45,12 @@
 
     <div class="totalbox">
 
+        {% if user.is_authenticated %}
+        {% if user.usertype == 'lionders' or user.is_superuser %}
+        <a href="{% url 'community' %}">글쓰기</a>
+        {% endif %}
+        {% endif %}
+
         <div class="box__title">글 목록</div>
 
         <div class="about__items">
