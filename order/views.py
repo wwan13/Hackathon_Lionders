@@ -151,4 +151,4 @@ def make_order_final(request, order_id):
         current_user.have_order_sheet = False
         current_user.save()
         return redirect('on_going')
-    return render(request, 'order_final.html', {'items':items,'order':order})
+    return render(request, 'order_final.html', {'items':items,'order':order,'user':current_user})
