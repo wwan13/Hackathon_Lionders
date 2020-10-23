@@ -131,6 +131,7 @@ def make_order_final(request, order_id):
     if request.method == 'POST':
         order.destination = request.POST['destination']
         order.grade_limit = request.POST['grade_limit']
+        order.can_delivery = True
         order.save()
         current_user.have_order_sheet = False
         current_user.save()
