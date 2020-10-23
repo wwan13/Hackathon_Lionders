@@ -41,5 +41,5 @@ def mypage(request):
         user = get_object_or_404(usermodel.Lionders_Users,pk = request.user.id)
         return render(request,"my_page_lionders.html",{'user':user})
     else:
-        redirect('home')
+        return redirect('home')
     
