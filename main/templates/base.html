@@ -55,7 +55,7 @@
 
             <div class="navbar__user">
                 {% if user.is_authenticated %}
-                <a href="#">{{ user }}님</a>
+                <a href="{% url 'mypage' %}">{{ user }}님</a>
                 <a href="{% url 'logout' %}">로그아웃</a>
                 {% else %}
                 <a href="{% url 'login' %}">로그인</a>

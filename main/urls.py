@@ -24,4 +24,5 @@ urlpatterns = [
     path('require_login',views.require_login,name='require_login'),
     path('create_objs',views.create_objs,name='create_objs'),
     path('create_item_objects',views.create_item_objects,name="create_item_objects"),
+    path('mypage',views.mypage,name='mypage'),
 ]
