@@ -25,7 +25,7 @@ from order import models as ordermodel
 
 
 def delivery_list(request):
-    orders = ordermodel.Order.objects.filter(is_complete=False)
+    orders = ordermodel.Order.objects.filter(is_complete=False,can_delivery=True)
     return render(request,'delivery_list.html',{'orders':orders})
 
 
