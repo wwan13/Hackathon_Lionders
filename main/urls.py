@@ -18,6 +18,7 @@ from . import views
 
 urlpatterns = [
     path('',views.home,name='home'),
+    path('on_going',views.on_going,name='on_going'),
     path('my_page_lionders',views.my_page_lionders,name='my_page_lionders'),
     path('detail',views.detail,name='detail'),
     path('require_login',views.require_login,name='require_login'),
