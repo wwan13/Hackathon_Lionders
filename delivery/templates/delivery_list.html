@@ -4,7 +4,7 @@
 {% block title %}delivery{% endblock %}
 {% block content %}
 <h1>배달 목록 조회</h1>
-<div class="delivery-list">
+<!-- <div class="delivery-list">
     <br>
     {% for item in deliveries %}
     {% if item.state == 'On Call' %}
@@ -76,7 +76,17 @@
     </form>
     {% endif %}
     {% endfor %}
-</div>
+</div> -->
+
+{% for order in orders %}
+{{ order.normal_user_info }} <br>
+{% for item in order.items.all %}
+{{ item.item_name }}
+{% endfor %}
+{{ order.total_price }} <br>
+{{ order.destination }} <br>
+<a href="{% url 'delivery' order.id %}">배달하기</a> <br><br>
+{% endfor %}
 
 
-    {% endblock %}
+{% endblock %}
