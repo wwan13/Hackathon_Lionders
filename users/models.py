@@ -15,7 +15,9 @@ class Users(AbstractUser):
 
     usertype = models.CharField(max_length = 8,choices=USERTYPE_CHOICES)
     name = models.CharField(max_length = 50)
-    address = models.CharField(max_length = 100)
+    address_num = models.CharField(max_length = 30)
+    address_road = models.CharField(max_length = 100)
+    address_detail = models.CharField(max_length = 100)
     phone = models.CharField(max_length = 15)
 
     class meta:

@@ -14,7 +14,9 @@ class ConsumerUserAdmin(UserAdmin):
                 "fields": (
                     "usertype",
                     "name",
-                    "address",
+                    "address_num",
+                    "address_road",
+                    "address_detail",
                     "is_pro",
                     "have_order_sheet",
                 )
@@ -22,7 +24,7 @@ class ConsumerUserAdmin(UserAdmin):
         ),
     )
 
-    list_display = ("name","address","is_pro")
+    list_display = ("name","address_num","address_road","address_detail","is_pro")
     
 
 @admin.register(models.Lionders_Users)
@@ -36,7 +38,9 @@ class LiondersUserAdmin(UserAdmin):
                 "fields": (
                     "usertype",
                     "name",
-                    "address",
+                    "address_num",
+                    "address_road",
+                    "address_detail",
                     "grade",
                 )
             },
@@ -44,6 +48,6 @@ class LiondersUserAdmin(UserAdmin):
     )
     
     #filter_horizontal = ("rating",)
-    list_display = ("name","address","grade")
+    list_display = ("name","address_num","address_road","address_detail","grade")
 
     
