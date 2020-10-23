@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% static 'css/order.css' %}{% endblock %}
+{% block title %}delivery{% endblock %}
+{% block content %}
+
+<table class="searchBox">
+    <div class="entirebox">
+        <div class="totalbox">
+
+            <h1 class="box__title">나의 주문목록</h1>
+
+            <div class="about__items">
+                <div class="item">가게</div>
+                <div class="item">상품명</div>
+                <div class="item">가격</div>
+            </div>
+            {% for item in order.items.all %}
+            <div class="about__items">
+                <div class="item">{{item.store}}</div>
+                <div class="item">{{item.item_name}}</div>
+                <div class="item">{{item.price}}</div>
+            </div>
+            {% endfor %}
+            <div class="about__items">
+                <div class="item"><strong>주문 총액</strong></div>
+                <div class="item"></div>
+                <div class="item"><strong>{{order.total_price}}</strong></div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

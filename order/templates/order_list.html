@@ -3,13 +3,14 @@
 {% block style %}{% static 'css/order.css' %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
- <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- datepicker 한국어로 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
-               
-    
+<script src="{% static 'js/order.js' %}"></script>
+
+
 <!-- <link rel="stylesheet" href="{% static 'css/order.css' %}">
 주문하는 목록
 <div class="order-list">
@@ -53,82 +54,78 @@
     </form>
 
     {% endfor %} -->
-    <table class="searchBox">
-        <colgroup>
-            <col width="123px">
-            <col width="*">
-        </colgroup>
-        <tbody>
-            <tr>
-                <th>조회기간</th>
-                <td>
-                    <ul class="searchDate">
-                        <li>
-                            <span class="chkbox2">
-                                <input type="radio" name="dateType" id="dateType3" onclick="setSearchDate('1w')"/>
-                                <label for="dateType3">1주</label>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="chkbox2">
-                                <input type="radio" name="dateType" id="dateType5" onclick="setSearchDate('1m')"/>
-                                <label for="dateType5">1개월</label>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="chkbox2">
-                                <input type="radio" name="dateType" id="dateType6" onclick="setSearchDate('3m')"/>
-                                <label for="dateType6">3개월</label>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="chkbox2">
-                                <input type="radio" name="dateType" id="dateType7" onclick="setSearchDate('6m')"/>
-                                <label for="dateType7">6개월</label>
-                            </span>
-                        </li>
-                    </ul>
-                    
-                    <div class="clearfix">
-                        <!-- 시작일 -->
-                        <span class="dset">
-                            <input type="text" class="datepicker inpType" name="searchStartDate" id="searchStartDate" >
-                            <a href="#none" class="btncalendar dateclick">달력</a>
+<table class="searchBox">
+    <colgroup>
+        <col width="123px">
+        <col width="*">
+    </colgroup>
+    <tbody>
+        <tr>
+            <th>조회기간</th>
+            <td>
+                <ul class="searchDate">
+                    <li>
+                        <span class="chkbox2">
+                            <input type="radio" name="dateType" id="dateType3" onclick="setSearchDate('1w')" />
+                            <label for="dateType3">1주</label>
                         </span>
-                        <span class="demi">~</span>
-                        <!-- 종료일 -->
-                        <span class="dset">
-                            <input type="text" class="datepicker inpType" name="searchEndDate" id="searchEndDate" >
-                            <a href="#none" class="btncalendar dateclick">달력</a>
+                    </li>
+                    <li>
+                        <span class="chkbox2">
+                            <input type="radio" name="dateType" id="dateType5" onclick="setSearchDate('1m')" />
+                            <label for="dateType5">1개월</label>
                         </span>
-                    </div>    
-                </td>
-            </tr>
-        <tbody>
-    </table>
+                    </li>
+                    <li>
+                        <span class="chkbox2">
+                            <input type="radio" name="dateType" id="dateType6" onclick="setSearchDate('3m')" />
+                            <label for="dateType6">3개월</label>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="chkbox2">
+                            <input type="radio" name="dateType" id="dateType7" onclick="setSearchDate('6m')" />
+                            <label for="dateType7">6개월</label>
+                        </span>
+                    </li>
+                </ul>
+
+                <!-- 사용자의 기간 설정 -->
+                <form method="POST" action="{% url 'order-list' %}">
+                    {% csrf_token %}
+                    <input type="text" name="period" id="period" value="0" />
+                    <input type="submit" value="확인"/>
+                </form>
+            </td>
+        </tr>
+    <tbody>
+</table>
 <div class="entirebox">
     <div class="totalbox">
-        
-    <h1 class="box__title">나의 주문목록</h1>
-    
-    <div class="about__items">
-        <div class="item">주문목록</div>
-        <div class="item">주문금액</div>
-        <div class="item">주문일자</div>
-        <div class="item">배달주소</div>
+
+        <h1 class="box__title">나의 주문목록</h1>
+
+        <div class="about__items">
+            <div class="item">주문번호</div>
+            <div class="item">주문총액</div>
+            <div class="item">주문일자</div>
+            <div class="item">배달주소</div>
+        </div>
+        {% if user.is_authenticated %}
+        {% for order in orders %}
+        {# for item in order.items.all #}
+        <a href="{% url 'order-detail' order.id %}">
+            <div class="about__items">
+                <!-- <div class="item">{{item.store}}<br><strong>{{item.item_name}}</strong></div> -->
+                <div class="item">{{order.id}}</div>
+                <div class="item">{{order.total_price}}</div>
+                <div class="item">{{order.ordered_time}}</div>
+                <div class="item">{{order.short_destination}}</div>
+            </div>
+        </a>
+        {# endfor #}
+        {% endfor %}
+        {% endif %}
     </div>
-    {% if user.is_authenticated %}
-    {% for order in orders %}
-    {% for item in order.items.all %}
-    <div class="about__items">
-        <div class="item">{{item.store}}<br><strong>{{item.item_name}}</strong></div>
-        <div class="item">₩{{order.total_price}}</div>
-        <div class="item">{{order.ordered_time|date:'m/d (D)'}}</div>
-        <div class="item">{{order.destination}}</div>
-    </div>
-    {% endfor %}
 </div>
-</div>
-{% endfor %}
-{% endif %}
 {% endblock %}

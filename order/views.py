@@ -3,19 +3,34 @@ from django.http import HttpResponse, HttpResponseRedirect, request
 from .models import Item, Order
 from .forms import OrderForm, UpdateOrderForm, ItemForm
 from users import models as usermodel
+import datetime
 
 # Create your views here.
 
+# 사용자가 설정한 기간을 받아 주문 목록을 출력
 def order_list(request):
     # if not request.user.is_authenticated:
     #     return HttpResponseRedirect('/signin/')
     # orders = Order.objects.filter(user_id=request.user.pk).order_by('created_at')
-    orders = Order.objects.filter()
+    period = request.POST.get('period', 0)
+    period = int(period)
+    current_date = datetime.date.today()
+    if period == 0:
+        orders = Order.objects.filter(normal_user_info=request.user).order_by('ordered_time')
+    else:
+        past_date = current_date - datetime.timedelta(days = period)
+        current_date = current_date + datetime.timedelta(1)
+        orders = Order.objects.filter(normal_user_info=request.user).order_by('ordered_time').filter(ordered_time__range=[past_date, current_date])
     context = {
         'orders': orders,
     }
     return render(request, 'order_list.html', context)
 
+def order_detail(request, order_id):
+    order = get_object_or_404(Order, pk=order_id)
+    return render(request, 'order_detail.html', {'order':order})
+
+# item을 담아서 order_sheet를 만드는 함수
 def order(request):
     if request.user.is_authenticated:
         if request.user.is_superuser:

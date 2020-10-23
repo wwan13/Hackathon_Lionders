@@ -29,3 +29,6 @@ class Order(models.Model):
 
     def __str__(self):
         return self.destination
+
+    def short_destination(self):
+        return self.destination[:20]
