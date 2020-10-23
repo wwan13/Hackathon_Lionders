@@ -36,9 +36,9 @@ class Lionders_Users(Users):
     """ Lionders User Model """
 
     GRADE_CHOICES = (
-        ('Beginner', "초급자"),
-        ('Intermediate', "중급자"),
-        ('Advanced', "고급자"),
+        ('초급자', "초급자"),
+        ('중급자', "중급자"),
+        ('고급자', "고급자"),
     )
     
     grade = models.CharField(max_length = 12, choices=GRADE_CHOICES)
