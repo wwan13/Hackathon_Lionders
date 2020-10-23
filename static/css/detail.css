@@ -2,11 +2,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: "montserrat";
+    z-index: -10;
 }
 
 .team-section {
     background: #f1f1f1;
     text-align: center;
+    z-index: -10;
 }
 
 .inner-width {
@@ -15,6 +17,7 @@ body {
     padding: 40px;
     color: #333;
     overflow: hidden;
+    z-index: -10;
 }
 
 .team-section h1 {
@@ -72,4 +75,35 @@ body {
 .p-sm a i {
     color: #333;
     line-height: 30px;
+}
+
+.box{
+    width: 600px;
+    padding: 40px;
+    background: white;
+    margin: 200px auto;
+    box-shadow: 0 0 10px;
+    position: relative;
+}
+
+.box h2{
+    margin: 0;
+    position: absolute;
+    top: 12px;
+    left: -12px;
+    background: #C83B2B;
+    color: white;
+    font-size: 20px;
+    padding: 2px 20px;
+}
+.box h2:before{
+    content: ' ';
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    background: #C83B2B;
+    left: 5px;
+    bottom: -12px;
+    transform: rotate(-45deg);
+    z-index: -1;
 }
