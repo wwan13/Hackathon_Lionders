@@ -6,7 +6,7 @@ body {
 }
 
 .team-section {
-    background: #f1f1f1;
+    background: none;
     text-align: center;
     z-index: -10;
 }
@@ -77,7 +77,7 @@ body {
     line-height: 30px;
 }
 
-.box{
+.box {
     width: 600px;
     padding: 40px;
     background: white;
@@ -86,7 +86,7 @@ body {
     position: relative;
 }
 
-.box h2{
+.box h2 {
     margin: 0;
     position: absolute;
     top: 12px;
@@ -96,7 +96,8 @@ body {
     font-size: 20px;
     padding: 2px 20px;
 }
-.box h2:before{
+
+.box h2:before {
     content: ' ';
     width: 24px;
     height: 24px;

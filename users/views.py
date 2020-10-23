@@ -30,7 +30,9 @@ def signup_consumer(request):
                 password=request.POST['password'],
                 usertype=request.POST['usertype'],
                 name=request.POST['name'],
-                address=request.POST['address'],
+                address_num=request.POST['address_num'],
+                address_road=request.POST['address_road'],
+                address_detail=request.POST['address_detail'],
                 phone=request.POST['phone'])
             auth.login(request, user)
             return redirect('login')
@@ -44,7 +46,9 @@ def signup_lionders(request):
                 password=request.POST['password'],
                 usertype=request.POST['usertype'],
                 name=request.POST['name'],
-                address=request.POST['address'],
+                address_num=request.POST['address_num'],
+                address_road=request.POST['address_road'],
+                address_detail=request.POST['address_detail'],
                 phone=request.POST['phone'])
             auth.login(request, user)
             return redirect('login')
