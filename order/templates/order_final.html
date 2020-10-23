@@ -4,18 +4,30 @@
 {% block title %}delivery{% endblock %}
 {% block content %}
 
-{% for item in items %}
+<div class="container">
+    <div class="pricing-table table1">
+        <div class="pricing-header">
 
-{{ item.item_name }}
-{{ item.store }}
+            <div class="price" id="total_price">{{order.total_price}}<span>  원</span></div>
+            <div class="title">Order List</div>
+        </div>
+        <ul class="pricing-list">
+            {% for item in items %}
+            <li>
+                <string>{{ item.item_name }}</string>
+                {{ item.store }}
+            </li>
+            <div class="border"></div>
+            {% endfor %}
+        </ul>
+        <form class="order_sheet" method="POST" action="{% url 'order_final' order.id %}">
+            {% csrf_token %}
+            <input type="text" name="destination" placeholder="배달받을 주소" required>
+            <input type="text" name="grade_limit" placeholder="라이더 등급" required>
+            <input type="submit" class="submit" id="order_submit" value="Order">
+        </form>
+    </div>
+</div>
 
-{% endfor %}
-
-<form class="order_sheet" method="POST" action="{% url 'order_final' order.id %}">
-    {% csrf_token %}
-    <input type="text" name="destination" placeholder="주소" required>
-    <input type="text" name="grade_limit" placeholder="등급" required>
-    <input type="submit" class="submit" value="제출">
-</form>
 
 {% endblock %}
