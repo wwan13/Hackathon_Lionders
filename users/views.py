@@ -58,9 +58,8 @@ def signup_lionders(request):
 def mypage(request):
     if request.user.usertype=="consumer":
         user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
-        return render(request,"my_page_user.html",{'user':user})
     elif request.user.usertype=="lionders":
         user = get_object_or_404(usermodel.Lionders_Users,pk = request.user.id)
-        return render(request,"my_page_lionders.html",{'user':user})
     else:
         return redirect('home')
+    return render(request,"my_page.html",{'user':user})
