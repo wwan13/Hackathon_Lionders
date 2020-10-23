@@ -11,9 +11,6 @@ class Community(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     content = RichTextUploadingField()
 
-    def get_user(self):
-        return User.objects.get(pk=self.user_id)
-
     def __str__(self):
         return self.title
     
@@ -25,3 +22,12 @@ class Community(models.Model):
                 this.image.delete(save=False)
         except: pass # when new photo then we do nothing, normal case          
         super(Community, self).save(*args, **kwargs)
+
+class Comment(models.Model):
+    content = models.CharField(max_length=200)
+    author = models.ForeignKey(user_models.Users, on_delete=models.CASCADE)
+    community = models.ForeignKey(Community, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.content

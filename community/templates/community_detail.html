@@ -23,6 +23,30 @@
     <a href="{% url 'community-update' community.id %}">수정</a>
     <a href="{% url 'community-delete' community.id %}">삭제</a>
     {% endif %}
+
+    {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'create_comment' community.id %}">
+        {% csrf_token %}
+        <input type="text" name="comment">
+        <input class="" type="submit" value="확인">
+    </form>
+    {% endif %}
+
+    <hr>
+    {% for comment in community.comment_set.all %}
+    <div class="">
+        {{ comment.author }} 🔊 {{ comment.content|linebreaksbr }}
+        {% if user == comment.author %}
+        <div class="">
+            <a href="{% url 'delete_comment' community.id comment.id %}" class="text-right">
+                <button class="">삭제</button>
+            </a>
+        </div>
+        {% endif %}
+        <p class="">{{ comment.created_at }}</p>
+    </div>
+    <hr>
+    {% endfor %}
 </div>
 
 {% endblock %}
