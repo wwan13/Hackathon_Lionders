@@ -29,6 +29,29 @@
         </div>
         {% endfor %}
 
+        <!-- {% for store in item_list %}
+        {{ store.0.store }}
+        {% for item in store %}
+
+        <div class="order__card">
+
+            <h3 class="card__header">{{ item.store }}</h3>
+
+            <div class="card__price"><sup>₩</sup>{{ item.price }}</div>
+
+            <ul class="item__list">
+
+                <li><strong>{{ item.item_name }}</strong></li>
+
+            </ul>
+
+            <a href="{% url 'add_item' order.id item.id %}" class="order__btn">추가하기</a>
+
+        </div>
+
+        {% endfor %}
+        {% endfor %} -->
+
 
 
 
@@ -56,7 +79,7 @@
         {% endfor %}
 
         <div class="btnbox">
-            <div class="total__price">{{ total_price }} 원 주문하기</div>
+            <div class="total__price">{{ order.total_price }} 원 주문하기</div>
         </div>
     </div>
 

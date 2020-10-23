@@ -23,7 +23,7 @@ def order(request):
         elif request.user.usertype=="lionders":
             return redirect('login')
         else:
-            items = Item.objects.all()
+            all_items = Item.objects.all()
             total_price=0
             current_user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
             if current_user.have_order_sheet == False:
@@ -34,17 +34,44 @@ def order(request):
                 ordered_items = new_order.items.all()
                 for item in ordered_items:
                     total_price += item.price
-                ex_items = list(set(items) - set(ordered_items))
-                return render(request,'order.html',{'items':items,'order':new_order,'ordered_items':ordered_items,'ex_items':ex_items,'total_price':total_price})
+                ex_items = list(set(all_items) - set(ordered_items))
+                stores = get_store(ex_items)
+                item_list = slice_by_store(stores,ex_items)
+                new_order.total_price = total_price
+                new_order.save()
+                return render(request,'order.html',{'all_items':all_items,'order':new_order,'ordered_items':ordered_items,'ex_items':ex_items,'total_price':total_price,'item_list':item_list})
             else:
                 my_order = current_user.order_set.all().order_by('-ordered_time')
+                order = my_order[0]
                 ordered_items = my_order[0].items.all()
                 for item in ordered_items:
                     total_price += item.price
-                ex_items = list(set(items) - set(ordered_items))
-                return render(request,'order.html',{'items':items,'order':my_order[0],'ordered_items':ordered_items,'ex_items':ex_items,'total_price':total_price})
+                ex_items = list(set(all_items) - set(ordered_items))
+                stores = get_store(ex_items)
+                item_list = slice_by_store(stores,ex_items)
+                order.total_price = total_price
+                order.save()
+                return render(request,'order.html',{'all_items':all_items,'order':order,'ordered_items':ordered_items,'ex_items':ex_items,'total_price':total_price,'item_list':item_list})
     else:
         return redirect('login')
+
+def get_store(items):
+    stores = []
+    for item in items:
+        if str(item.store) not in stores:
+            stores.append(str(item.store))
+    return stores
+
+
+def slice_by_store(stores,items):
+    list = []
+    item_list = []
+    for store in stores:
+        for item in items:
+            if str(store) == str(item.store):
+                list.append(item)
+        item_list.append(list)
+    return item_list
 
 
 
@@ -96,3 +123,6 @@ def item_create(request):
         return HttpResponseRedirect('../order/orderlist')
     form = ItemForm()
     return render(request, 'item_create.html', {'form': form})
+
+def make_order_final(request, order_id):
+    return render(request, 'order_final.html')

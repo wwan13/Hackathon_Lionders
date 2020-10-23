@@ -12,4 +12,3 @@ class Delivery(models.Model):
     estimated_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     # updated_at = models.DateTimeField(auto_now=True)
     delivery_tips = models.IntegerField(null=True, default=0)
-    grade_limit = models.CharField(max_length=30, default="초급자", blank=True)
