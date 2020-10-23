@@ -8,11 +8,11 @@ from django.utils.translation import gettext_lazy as _
 class DeliveryForm(forms.ModelForm):
     class Meta:
         model = Delivery
-        fields = ['lionders_info', 'order_sheet', 'delivery_tips', 'grade_limit', 'state']
+        fields = ['lionders_info', 'order_sheet', 'delivery_tips', 'state']
         labels = {
             'order_sheet': _('주문서'),
             'delivery_tips': _('배달 평'),
-            'grade_limit': _('배달원 제한'),
+            #'grade_limit': _('배달원 제한'),
         }
         widgets = {
             'lionders_info': forms.HiddenInput(),
