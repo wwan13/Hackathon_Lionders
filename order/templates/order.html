@@ -4,58 +4,38 @@
 {% block title %}delivery{% endblock %}
 {% block content %}
 
-<h1 class="title">주문하기</h1>
 
-<div class="entirebox">
+<div class="testimonials">
 
 
-    <div class="cards">
+    <div class="inner">
+        <h1 class="title">주문하기</h1>
+        <div class="border"></div>
 
-        {% for item in ex_items %}
-        <div class="order__card">
+        <div class="row">
+            {% for item in ex_items %}
+            <div class="col">
 
-            <h3 class="card__header">{{ item.store }}</h3>
+                <div class="testimonial">
+                    <img src="{{ item.image.url }}">
+                    <h3 class="name">{{ item.item_name }}</h3>
+                    <div class="detail1">
+                        <p><strong>{{ item.store }}</strong></p>
+                    </div>
+                    <div class="detail2">
+                        <p><sup>₩</sup>{{ item.price }}</p>
+                    </div>
 
-            <div class="card__price"><sup>₩</sup>{{ item.price }}</div>
+                    <a href="{% url 'add_item' order.id item.id %}" class="order__btn">추가하기</a>
 
-            <ul class="item__list">
-
-                <li><strong>{{ item.item_name }}</strong></li>
-
-            </ul>
-
-            <a href="{% url 'add_item' order.id item.id %}" class="order__btn">추가하기</a>
-
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-
-        <!-- {% for store in item_list %}
-        {{ store.0.store }}
-        {% for item in store %}
-
-        <div class="order__card">
-
-            <h3 class="card__header">{{ item.store }}</h3>
-
-            <div class="card__price"><sup>₩</sup>{{ item.price }}</div>
-
-            <ul class="item__list">
-
-                <li><strong>{{ item.item_name }}</strong></li>
-
-            </ul>
-
-            <a href="{% url 'add_item' order.id item.id %}" class="order__btn">추가하기</a>
-
-        </div>
-
-        {% endfor %}
-        {% endfor %} -->
-
-
 
 
     </div>
+
 
     <div class="totalbox">
 
