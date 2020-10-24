@@ -46,6 +46,8 @@ class LiondersUserAdmin(UserAdmin):
                     "address_detail",
                     "phone",
                     "grade",
+                    "rating",
+                    "rating_count",
                 )
             },
         ),

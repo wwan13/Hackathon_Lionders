@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'ckeditor',
     'ckeditor_uploader',
+    'django_cleanup',
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"

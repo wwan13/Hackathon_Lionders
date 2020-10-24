@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/54f85ae94e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <script src="{% static 'js/order.js' %}"></script>
 </head>
 
 <body>
@@ -59,13 +60,48 @@
                                 </div>
                                 <div class="text-center">
                                     <h3>
-                                        username<span class="font-weight-light"></span>
+                                        {{lionders.name}}<span class="font-weight-light"></span>
                                     </h3>
                                     <div class="h5 font-weight-300">
-                                        user address<br>
-                                        user phone<br>
-                                        user grade
+                                        {{lionders.grade}}
                                     </div>
+                                    <ul class="searchDate">
+                                        <li>
+                                            <span class="chkbox2">
+                                                <input type="radio" name="dateType" id="dateType3" onclick="estimating('1.0')" />
+                                                <label for="dateType3">⭐️</label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="chkbox2">
+                                                <input type="radio" name="dateType" id="dateType5" onclick="estimating('2.0')" />
+                                                <label for="dateType5">⭐️⭐️</label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="chkbox2">
+                                                <input type="radio" name="dateType" id="dateType6" onclick="estimating('3.0')" />
+                                                <label for="dateType6">⭐️⭐️⭐️</label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="chkbox2">
+                                                <input type="radio" name="dateType" id="dateType7" onclick="estimating('4.0')" />
+                                                <label for="dateType7">⭐️⭐️⭐️⭐️</label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="chkbox2">
+                                                <input type="radio" name="dateType" id="dateType8" onclick="estimating('5.0')" />
+                                                <label for="dateType8">⭐️⭐️⭐️⭐️⭐️</label>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <form method="POST" action="{% url 'estimate_lionders' order.id lionders.id %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="estimate" id="estimate" value="0.0" />
+                                        <input type="submit" value="확인"/>
+                                    </form>
                                 </div>
                             </div>
                         </div>

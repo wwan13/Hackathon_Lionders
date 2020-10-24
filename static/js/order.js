@@ -121,3 +121,28 @@ function setSearchDate(start){
     }
     document.getElementById("period").value = setPeriod;
 }
+
+function estimating(point){
+    let setEstimate = 0;
+    switch(point){
+        case '1.0':
+            setEstimate = 1.0;
+            break;
+        case '2.0':
+            setEstimate = 2.0;
+            break;
+        case '3.0':
+            setEstimate = 3.0;
+            break;
+        case '4.0':
+            setEstimate = 4.0;
+            break;
+        case '5.0':
+            setEstimate = 5.0;
+            break;
+        default:
+            setEstimate = 0.0;
+            break;
+    }
+    document.getElementById("estimate").value = setEstimate;
+}

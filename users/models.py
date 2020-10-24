@@ -40,9 +40,10 @@ class Lionders_Users(Users):
         ('중급자', "중급자"),
         ('고급자', "고급자"),
     )
-    
+   
     grade = models.CharField(max_length = 12, choices=GRADE_CHOICES, default = "초급자")
-    #rating = models.ManyToManyField(Consumer_Users)
+    rating = models.FloatField(default=0.0)
+    rating_count = models.PositiveIntegerField(default=0)
 
     class Meta:
         verbose_name = "Lionders User"
