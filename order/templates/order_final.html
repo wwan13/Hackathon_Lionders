@@ -34,7 +34,7 @@
                 <div>받는분</div>
             </div>
             <div class="right__box">
-                <input type="text" class="input__text1">
+                <input type="text" class="input__text1" value="{{ user.name }}">
             </div>
         </div>
         <!--  -->
@@ -43,7 +43,7 @@
                 <div>연락처</div>
             </div>
             <div class="right__box">
-                <input type="text" class="input__text2">
+                <input type="text" class="input__text2" value="{{ user.phone }}">
             </div>
         </div>
         <!--  -->
@@ -52,7 +52,7 @@
                 <div>집전화</div>
             </div>
             <div class="right__box">
-                <input type="text" class="input__text2">
+                <input type="text" class="input__text2" placeholder="ex)02-1111-2222">
             </div>
         </div>
         <!--  -->
@@ -62,14 +62,26 @@
             </div>
             <div class="right__box_">
                 <div class="address__search">
-                    <input type="text" class="input__text1 postcodify_postcode5" value="">
+                    <input type="text" class="input__text1 postcodify_postcode5" value="{{ user.address_num }}">
                     <input form="#" type="submit" class="search_btn" id="postcodify_search_button" value="검색">
                 </div>
-                <input type="text" class="input__text2 postcodify_address" value="">
-                <input type="text" class="input__text2 postcodify_details" value="">
+                <input type="text" class="input__text2 postcodify_address" value="{{ user.address_road }}">
+                <input type="text" class="input__text2 postcodify_details" value="{{ user.address_detail }}">
             </div>
         </div>
         <!--  -->
+        <div class="box1">
+            <div class="left__box">
+                <div>라이온더스 선택</div>
+            </div>
+            <div class="right__box">
+                <input class="check" name="lionders" type="radio" value="one"> 초급자
+                <input class="check" name="lionders" type="radio" value="two"> 중급자
+                <input class="check" name="lionders" type="radio" value="three"> 상급자
+                <button type="button" name="button" id="radioButton">get radio Value</button>
+            </div>
+        </div>
+
         <div class="box1">
             <div class="left__box">
                 <div>배송메모</div>
@@ -92,7 +104,7 @@
                     <div>상품금액</div>
                 </div>
                 <div class="right__box">
-                    <div>10000원</div>
+                    <div>{{ order.total_price }}원</div>
                 </div>
             </div>
 
@@ -101,7 +113,7 @@
                     <div>배송비</div>
                 </div>
                 <div class="right__box">
-                    <div>2500원</div>
+                    <div id="tip"> </div>
                 </div>
             </div>
         </div>
@@ -148,6 +160,7 @@
     </div>
 
 </div>
+<script src="{% static 'js/order_final.js' %}"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <script>
