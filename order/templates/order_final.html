@@ -25,139 +25,141 @@
         {% endfor %}
     </div>
 
-    <div class="delivery__box">
+    <form class="delivery__box" action="{% url 'order_final' order.id %}" method="POST">
+        {% csrf_token %}
+        <div>
 
-        <div class="title">배달정보</div>
+            <div class="title">배달정보</div>
 
-        <div class="box1">
-            <div class="left__box">
-                <div>받는분</div>
-            </div>
-            <div class="right__box">
-                <input type="text" class="input__text1" value="{{ user.name }}">
-            </div>
-        </div>
-        <!--  -->
-        <div class="box2">
-            <div class="left__box">
-                <div>연락처</div>
-            </div>
-            <div class="right__box">
-                <input type="text" class="input__text2" value="{{ user.phone }}">
-            </div>
-        </div>
-        <!--  -->
-        <div class="box2">
-            <div class="left__box">
-                <div>집전화</div>
-            </div>
-            <div class="right__box">
-                <input type="text" class="input__text2" placeholder="ex)02-1111-2222">
-            </div>
-        </div>
-        <!--  -->
-        <div class="box3">
-            <div class="left__box">
-                <div>주소</div>
-            </div>
-            <div class="right__box_">
-                <div class="address__search">
-                    <input type="text" class="input__text1 postcodify_postcode5" value="{{ user.address_num }}">
-                    <input form="#" type="submit" class="search_btn" id="postcodify_search_button" value="검색">
-                </div>
-                <input type="text" class="input__text2 postcodify_address" value="{{ user.address_road }}">
-                <input type="text" class="input__text2 postcodify_details" value="{{ user.address_detail }}">
-            </div>
-        </div>
-        <!--  -->
-        <div class="box1">
-            <div class="left__box">
-                <div>라이온더스 선택</div>
-            </div>
-            <div class="right__box">
-                <input class="check" name="lionders" type="radio" value="one"> 초급자
-                <input class="check" name="lionders" type="radio" value="two"> 중급자
-                <input class="check" name="lionders" type="radio" value="three"> 상급자
-            </div>
-        </div>
-
-        <div class="box1">
-            <div class="left__box">
-                <div>배송메모</div>
-            </div>
-            <div class="right__box">
-                <input type="text" class="input__text2">
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="payment__box">
-
-        <div class="title">결제</div>
-
-        <div class="two__boxes">
-            <div class="box__">
+            <div class="box1">
                 <div class="left__box">
-                    <div>상품금액</div>
+                    <div>받는분</div>
                 </div>
                 <div class="right__box">
-                    <div>{{ order.total_price }}원</div>
+                    <input type="text" class="input__text1" value="{{ user.name }}">
                 </div>
             </div>
-
-            <div class="box__">
+            <!--  -->
+            <div class="box2">
                 <div class="left__box">
-                    <div>배송비</div>
+                    <div>연락처</div>
                 </div>
                 <div class="right__box">
-                    <div id="tip"> </div>
+                    <input type="text" class="input__text2" value="{{ user.phone }}">
+                </div>
+            </div>
+            <!--  -->
+            <div class="box2">
+                <div class="left__box">
+                    <div>집전화</div>
+                </div>
+                <div class="right__box">
+                    <input type="text" class="input__text2" placeholder="ex)02-1111-2222">
+                </div>
+            </div>
+            <!--  -->
+            <div class="box3">
+                <div class="left__box">
+                    <div>주소</div>
+                </div>
+                <div class="right__box_">
+                    <div class="address__search">
+                        <input type="text" class="input__text1 postcodify_postcode5" value="{{ user.address_num }}">
+                        <input form="#" type="submit" class="search_btn" id="postcodify_search_button" value="검색">
+                    </div>
+                    <input type="text" class="input__text2 postcodify_address" name="destination_road"
+                        value="{{ user.address_road }}">
+                    <input type="text" class="input__text2 postcodify_details" name="destination_detail"
+                        value="{{ user.address_detail }}">
+                </div>
+            </div>
+            <!--  -->
+            <div class="box1">
+                <div class="left__box">
+                    <div>라이온더스 선택</div>
+                </div>
+                <div class="right__box">
+                    <input class="check" name="lionders" type="radio" value="초급자"> 초급자
+                    <input class="check" name="lionders" type="radio" value="중급자"> 중급자
+                    <input class="check" name="lionders" type="radio" value="고급자"> 상급자
+                </div>
+            </div>
+
+            <div class="box1">
+                <div class="left__box">
+                    <div>배송메모</div>
+                </div>
+                <div class="right__box">
+                    <input type="text" class="input__text2">
                 </div>
             </div>
         </div>
 
-        <div class="box1">
-            <div class="left__box">
-                <div>결제금액</div>
+
+
+        <div class="payment__box">
+
+            <div class="title">결제</div>
+
+            <div class="two__boxes">
+                <div class="box__">
+                    <div class="left__box">
+                        <div>상품금액</div>
+                    </div>
+                    <div class="right__box">
+                        <div>{{ order.total_price }}원</div>
+                    </div>
+                </div>
+
+                <div class="box__">
+                    <div class="left__box">
+                        <div>배송비</div>
+                    </div>
+                    <div class="right__box">
+                        <div id="tip"> </div>
+                    </div>
+                </div>
             </div>
-            <div class="right__box">
-                <div id="total_price"> </div>
+
+            <div class="box1">
+                <div class="left__box">
+                    <div>결제금액</div>
+                </div>
+                <div class="right__box">
+                    <div id="total_price"> </div>
+                </div>
+            </div>
+
+            <div class="box1">
+                <div class="left__box">
+                    <div>결제수단</div>
+                </div>
+                <div class="right__box">
+                    <label><input class="check" name="payment" type="radio" value="credit"> 신용카드</label>
+                    <label><input class="check" name="payment" type="radio" value="no"> 무통장입급</label>
+                    <label><input class="check" name="payment" type="radio" value="kakaopay"> 카카오페이</label>
+                    <label><input class="check" name="payment" type="radio" value="toss"> 토스</label>
+                    <label><input class="check" name="payment" type="radio" value="etc"> 기타</label>
+                </div>
+            </div>
+            <!--  -->
+
+        </div>
+
+        <div class="agree__box">
+            <div class="agree">
+                <label><input class="agree__check" type="checkbox"> 개인정보 제3자 제공 동의(필수)</label> <br>
+                <label><input class="agree__check" type="checkbox"> 위 상품 정보 및 거래 조건을 확인하였으며, 구매 진행에
+                    동의합니다.(필수)</label><br>
+                <label><input class="agree__check" type="checkbox"> 광고성 문자, 이메일 수신에 동의합니다.(선택)</label>
             </div>
         </div>
 
-        <div class="box1">
-            <div class="left__box">
-                <div>결제수단</div>
-            </div>
-            <div class="right__box">
-                <label><input class="check" name="payment" type="radio" value="credit"> 신용카드</label>
-                <label><input class="check" name="payment" type="radio" value="no"> 무통장입급</label>
-                <label><input class="check" name="payment" type="radio" value="kakaopay"> 카카오페이</label>
-                <label><input class="check" name="payment" type="radio" value="toss"> 토스</label>
-                <label><input class="check" name="payment" type="radio" value="etc"> 기타</label>
-            </div>
+
+        <div class="btnbox">
+            <input type="submit" class="total__price" value="결제하기">
         </div>
-        <!--  -->
-
-    </div>
-
-    <div class="agree__box">
-        <div class="agree">
-            <label><input class="agree__check" type="checkbox"> 개인정보 제3자 제공 동의(필수)</label> <br>
-            <label><input class="agree__check" type="checkbox"> 위 상품 정보 및 거래 조건을 확인하였으며, 구매 진행에 동의합니다.(필수)</label><br>
-            <label><input class="agree__check" type="checkbox"> 광고성 문자, 이메일 수신에 동의합니다.(선택)</label>
-        </div>
-    </div>
-
-
-
-    <div class="btnbox">
-        <a class="total__price" href="#">
-            결제하기
-        </a>
-    </div>
-
+    </form>
 </div>
 <!-- <script src="{% static 'js/order_final.js' %}"></script> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -179,11 +181,11 @@
     $("input:radio[name=lionders]").click(function () {
         var radioVal = $('input[name="lionders"]:checked').val();
         var tip = 0
-        if (radioVal == "one") {
+        if (radioVal == "초급자") {
             tip = 1500;
-        } else if (radioVal == "two") {
+        } else if (radioVal == "중급자") {
             tip = 2000;
-        } else if (radioVal == "three") {
+        } else if (radioVal == "고급자") {
             tip = 2500;
         }
         document.getElementById("tip").innerHTML = tip + "원";

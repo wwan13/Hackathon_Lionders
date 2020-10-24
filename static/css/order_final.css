@@ -141,6 +141,7 @@ body {
     height: 30px;
     border: 2px solid rgb(243, 243, 243);
     border-radius: 5px;
+    padding: 0px 5px;
 }
 
 .input__text2 {
@@ -148,6 +149,7 @@ body {
     width: 230px;
     height: 30px;
     border: 2px solid rgb(243, 243, 243);
+    padding: 0px 5px;
     border-radius: 5px;
 }
 
