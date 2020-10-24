@@ -41,7 +41,7 @@ class Lionders_Users(Users):
         ('고급자', "고급자"),
     )
     
-    grade = models.CharField(max_length = 12, choices=GRADE_CHOICES)
+    grade = models.CharField(max_length = 12, choices=GRADE_CHOICES, default = "초급자")
     #rating = models.ManyToManyField(Consumer_Users)
 
     class Meta:
