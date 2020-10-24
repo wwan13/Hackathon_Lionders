@@ -33,3 +33,5 @@ class Order(models.Model):
 
     def short_destination(self):
         return self.destination_road[:20]
+
+    

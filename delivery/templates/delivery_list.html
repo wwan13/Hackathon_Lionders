@@ -80,8 +80,52 @@
 </div> -->
 
 <div class="container">
-<div class="box">
-    <h2>배달 목록 조회</h2>
+    <img class="delivery-image" src="{% static 'image/delivery_list.gif' %}" alt="community.gif">
+    {% for order in orders %}
+    <div class="delibery_box">
+        <div class="title_">{{order.id}}번 배달 목록 조회</div>
+        <div class="two_box">
+            <div class="box_">
+                <div class="left__box">
+                    <div>받는분</div>
+                </div>
+                <div class="right__box">
+                    <div>{{ order.normal_user_info }}</div>
+                </div>
+            </div>
+
+            <div class="box_">
+                <div class="left__box">
+                    <div>주문 총액</div>
+                </div>
+                <div class ="right__box">
+                    <div>{{ order.total_price }}</div>
+                </div>
+            </div>
+        </div>
+            <div class="box1">
+                <div class="left__box">
+                    <div>주문상품</div>
+                </div>
+                <div class="right__box">
+                    <div>{% for item in order.items.all %}{{ item.store }}:{{ item.item_name }} {% endfor %}</div>
+                </div>
+            </div>
+            <div class="box1">
+                <div class="left__box">
+                    <div>배달 주소</div>
+                </div>
+                <div class="right__box">
+                    <div>{{ order.destination_road }}</div>
+                    <a class="delibery_btn" href="{% url 'delivery' order.id %}">배달하기</a><br><br>
+                </div>
+            </div>
+    </div>
+    {% endfor %}
+</div>
+    
+
+ <!-- 
     <ul>
         {% for order in orders %}
         <li>
@@ -102,5 +146,26 @@
 
 </div>
 
-
-{% endblock %}
+<div class="container">
+    <div class="box">
+        <h2>배달 목록 조회</h2>
+        <ul>
+            {% for order in orders %}
+            <li>
+                <span>
+                    {{order.id}}
+                </span>
+                {{ order.normal_user_info }} <br><br>
+                {% for item in order.items.all %}
+                {{ item.item_name }}
+                {% endfor %}
+                <p>주문 총액 : {{ order.total_price }}</p>
+                <p>배달 주소 : {{ order.destination }}</p><br>
+                <a class="btn" href="{% url 'delivery' order.id %}">배달하기</a> <br><br>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+-->  
+    {% endblock %}
