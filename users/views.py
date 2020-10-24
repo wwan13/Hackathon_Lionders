@@ -20,6 +20,7 @@ def login(request):
     else:
         return render(request, 'login.html')
 
+
 def login_fail(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -35,8 +36,10 @@ def login_fail(request):
     else:
         return render(request, 'login_fail.html')
 
+
 def usertype(request):
     return render(request,"usertype.html")
+
 
 def signup_consumer(request):
     if request.method == 'POST':
@@ -70,11 +73,22 @@ def signup_lionders(request):
             return redirect('login')
     return render(request, 'signup_lionders.html')
 
+
 def mypage(request):
     if request.user.usertype=="consumer":
         user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
+        if request.method=='POST':
+            if request.FILES['image']:
+                request.POST._mutable = True
+                user.image = request.FILES['image']
+                user.save()
     elif request.user.usertype=="lionders":
         user = get_object_or_404(usermodel.Lionders_Users,pk = request.user.id)
+        if request.method=='POST':
+            if request.FILES['image']:
+                request.POST._mutable = True
+                user.image = request.FILES['image']
+                user.save()
     else:
         return redirect('home')
     return render(request,"my_page.html",{'user':user})

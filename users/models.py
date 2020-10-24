@@ -12,7 +12,7 @@ class Users(AbstractUser):
         (USERTYPE_CONSUMER, "consumer"),
         (USERTYPE_LIONDERS, "lionders"),
     )
-
+    image = models.ImageField(blank=True, null=True, upload_to="blog/%Y/%m/%d")
     usertype = models.CharField(max_length = 8,choices=USERTYPE_CHOICES)
     name = models.CharField(max_length = 50)
     address_num = models.CharField(max_length = 30)

@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('',views.home,name='home'),
@@ -23,4 +25,4 @@ urlpatterns = [
     path('require_login',views.require_login,name='require_login'),
     path('create_objs',views.create_objs,name='create_objs'),
     path('create_item_objects',views.create_item_objects,name="create_item_objects"),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
