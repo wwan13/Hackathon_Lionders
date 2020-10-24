@@ -78,7 +78,6 @@
                 <input class="check" name="lionders" type="radio" value="one"> 초급자
                 <input class="check" name="lionders" type="radio" value="two"> 중급자
                 <input class="check" name="lionders" type="radio" value="three"> 상급자
-                <button type="button" name="button" id="radioButton">get radio Value</button>
             </div>
         </div>
 
@@ -123,7 +122,7 @@
                 <div>결제금액</div>
             </div>
             <div class="right__box">
-                <div>12500원</div>
+                <div id="total_price"> </div>
             </div>
         </div>
 
@@ -160,7 +159,7 @@
     </div>
 
 </div>
-<script src="{% static 'js/order_final.js' %}"></script>
+<!-- <script src="{% static 'js/order_final.js' %}"></script> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <script>
@@ -175,6 +174,22 @@
         // 템플릿 엔진을 실무에서 쓰는 경우는 많이 없음
         // 시간이 된다면 시도해보면 좋을 것 같음 (다음꺼부터)
     });
+</script>
+<script>
+    $("input:radio[name=lionders]").click(function () {
+        var radioVal = $('input[name="lionders"]:checked').val();
+        var tip = 0
+        if (radioVal == "one") {
+            tip = 1500;
+        } else if (radioVal == "two") {
+            tip = 2000;
+        } else if (radioVal == "three") {
+            tip = 2500;
+        }
+        document.getElementById("tip").innerHTML = tip + "원";
+        document.getElementById("total_price").innerHTML = Number("{{order.total_price}}") + tip + "원";
+
+    })
 </script>
 
 
