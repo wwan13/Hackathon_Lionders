@@ -94,7 +94,7 @@
                 <form method="POST" action="{% url 'order-list' %}">
                     {% csrf_token %}
                     <input type="text" name="period" id="period" value="0" />
-                    <input type="submit" value="확인"/>
+                    <input type="submit" value="확인" />
                 </form>
             </td>
         </tr>
@@ -110,7 +110,8 @@
             <div class="item">주문총액</div>
             <div class="item">주문일자</div>
             <div class="item">배달주소</div>
-            <!-- <div class="item">담당 라이온더스</div> -->
+            <div class="item">담당 라이온더스</div>
+            <div class="item">별점 작성</div>
         </div>
         {% if user.is_authenticated %}
         {% for order in orders %}
@@ -122,7 +123,16 @@
                 <div class="item">{{order.total_price}}</div>
                 <div class="item">{{order.ordered_time}}</div>
                 <div class="item">{{order.short_destination}}</div>
-                <!-- <div class="item">담당 라이온더스</div> -->
+                {% for lionders in order.delivery_set.all %}
+                <div class="item">{{lionders.lionders_info}}</div>
+                {% endfor %}
+                {% for lionders in order.delivery_set.all %}
+                {% if lionders.is_estimated == True %}
+                <div class="item">별점주기 완료</div>
+                {% else %}
+                <div class="item">라이온더스를 평가해주세요</div>
+                {% endif %}
+                {% endfor %}
             </div>
         </a>
         {# endfor #}

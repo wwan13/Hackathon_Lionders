@@ -28,5 +28,17 @@
                 <div class="item"><strong>{{order.total_price}}</strong></div>
             </div>
         </div>
+
+        <div>
+            <div><strong>담당 라이온더스 평가하기</strong></div>
+            {% for lionders in order.delivery_set.all %}
+            {% if lionders.is_estimated == True %}
+            <div class="">별점주기 완료</div>
+            {% else %}
+            <a href="#"><div class="">라이온더스를 평가해주세요</div></a>
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
-    {% endblock %}
+</table>
+{% endblock %}
