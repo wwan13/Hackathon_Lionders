@@ -35,10 +35,15 @@
             {% if lionders.is_estimated == True %}
             <div class="">별점주기 완료</div>
             {% else %}
-            <a href="#"><div class="">라이온더스를 평가해주세요</div></a>
+            <a href="" onclick="estimate_popup();"><div class="">라이온더스를 평가해주세요</div></a>
             {% endif %}
             {% endfor %}
         </div>
     </div>
 </table>
+<script>
+    function estimate_popup(){
+        window.open("{% url 'estimate_lionders' %}", "a", "width=800, height=500")
+    }
+</script>
 {% endblock %}

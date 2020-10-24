@@ -93,7 +93,7 @@
                 <!-- 사용자의 기간 설정 -->
                 <form method="POST" action="{% url 'order-list' %}">
                     {% csrf_token %}
-                    <input type="text" name="period" id="period" value="0" />
+                    <input type="hidden" name="period" id="period" value="0" />
                     <input type="submit" value="확인" />
                 </form>
             </td>
@@ -115,6 +115,7 @@
         </div>
         {% if user.is_authenticated %}
         {% for order in orders %}
+        {% if order.can_delivery == True %}
         {# for item in order.items.all #}
         <a href="{% url 'order-detail' order.id %}">
             <div class="about__items">
@@ -136,6 +137,7 @@
             </div>
         </a>
         {# endfor #}
+        {% endif %}
         {% endfor %}
         {% endif %}
     </div>

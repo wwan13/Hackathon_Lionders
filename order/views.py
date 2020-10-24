@@ -15,6 +15,7 @@ def order_list(request):
     # orders = Order.objects.filter(user_id=request.user.pk).order_by('created_at')
     period = request.POST.get('period', 0)
     period = int(period)
+    print(period)
     current_date = datetime.date.today()
     if period == 0:
         orders = Order.objects.filter(normal_user_info=request.user).order_by('ordered_time')
@@ -153,3 +154,8 @@ def make_order_final(request, order_id):
         current_user.save()
         return redirect('on_going')
     return render(request, 'order_final.html', {'items':items,'order':order,'user':current_user})
+
+
+''' estimate lionders '''
+def estimate_lionders(request):
+    return render(request, "estimate_popup.html")
