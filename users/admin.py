@@ -12,6 +12,7 @@ class ConsumerUserAdmin(UserAdmin):
             "Consumer Profile",
             {
                 "fields": (
+                    "image",
                     "usertype",
                     "name",
                     "address_num",
@@ -37,6 +38,7 @@ class LiondersUserAdmin(UserAdmin):
             "Consumer Profile",
             {
                 "fields": (
+                    "image",
                     "usertype",
                     "name",
                     "address_num",

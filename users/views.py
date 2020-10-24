@@ -77,18 +77,49 @@ def signup_lionders(request):
 def mypage(request):
     if request.user.usertype=="consumer":
         user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
+    elif request.user.usertype=="lionders":
+        user = get_object_or_404(usermodel.Lionders_Users,pk = request.user.id)
+    else:
+        return redirect('home')
+    return render(request,"my_page.html",{'user':user})
+
+
+def update_user_info(request):
+    if request.user.usertype=="consumer":
+        user = get_object_or_404(usermodel.Consumer_Users,pk = request.user.id)
         if request.method=='POST':
-            if request.FILES['image']:
+            if 'image' in request.FILES:
                 request.POST._mutable = True
                 user.image = request.FILES['image']
+                user.phone = request.POST['phone']
+                user.address_num = request.POST['address_num']
+                user.address_road = request.POST['address_road']
                 user.save()
+            else:
+                user.image = request.user.image
+                user.phone = request.POST['phone']
+                user.address_num = request.POST['address_num']
+                user.address_road = request.POST['address_road']
+                user.save()
+            return redirect("mypage")
     elif request.user.usertype=="lionders":
         user = get_object_or_404(usermodel.Lionders_Users,pk = request.user.id)
         if request.method=='POST':
             if request.FILES['image']:
                 request.POST._mutable = True
                 user.image = request.FILES['image']
+                user.phone = request.POST['phone']
+                user.address_num = request.POST['address_num']
+                user.address_road = request.POST['address_road']
                 user.save()
+            else:
+                user.image = request.user.image
+                user.phone = request.POST['phone']
+                user.address_num = request.POST['address_num']
+                user.address_road = request.POST['address_road']
+                user.save()
+            return redirect("mypage")
     else:
         return redirect('home')
-    return render(request,"my_page.html",{'user':user})
+
+    return render(request,"update_user_info.html",{'user':user,})

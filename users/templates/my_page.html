@@ -5,57 +5,62 @@
 {% block content %}
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
 <body>
-<div class="main-content">
-    <div class="container mt-7">
-        <!-- Table -->
-        <div class="row">
-            <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
-                <div class="card card-profile shadow">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-3 order-lg-2">
-                            <div class="card-profile-image">
+    <div class="main-content">
+        <div class="container mt-7">
+            <!-- Table -->
+            <div class="row">
+                <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
+                    <div class="card card-profile shadow">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 order-lg-2">
+                                <div class="card-profile-image">
 
-                                {% if not user.image %}
-                                <img src="https://demos.creative-tim.com/argon-dashboard/assets/img/theme/team-4.jpg"
-                                     class="rounded-circle">
-                                {% endif %}
+                                    {% if not user.image %}
+                                    <img src="https://demos.creative-tim.com/argon-dashboard/assets/img/theme/team-4.jpg"
+                                        class="rounded-circle">
+                                    {% endif %}
 
-                                {% if user.image %}
-                                <img src="{{ user.image.url }}" class="rounded-circle">
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                    </div>
-                    <div class="card-body pt-0 pt-md-4">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-
+                                    {% if user.image %}
+                                    <img src="{{ user.image.url }}" class="rounded-circle">
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center">
-                            <div class="filebox">
-                                <form method="POST" action="{% url 'mypage' %}" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                    <input class="btn btn-sm btn-info mr-4" type="file" name="image" multiple>
-                                    <input class="btn btn-sm btn-info mr-4" type="submit" value="업로드">
-                                </form>
-                            <br>
+                        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                        </div>
+                        <div class="card-body pt-0 pt-md-4">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card-profile-stats d-flex justify-content-center mt-md-5">
 
+                                    </div>
+                                </div>
                             </div>
-                            <h3>
-                                {{ user.name }}<span class="font-weight-light"></span>
-                            </h3>
-                            <div class="h5 font-weight-300">
-                                [{{ user.address_num }}] {{user.address_road}}, {{user.address_detail}}<br>
-                                {{ user.phone }}<br>
-                                {% if user.usertype == 'lionders' %}
-                                {{user.grade}}
-                                {% endif %}
+                            <div class="text-center">
+                                <div class="filebox">
+
+
+                                </div>
+                                <h3>
+                                    {{ user.name }}<span class="font-weight-light"></span>
+                                </h3>
+                                <div class="h5 font-weight-300">
+                                    [{{ user.address_num }}] {{user.address_road}}, {{user.address_detail}}<br>
+                                    {{ user.phone }}<br>
+                                    {% if user.usertype == 'lionders' %}
+                                    {{user.grade}}
+                                    {% elif user.usertype == 'consumer' %}
+                                    {% if user.is_pro == True %}
+                                    구독중
+                                    {% else %}
+                                    <a class="update__link" href="{% url 'what_is_pro' %}">구독하기</a>
+                                    {% endif %}
+                                    {% endif %}
+                                </div>
+                                <a class="update__link" href="{% url 'update_user_info' %}">회원정보 수정</a>
+                                <br>
                             </div>
                         </div>
                     </div>
@@ -63,6 +68,5 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 {% endblock %}

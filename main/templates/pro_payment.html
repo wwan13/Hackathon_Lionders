@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% static 'css/order_final.css' %}{% endblock %}
+{% block title %}delivery{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="payment__box">
+
+        <div class="title">결제</div>
+
+
+        <div class="box1">
+            <div class="left__box">
+                <div>상품명</div>
+            </div>
+            <div class="right__box">
+                <div id="total_price">라이온더스 구독 서비스</div>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="left__box">
+                <div>상품금액</div>
+            </div>
+            <div class="right__box">
+                <div id="total_price">9,900원</div>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="left__box">
+                <div>결제수단</div>
+            </div>
+            <div class="right__box">
+                <label><input class="check" name="payment" type="radio" value="credit"> 신용카드</label>
+                <label><input class="check" name="payment" type="radio" value="no"> 무통장입급</label>
+                <label><input class="check" name="payment" type="radio" value="kakaopay"> 카카오페이</label>
+                <label><input class="check" name="payment" type="radio" value="toss"> 토스</label>
+                <label><input class="check" name="payment" type="radio" value="etc"> 기타</label>
+            </div>
+        </div>
+        <!--  -->
+
+    </div>
+
+    <div class="agree__box">
+        <div class="agree">
+            <label><input class="agree__check" type="checkbox"> 개인정보 제3자 제공 동의(필수)</label> <br>
+            <label><input class="agree__check" type="checkbox"> 위 상품 정보 및 거래 조건을 확인하였으며, 구매 진행에
+                동의합니다.(필수)</label><br>
+            <label><input class="agree__check" type="checkbox"> 광고성 문자, 이메일 수신에 동의합니다.(선택)</label>
+        </div>
+    </div>
+
+
+    <div class="btnbox">
+        <a href="{% url 'make_pro' %}" class="total__price">결제하기</a>
+    </div>
+    </form>
+</div>
+<!-- <script src="{% static 'js/order_final.js' %}"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script>
+    $(function () {
+        $("#postcodify_search_button").postcodifyPopUp();
+        // 아마 여기 안에서 속성 중에 선택 관련 속성에 콜백 넣어줘야 할듯
+        // 강의 때 배운게 템플릿을 이용하는 거지만 api 서버를 구현하는게 좋음
+        // drf or 순수 django + front (뭐든)
+        // 코드 관리도 더 쉽고 ui 관리하기도 더 편함
+        // 물론 학습할 내용이 조금 더 많아지긴 할듯
+        // 공부할 내용이 많지만 앞으로 굉장히 중요한 내용이라고 생각함
+        // 템플릿 엔진을 실무에서 쓰는 경우는 많이 없음
+        // 시간이 된다면 시도해보면 좋을 것 같음 (다음꺼부터)
+    });
+</script>
+
+
+{% endblock %}

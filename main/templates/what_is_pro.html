@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% static 'css/what_is_pro.css' %}{% endblock %}
+{% block title %}delivery{% endblock %}
+{% block content %}
+
+<div class="container">
+
+    <div class="qna">
+        <div class="que text">
+            <div class="margin">Q. 구독 하면 뭐가 좋아요?</div>
+        </div>
+        <div class="answer text">
+            <div class="box">
+                <div class="margin_top margin_right right">상급 라이더들을</div>
+                <div class="margin_bottom right">최단시간에 매치하실 수 있어요 ! .A</div>
+            </div>
+        </div>
+        <div class="que text">
+            <div class="margin left">Q. 얼마에용?</div>
+        </div>
+        <div class="answer text">
+            <div class="margin left">매달 99,000원에 파격적인 가격! .A</div>
+        </div>
+    </div>
+    <div class="box__">
+        <a class="link" href="{% url 'pro_payment' %}">결제할꺼에요?</a>
+    </div>
+    <img src="{% static 'image/side1.png' %}" alt="side1.png">
+
+</div>
+
+{% endblock %}
