@@ -115,7 +115,7 @@
         </div>
         {% if user.is_authenticated %}
         {% for order in orders %}
-        {% if order.can_delivery == True %}
+        {# if order.can_delivery == True #}
         {# for item in order.items.all #}
         <a href="{% url 'order-detail' order.id %}">
             <div class="about__items">
@@ -137,7 +137,7 @@
             </div>
         </a>
         {# endfor #}
-        {% endif %}
+        {# endif #}
         {% endfor %}
         {% endif %}
     </div>

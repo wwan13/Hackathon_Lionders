@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, request
 from .models import Item, Order
 from delivery.models import Delivery
+from users.models import Lionders_Users
 from .forms import OrderForm, UpdateOrderForm, ItemForm
 from users import models as usermodel
 import datetime
@@ -15,7 +16,6 @@ def order_list(request):
     # orders = Order.objects.filter(user_id=request.user.pk).order_by('created_at')
     period = request.POST.get('period', 0)
     period = int(period)
-    print(period)
     current_date = datetime.date.today()
     if period == 0:
         orders = Order.objects.filter(normal_user_info=request.user).order_by('ordered_time')
@@ -30,7 +30,8 @@ def order_list(request):
 
 def order_detail(request, order_id):
     order = get_object_or_404(Order, pk=order_id)
-    return render(request, 'order_detail.html', {'order':order})
+    delivery = order.delivery_set.all()[0]
+    return render(request, 'order_detail.html', {'order':order, 'delivery':delivery})
 
 # item을 담아서 order_sheet를 만드는 함수
 def order(request):
@@ -159,5 +160,23 @@ def make_order_final(request, order_id):
 
 
 ''' estimate lionders '''
-def estimate_lionders(request):
-    return render(request, "estimate_popup.html")
+def estimate_lionders(request, order_id, lionders_id):
+    lionders = get_object_or_404(Lionders_Users, pk=lionders_id)
+    order = get_object_or_404(Order, pk=order_id)
+    if request.method == 'POST':
+        point = request.POST.get('estimate', 0.0)
+        point = float(point)
+        rating_count = lionders.rating_count
+        rating = lionders.rating
+
+        rating_count = rating_count + 1
+        rating = (rating + point) / rating_count
+
+        lionders.rating_count = rating_count
+        lionders.rating = rating
+        lionders.save()
+        delivery = order.delivery_set.all()[0]
+        delivery.is_estimated = True
+        delivery.save()
+        return render(request, "estimate_complete.html")
+    return render(request, "estimate_popup.html", {'lionders':lionders, 'order':order})

@@ -13,5 +13,6 @@ urlpatterns = [
     path('add_item/<int:order_id>/<int:item_id>',views.add_item,name='add_item'),
     path('remove_item/<int:order_id>/<int:item_id>',views.remove_item,name='remove_item'),
     path('delete_item/<int:item_id>',views.delete_item,name='delete_item'),
-    path('estimate/',views.estimate_lionders,name='estimate_lionders'),
+    path('estimate/<int:order_id>/<int:lionders_id>',views.estimate_lionders,name='estimate_lionders'),
+    path('estimate/complete/',views.estimate_lionders,name='estimate_complete'),
 ]
