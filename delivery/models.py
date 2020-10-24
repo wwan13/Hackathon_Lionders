@@ -12,3 +12,4 @@ class Delivery(models.Model):
     estimated_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     # updated_at = models.DateTimeField(auto_now=True)
     delivery_tips = models.IntegerField(null=True, default=0)
+    is_estimated = models.BooleanField(null=False, default=False)
