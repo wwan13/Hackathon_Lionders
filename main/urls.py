@@ -21,6 +21,9 @@ from django.conf import settings
 urlpatterns = [
     path('',views.home,name='home'),
     path('on_going',views.on_going,name='on_going'),
+    path('what_is_pro',views.what_is_pro,name='what_is_pro'),
+    path('make_pro',views.make_pro,name='make_pro'),
+    path('pro_payment',views.pro_payment,name='pro_payment'),
     path('detail',views.detail,name='detail'),
     path('require_login',views.require_login,name='require_login'),
     path('create_objs',views.create_objs,name='create_objs'),

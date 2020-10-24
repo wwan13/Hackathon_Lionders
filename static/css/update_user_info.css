@@ -1,0 +1,150 @@
+:root {
+    --lotte-red: #C83B2B;
+    --lotte-gray: #54585A;
+    --lotte-black: #000000;
+    --lotte-silver: #8F9090;
+    --lotte-shampagne-gold: #85766B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container {
+    display: flex;
+    overflow: hidden;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+}
+
+.delivery__box {
+    width: 90%;
+    margin-top: 70px;
+    /* background-color: antiquewhite; */
+}
+
+.box1 {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+.box2 {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+.box3 {
+    display: flex;
+    width: 100%;
+    height: 140px;
+    border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+.title {
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    color: rgb(130, 130, 130);
+    border-bottom: 3px solid rgb(215, 215, 215);
+}
+
+.left__box {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(244, 244, 244);
+}
+
+.left__box div {
+    font-weight: bolder;
+}
+
+.right__box {
+    display: flex;
+    align-items: center;
+}
+
+.input__text1 {
+    margin-left: 30px;
+    width: 120px;
+    height: 30px;
+    border: 2px solid rgb(243, 243, 243);
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+
+.input__text2 {
+    margin-left: 30px;
+    width: 230px;
+    height: 30px;
+    border: 2px solid rgb(243, 243, 243);
+    padding: 0px 5px;
+    border-radius: 5px;
+}
+
+.address__search .input__text1 {
+    margin-bottom: 5px;
+}
+
+.right__box_ {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.file__ {
+    margin-left: 32px;
+}
+
+.search_btn {
+    width: 70px;
+    height: 28px;
+    border: 2px solid var(--lotte-silver);
+    background-color: white;
+    color: var(--lotte-silver);
+    border-radius: 5px;
+    margin-left: 4px;
+}
+
+.total__price:hover {
+    color: var(--lotte-red);
+    background-color: #ffffff;
+    border: 1px solid var(--lotte-red);
+}
+
+.btnbox {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.total__price {
+    display: flex;
+    width: 95%;
+    height: 50px;
+    border: none;
+    background-color: var(--lotte-red);
+    color: #f1f1f1;
+    outline: none;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 17px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    border-radius: 5px;
+    transition: .5s;
+    justify-content: center;
+    align-items: center;
+}
