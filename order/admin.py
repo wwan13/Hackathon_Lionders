@@ -16,12 +16,13 @@ class OrderAdmin(admin.ModelAdmin):
                 "fields": (
                     "normal_user_info",
                     "total_price",
-                    "destination",
+                    "destination_road",
                     "items",
+                    "grade_limit",
                 )
             },
         ),
     )
     
     filter_horizontal = ("items",)
-    list_display = ("normal_user_info","total_price","destination")
+    list_display = ("normal_user_info","total_price","destination_road","grade_limit")
