@@ -32,7 +32,6 @@
         <div>
             <div><strong>담당 라이온더스 평가하기</strong></div>
             {# for lionders in order.delivery_set.all #}
-            {{delivery.is_estimated}}
             {% if delivery.is_estimated == True %}
             <div class="">별점주기 완료</div>
             {% else %}

@@ -115,7 +115,7 @@
         </div>
         {% if user.is_authenticated %}
         {% for order in orders %}
-        {# if order.can_delivery == True #}
+        {% if order.doing_delivery == True %}
         {# for item in order.items.all #}
         <a href="{% url 'order-detail' order.id %}">
             <div class="about__items">
@@ -125,19 +125,23 @@
                 <div class="item">{{order.ordered_time}}</div>
                 <div class="item">{{order.short_destination}}</div>
                 {% for lionders in order.delivery_set.all %}
+                {% if forloop.first %}
                 <div class="item">{{lionders.lionders_info}}</div>
+                {% endif %}
                 {% endfor %}
                 {% for lionders in order.delivery_set.all %}
+                {% if forloop.first %}
                 {% if lionders.is_estimated == True %}
                 <div class="item">별점주기 완료</div>
                 {% else %}
                 <div class="item">라이온더스를 평가해주세요</div>
                 {% endif %}
+                {% endif %}
                 {% endfor %}
             </div>
         </a>
         {# endfor #}
-        {# endif #}
+        {% endif %}
         {% endfor %}
         {% endif %}
     </div>
