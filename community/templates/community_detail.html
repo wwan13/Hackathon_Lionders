@@ -1,52 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% static 'css/community.css' %}{% endblock %}
+{% block style %}{% static 'css/community_detail.css' %}{% endblock %}
 {% block title %}community{% endblock %}
 {% block content %}
 
-
-<div class="entirebox">
-    <h1 class="title">커뮤니티</h1>
-
-    <div class="totalbox">
-        <div class="box__title"></div>
-
-        <h3>제목: {{ community.title }}</h3>
-        <p>작성자: {{ community.user }}</p>
-        <p>작성일: {{ community.created_at }}</p>
-        <p>내용: </p>
-        <p>{{ community.content|safe }}</p>
-
+<img class="community-image" src="{% static 'image/community.gif' %}" alt="community.gif">
+<div class="detail-section">
+    <div class="content-box">
+        <a class="list" href="{% url 'community-list' %}">목록으로 가기></a>
+        <h1>{{ community.title }}</h1>
+        <div class="box">
+            <p>작성자: {{ community.user }}</p>
+            <p>작성일: {{ community.created_at }}</p>
+        </div>
+        <div class="border"></div>
+        <div class="content">
+            <p>{{ community.content|safe }}</p>
+            {% if community.user == request.user %}
+            <a class="detail-btn" href="{% url 'community-update' community.id %}">수정</a>
+            <a class="detail-btn" href="{% url 'community-delete' community.id %}">삭제</a>
+            {% endif %}
+        </div>
     </div>
-    <a href="{% url 'community-list' %}">목록으로 가기</a>
-    {% if community.user == request.user %}
-    <a href="{% url 'community-update' community.id %}">수정</a>
-    <a href="{% url 'community-delete' community.id %}">삭제</a>
-    {% endif %}
 
-    {% if user.is_authenticated %}
-    <form method="POST" action="{% url 'create_comment' community.id %}">
-        {% csrf_token %}
-        <input type="text" name="comment">
-        <input class="" type="submit" value="확인">
-    </form>
-    {% endif %}
+    <div class="comment">
+        <p>댓글달기</p>
+        {% if user.is_authenticated %}
+        <form class="cooment-form" method="POST" action="{% url 'create_comment' community.id %}">
+            {% csrf_token %}
+            <input class="comment-input" type="text" name="comment">
+            <input class="comment-submit" type="submit" value="확인">
+        </form>
+        {% endif %}
 
-    <hr>
-    {% for comment in community.comment_set.all %}
-    <div class="">
-        {{ comment.author }} 🔊 {{ comment.content|linebreaksbr }}
+        {% for comment in community.comment_set.all %}
+        <div class="user-id">
+            {{ comment.author }} 🔊
+        </div>
+        <div class="user-comment">{{ comment.content|linebreaksbr }}</div>
         {% if user == comment.author %}
         <div class="">
             <a href="{% url 'delete_comment' community.id comment.id %}" class="text-right">
-                <button class="">삭제</button>
+                <button class="comment-submit2">삭제</button>
             </a>
         </div>
         {% endif %}
-        <p class="">{{ comment.created_at }}</p>
+        <sub class="comment-date">{{ comment.created_at }}</sub>
+        <hr>
+        {% endfor %}
     </div>
-    <hr>
-    {% endfor %}
+
 </div>
 
 {% endblock %}
