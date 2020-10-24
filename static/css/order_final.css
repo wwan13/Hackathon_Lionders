@@ -276,3 +276,8 @@ body {
     color: rgb(130, 130, 130);
     border-bottom: 3px solid rgb(215, 215, 215);
 }
+
+.about {
+    font-size: 13px;
+    color: var(--lotte-red);
+}

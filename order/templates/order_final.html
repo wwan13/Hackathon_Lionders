@@ -33,7 +33,7 @@
 
             <div class="box1">
                 <div class="left__box">
-                    <div>받는분</div>
+                    <div>*받는분</div>
                 </div>
                 <div class="right__box">
                     <input type="text" class="input__text1" value="{{ user.name }}">
@@ -42,7 +42,7 @@
             <!--  -->
             <div class="box2">
                 <div class="left__box">
-                    <div>연락처</div>
+                    <div>*연락처</div>
                 </div>
                 <div class="right__box">
                     <input type="text" class="input__text2" value="{{ user.phone }}">
@@ -51,7 +51,7 @@
             <!--  -->
             <div class="box2">
                 <div class="left__box">
-                    <div>집전화</div>
+                    <div>집전화번호</div>
                 </div>
                 <div class="right__box">
                     <input type="text" class="input__text2" placeholder="ex)02-1111-2222">
@@ -60,7 +60,7 @@
             <!--  -->
             <div class="box3">
                 <div class="left__box">
-                    <div>주소</div>
+                    <div>*주소</div>
                 </div>
                 <div class="right__box_">
                     <div class="address__search">
@@ -76,12 +76,12 @@
             <!--  -->
             <div class="box1">
                 <div class="left__box">
-                    <div>라이온더스 선택</div>
+                    <div>*라이온더스 선택</div>
                 </div>
                 <div class="right__box">
-                    <input class="check" name="lionders" type="radio" value="초급자"> 초급자
-                    <input class="check" name="lionders" type="radio" value="중급자"> 중급자
-                    <input class="check" name="lionders" type="radio" value="고급자"> 상급자
+                    <label><input class="check" name="lionders" type="radio" value="초급자"> 초급자</label>
+                    <label><input class="check" name="lionders" type="radio" value="중급자"> 중급자</label>
+                    <label><input class="check" name="lionders" type="radio" value="고급자"> 상급자</label>
                 </div>
             </div>
 
@@ -118,6 +118,16 @@
                     <div class="right__box">
                         <div id="tip"> </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="box1">
+                <div class="left__box">
+                    <div>재활용용기 사용</div>
+                </div>
+                <div class="right__box">
+                    <label><input class="check" name="recycle" type="radio" value="use"> 사용</label>
+                    <div class="about">* 2000원 추가로 환경을 지켜보세요!</div>
                 </div>
             </div>
 
@@ -178,9 +188,10 @@
     });
 </script>
 <script>
-    $("input:radio[name=lionders]").click(function () {
+    $("input:radio[name=lionders]").off().click(function () {
         var radioVal = $('input[name="lionders"]:checked').val();
         var tip = 0
+        var recycle = 0
         if (radioVal == "초급자") {
             tip = 1500;
         } else if (radioVal == "중급자") {
@@ -189,8 +200,9 @@
             tip = 2500;
         }
         document.getElementById("tip").innerHTML = tip + "원";
-        document.getElementById("total_price").innerHTML = Number("{{order.total_price}}") + tip + "원";
-
+        document.getElementById("total_price").innerHTML = Number("{{order.total_price}}") + recycle + tip +
+            "원";
+        return tip;
     })
 </script>
 
