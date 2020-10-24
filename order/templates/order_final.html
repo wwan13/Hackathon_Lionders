@@ -5,64 +5,177 @@
 {% block content %}
 
 <div class="container">
-    <div class="pricing-table table1">
-        <div class="pricing-header">
+    <img class="top__image" src="{% static 'image/order_delivery.gif' %}" alt="order_delivery.gif">
+    <div class="item__box">
 
-            <div class="price" id="total_price">{{order.total_price}}<span> 원</span></div>
-            <div class="title">Order List</div>
+        <div class="title__">
+            <div>주문정보</div>
+            <a href="#"> 쇼핑 계속하기</a>
         </div>
-        <ul class="pricing-list">
-            {% for item in items %}
-            <li>
-                <string>{{ item.item_name }}</string>
-                {{ item.store }}
-            </li>
-            <div class="border"></div>
-            {% endfor %}
-        </ul>
-        <form class="order_sheet" method="POST" action="{% url 'order_final' order.id %}">
-            {% csrf_token %}
-            <div class="address_search">
-                <input class="text__1 postcodify_postcode5" type="text" name="destination"
-                    value="{{ user.address_num }}" required>
-                <button form="#" class="postcodify_search_button" id="postcodify_search_button">검색</button>
+
+        {% for item in items %}
+        <div class="item__info">
+            <img src="{% static 'image/go_to_lotteon.png' %}" alt="go_to_lotteon.png">
+            <div class="about__item">
+                <div class="item__text">{{ item.item_name }}</div>
+                <div class="item__text">{{ item.store }}</div>
+                <div class="item__text">{{ item.price }}원</div>
             </div>
-
-            <div class="address">
-                <input class="text postcodify_address" type="text" name="destination" value="{{ user.address_road }}"
-                    required>
-                <input class="text postcodify_details" type="text" name="" value="{{ user.address_detail }}" required>
-            </div>
-
-            <div class="select">
-                <input type="radio" id="초급자" name="grade_limit" value="초급자" checked>
-                <label for="초급자">초급자(배달팁1500원)</label>
-                <input type="radio" id="중급자" name="grade_limit" value="중급자">
-                <label for="중급자">중급자(배달팁2000원)</label>
-                <input type="radio" id="고급자" name="grade_limit" value="고급자">
-                <label for="고급자">고급자(배달팁2500원)</label>
-            </div>
-            <input type="submit" class="submit" id="order_submit" value="Order">
-
-
-        </form>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-        <script>
-            $(function () {
-                $("#postcodify_search_button").postcodifyPopUp();
-                // 아마 여기 안에서 속성 중에 선택 관련 속성에 콜백 넣어줘야 할듯
-                // 강의 때 배운게 템플릿을 이용하는 거지만 api 서버를 구현하는게 좋음
-                // drf or 순수 django + front (뭐든)
-                // 코드 관리도 더 쉽고 ui 관리하기도 더 편함
-                // 물론 학습할 내용이 조금 더 많아지긴 할듯
-                // 공부할 내용이 많지만 앞으로 굉장히 중요한 내용이라고 생각함
-                // 템플릿 엔진을 실무에서 쓰는 경우는 많이 없음
-                // 시간이 된다면 시도해보면 좋을 것 같음 (다음꺼부터)
-            });
-        </script>
+        </div>
+        {% endfor %}
     </div>
+
+    <div class="delivery__box">
+
+        <div class="title">배달정보</div>
+
+        <div class="box1">
+            <div class="left__box">
+                <div>받는분</div>
+            </div>
+            <div class="right__box">
+                <input type="text" class="input__text1" value="{{ user.name }}">
+            </div>
+        </div>
+        <!--  -->
+        <div class="box2">
+            <div class="left__box">
+                <div>연락처</div>
+            </div>
+            <div class="right__box">
+                <input type="text" class="input__text2" value="{{ user.phone }}">
+            </div>
+        </div>
+        <!--  -->
+        <div class="box2">
+            <div class="left__box">
+                <div>집전화</div>
+            </div>
+            <div class="right__box">
+                <input type="text" class="input__text2" placeholder="ex)02-1111-2222">
+            </div>
+        </div>
+        <!--  -->
+        <div class="box3">
+            <div class="left__box">
+                <div>주소</div>
+            </div>
+            <div class="right__box_">
+                <div class="address__search">
+                    <input type="text" class="input__text1 postcodify_postcode5" value="{{ user.address_num }}">
+                    <input form="#" type="submit" class="search_btn" id="postcodify_search_button" value="검색">
+                </div>
+                <input type="text" class="input__text2 postcodify_address" value="{{ user.address_road }}">
+                <input type="text" class="input__text2 postcodify_details" value="{{ user.address_detail }}">
+            </div>
+        </div>
+        <!--  -->
+        <div class="box1">
+            <div class="left__box">
+                <div>라이온더스 선택</div>
+            </div>
+            <div class="right__box">
+                <input class="check" name="lionders" type="radio" value="one"> 초급자
+                <input class="check" name="lionders" type="radio" value="two"> 중급자
+                <input class="check" name="lionders" type="radio" value="three"> 상급자
+                <button type="button" name="button" id="radioButton">get radio Value</button>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="left__box">
+                <div>배송메모</div>
+            </div>
+            <div class="right__box">
+                <input type="text" class="input__text2">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="payment__box">
+
+        <div class="title">결제</div>
+
+        <div class="two__boxes">
+            <div class="box__">
+                <div class="left__box">
+                    <div>상품금액</div>
+                </div>
+                <div class="right__box">
+                    <div>{{ order.total_price }}원</div>
+                </div>
+            </div>
+
+            <div class="box__">
+                <div class="left__box">
+                    <div>배송비</div>
+                </div>
+                <div class="right__box">
+                    <div id="tip"> </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="left__box">
+                <div>결제금액</div>
+            </div>
+            <div class="right__box">
+                <div>12500원</div>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="left__box">
+                <div>결제수단</div>
+            </div>
+            <div class="right__box">
+                <label><input class="check" name="payment" type="radio" value="credit"> 신용카드</label>
+                <label><input class="check" name="payment" type="radio" value="no"> 무통장입급</label>
+                <label><input class="check" name="payment" type="radio" value="kakaopay"> 카카오페이</label>
+                <label><input class="check" name="payment" type="radio" value="toss"> 토스</label>
+                <label><input class="check" name="payment" type="radio" value="etc"> 기타</label>
+            </div>
+        </div>
+        <!--  -->
+
+    </div>
+
+    <div class="agree__box">
+        <div class="agree">
+            <label><input class="agree__check" type="checkbox"> 개인정보 제3자 제공 동의(필수)</label> <br>
+            <label><input class="agree__check" type="checkbox"> 위 상품 정보 및 거래 조건을 확인하였으며, 구매 진행에 동의합니다.(필수)</label><br>
+            <label><input class="agree__check" type="checkbox"> 광고성 문자, 이메일 수신에 동의합니다.(선택)</label>
+        </div>
+    </div>
+
+
+
+    <div class="btnbox">
+        <a class="total__price" href="#">
+            결제하기
+        </a>
+    </div>
+
 </div>
+<script src="{% static 'js/order_final.js' %}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script>
+    $(function () {
+        $("#postcodify_search_button").postcodifyPopUp();
+        // 아마 여기 안에서 속성 중에 선택 관련 속성에 콜백 넣어줘야 할듯
+        // 강의 때 배운게 템플릿을 이용하는 거지만 api 서버를 구현하는게 좋음
+        // drf or 순수 django + front (뭐든)
+        // 코드 관리도 더 쉽고 ui 관리하기도 더 편함
+        // 물론 학습할 내용이 조금 더 많아지긴 할듯
+        // 공부할 내용이 많지만 앞으로 굉장히 중요한 내용이라고 생각함
+        // 템플릿 엔진을 실무에서 쓰는 경우는 많이 없음
+        // 시간이 된다면 시도해보면 좋을 것 같음 (다음꺼부터)
+    });
+</script>
 
 
 {% endblock %}
