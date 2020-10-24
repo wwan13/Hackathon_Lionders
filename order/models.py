@@ -27,11 +27,10 @@ class Order(models.Model):
     destination_detail = models.CharField(max_length=100, blank=True)
     is_complete = models.BooleanField(default=False)
     can_delivery = models.BooleanField(default=False)
+    doing_delivery = models.BooleanField(default=False) # 배달이 잡혔는지의 여부
 
     def __str__(self):
         return self.destination_road
 
     def short_destination(self):
         return self.destination_road[:20]
-
-    
