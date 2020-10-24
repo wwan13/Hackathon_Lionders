@@ -15,7 +15,7 @@
 
         {% for item in items %}
         <div class="item__info">
-            <img src="{% static 'image/go_to_lotteon.png' %}" alt="go_to_lotteon.png">
+            <img src="{{ item.image.url }}">
             <div class="about__item">
                 <div class="item__text">{{ item.item_name }}</div>
                 <div class="item__text">{{ item.store }}</div>
