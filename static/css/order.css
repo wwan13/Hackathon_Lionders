@@ -8,6 +8,7 @@
     background: #fff;
     color: #434343;
     text-align: center;
+    margin-top:5px;
 }
 .inner{
     max-width: 1200px;
@@ -28,7 +29,7 @@
 }
 .col{
     flex: 33.33%;
-    max-width: 25%;
+    max-width: 23%;
     box-sizing: border-box;
 
     box-shadow: 0 0 3px 1px lightgray;
