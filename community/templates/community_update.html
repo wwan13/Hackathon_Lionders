@@ -4,22 +4,18 @@
 {% block title %}community{% endblock %}
 {% block content %}
 
-<div class="entirebox">
-    <h1 class="title">커뮤니티</h1>
-
-    <div class="totalbox">
-        <div class="box__title">글 수정</div>
-
-        <div class="about__items">
-            <form method="POST" enctype="multipart/form-data" novalidate>
-                {% csrf_token %}
-                {{ community_form.media }}
-                {{ community_form.as_p }}
-        
-                <input class="" type="submit" value="제출하기">
-            </form>
-        <div>
-    </div>
+<div class="contact-section">
+    <h1>글 수정하</h1>
+    <div class="border"></div>
+    <form class="contact-form" form method="POST" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {{ community_form.media }}
+        {{ community_form.title }}
+        {{ community_form.content }}
+        <input class="contact-form-btn" type="submit" value="제출하기">
+    </form>
 </div>
+
+
 
 {% endblock %}

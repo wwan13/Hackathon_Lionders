@@ -18,8 +18,7 @@
                                 <div class="card-profile-image">
 
                                     {% if not user.image %}
-                                    <img src="https://demos.creative-tim.com/argon-dashboard/assets/img/theme/team-4.jpg"
-                                        class="rounded-circle">
+                                    <img class="rounded-circle" src="{% static 'image/side1.png' %}" alt="side1.png">
                                     {% endif %}
 
                                     {% if user.image %}
