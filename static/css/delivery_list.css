@@ -1,19 +1,24 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #fff;
+    margin-top: 30px;
+    margin-bottom: 60px;
 }
-.box{
+
+.box {
     width: 65vw;
 }
-.box h2{
+
+.box h2 {
     color: #fff;
     height: 80px;
     background: #C83B2B;
@@ -23,27 +28,31 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.box ul{
+
+.box ul {
     position: relative;
     background: #fff;
 }
-.box ul li{
+
+.box ul li {
     list-style: none;
     padding: 10px;
     width: 100%;
     height: 150px;
     background: #fff;
-    box-shadow: 0 5px 25px rgba(0,0,0,.2);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
     transition: transform 0.5s;
 }
-.box ul li:hover{
+
+.box ul li:hover {
     transform: scale(1.1);
     z-index: 100;
     background: #C83B2B;
-    box-shadow: 0 5px 25px rgba(0,0,0,.2);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
     color: #fff;
 }
-.box ul li span{
+
+.box ul li span {
     width: 20px;
     height: 20px;
     text-align: center;
@@ -57,28 +66,31 @@
     font-weight: 600;
     transform: translateY(-2px);
 }
-.box ul li:hover span{
+
+.box ul li:hover span {
     background: #fff;
     color: #C83B2B;
 }
 
-.btn{
+.btn {
     border: 1px solid #C83B2B;
     magin-bottom: 0;
     background: none;
     padding: 10px 15px;
     font-size: 15px;
     cursor: pointer;
-    color:black;
+    color: black;
     transition: 0.8s;
     position: relative;
     overflow: hidden;
 }
-.btn:hover{
+
+.btn:hover {
     color: #C83B2B;
     background-color: #fff;
 }
-.btn::before{
+
+.btn::before {
     content: "";
     position: absolute;
     left: 0;
@@ -90,6 +102,7 @@
     top: 0;
     border-radius: 0 0 50% 50%;
 }
-.btn1:hover::before{
+
+.btn1:hover::before {
     height: 180%;
 }

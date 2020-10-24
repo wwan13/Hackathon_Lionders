@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라이온더스 - 로그인</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+
+    <a class="login__logo" href="{% url 'home' %}">
+        <img class="login__logo" src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
+    </a>
+
+    <form class="loginbox" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <h1 class="loginbox__title">로그인</h1>
+
+        <div class="loginbox__textbox">
+            <input type="text" name="username" required>
+            <span data-placeholder="Username"></span>
+        </div>
+
+        <div class="loginbox__textbox">
+            <input type="password" name="password" required>
+            <span data-placeholder="Password"></span>
+        </div>
+
+        <input type="submit" class="loginbox__btn" value="Login">
+
+        <div class="loginbox__text">
+            아직 계정이 없으신가요? <br><a href="{% url 'usertype' %}">라이온더스 시작하기</a>
+        </div>
+        <div class="error__message">
+            아이디 혹은 비밀번호가 틀립니다.
+        </div>
+    </form>
+
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
+
+</html>

@@ -38,13 +38,14 @@
             </div>
 
             <div class="navbar__menu">
-                <a href="{% url 'community-list' %}">커뮤니티</a>
                 {% if user.is_authenticated %}
                 {% if user.usertype == 'lionders' %}
+                <a href="{% url 'community-list' %}">커뮤니티</a>
                 <a href="{% url 'delivery-list' %}">배달조회</a>
                 {% elif user.usertype == 'consumer' %}
                 <a href="{% url 'order' %}">주문</a>
                 {% elif user.is_superuser %}
+                <a href="{% url 'community-list' %}">커뮤니티</a>
                 <a href="{% url 'create_objs' %}">DB 생성하기</a>
                 {% endif %}
                 {% endif %}
