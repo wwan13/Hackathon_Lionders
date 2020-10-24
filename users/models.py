@@ -42,7 +42,8 @@ class Lionders_Users(Users):
     )
     
     grade = models.CharField(max_length = 12, choices=GRADE_CHOICES)
-    #rating = models.ManyToManyField(Consumer_Users)
+    rating = models.FloatField(default=0.0)
+    rating_count = models.PositiveIntegerField(default=0)
 
     class Meta:
         verbose_name = "Lionders User"
