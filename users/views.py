@@ -16,9 +16,24 @@ def login(request):
             auth.login(request, user)
             return redirect('home')
         else:
-            return render(request, 'login.html', {'error' : 'username or password is incorrect.'})
+            return redirect('login_fail')
     else:
         return render(request, 'login.html')
+
+def login_fail(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            return redirect('login_fail')
+    else:
+        return render(request, 'login_fail.html')
 
 def usertype(request):
     return render(request,"usertype.html")

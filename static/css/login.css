@@ -137,3 +137,10 @@
     border: 1px solid var(--lotte-red);
     color: var(--lotte-red);
 }
+
+.error__message {
+    margin-top: 25px;
+    font-size: 13px;
+    color: var(--lotte-red);
+    text-align: center;
+}
