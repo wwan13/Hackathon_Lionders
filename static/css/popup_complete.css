@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'LotteMartDream';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+}
+
+:root {
+    --lotte-red: #C83B2B;
+    --lotte-gray: #54585A;
+    --lotte-black: #000000;
+    --lotte-silver: #8F9090;
+    --lotte-shampagne-gold: #85766B;
+}
+
+.lottemartdream * {
+    font-family: 'LotteMartDream', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'LotteMartDream';
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 350px;
+    height: 350px;
+}
+
+.text {
+    font-size: 30px;
+}
+
+.btn {
+    background-color: var(--lotte-red);
+    width: 90%;
+    height: 40px;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    border-radius: 4px;
+    transition: .4s;
+}
+
+.btn:hover {
+    color: var(--lotte-red);
+    border: 1px solid var(--lotte-red);
+    background-color: white;
+}
