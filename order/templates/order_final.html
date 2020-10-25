@@ -10,7 +10,7 @@
 
         <div class="title__">
             <div>주문정보</div>
-            <a href="#"> 쇼핑 계속하기</a>
+            <a href="{% url 'order' %}"> 쇼핑 계속하기</a>
         </div>
 
         {% for item in items %}
@@ -126,7 +126,7 @@
                     <div>재활용용기 사용</div>
                 </div>
                 <div class="right__box">
-                    <label><input class="check" name="recycle" type="radio" value="use"> 사용</label>
+                    <label><input class="check" name="recycle" type="checkbox" value="use"> 사용</label>
                     <div class="about">* 재활용 용기 사용으로 환경을 지켜보세요!</div>
                 </div>
             </div>
