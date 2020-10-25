@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
     font-family: "montserrat";
@@ -107,4 +107,133 @@ body {
     bottom: -12px;
     transform: rotate(-45deg);
     z-index: -1;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'LotteMartDream';
+    font-style: normal;
+    /* font-weight: 400; */
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+}
+
+:root {
+    --lotte-red: #C83B2B;
+    --lotte-gray: #54585A;
+    --lotte-black: #000000;
+    --lotte-silver: #8F9090;
+    --lotte-shampagne-gold: #85766B;
+}
+
+.lottemartdream * {
+    font-family: 'LotteMartDream', sans-serif;
+}
+
+.title {
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: rgb(130, 130, 130);
+    border-bottom: 3px solid rgb(215, 215, 215);
+}
+
+.container {
+    display: flex;
+    overflow: hidden;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+}
+
+.team__section {
+    width: 90%;
+    margin-top: 50px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+.person__card {
+    width: 210px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    margin-top: 20px;
+    width: 210px;
+    height: 210px;
+    border-radius: 100%;
+    transition: .3s;
+}
+
+.image:hover {
+    width: 220px;
+    height: 220px;
+}
+
+.text {
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.text_ {
+    text-align: center;
+    padding: 0px;
+}
+
+.info {
+    margin-top: 20px;
+}
+
+.name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-top: 2px solid var(--lotte-silver);
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bolder;
+}
+
+.position {
+    color: var(--lotte-red);
+    font-size: 17px;
+    font-style: italic;
+}
+
+.major,
+.univ {
+    font-size: 15px;
+}
+
+.github a {
+    text-decoration: none;
+    color: var(--lotte-gray);
+    font-size: 13px;
+}
+
+.github {
+    margin-top: 20px;
+}
+
+.instagram a {
+    text-decoration: none;
+    color: palevioletred;
+    font-size: 13px;
+}
+
+.service__section {
+    width: 90%;
+    margin-top: 50px;
 }

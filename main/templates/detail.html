@@ -4,7 +4,7 @@
 {% block title %}delivery{% endblock %}
 {% block content %}
 
-<div class="team-section">
+<!-- <div class="team-section">
     <div class="inner-width">
         <h1>Meet Our Team</h1>
         <div class="pers">
@@ -13,9 +13,7 @@
                 <img src="{% static 'image/p1.jpeg' %}" alt="">
                 <div class="p-name">이남준</div>
                 <div class="p-des">full stack Developer</div>
-<!--                <div class="p-sm">-->
-<!--                    <a href="#"></a>-->
-<!--                </div>-->
+
             </div>
         </div>
 
@@ -25,9 +23,7 @@
                 <img src="{% static 'image/p2.jpeg' %}" alt="">
                 <div class="p-name">주은지</div>
                 <div class="p-des">full stack Developer</div>
-<!--                <div class="p-sm">-->
-<!--                    <a href="#"></a>-->
-<!--                </div>-->
+
             </div>
         </div>
 
@@ -37,9 +33,7 @@
                 <img src="{% static 'image/p3.jpeg' %}" alt="">
                 <div class="p-name">김율희</div>
                 <div class="p-des">full stack Developer</div>
-<!--                <div class="p-sm">-->
-<!--                    <a href="#"></a>-->
-<!--                </div>-->
+
             </div>
         </div>
 
@@ -53,6 +47,8 @@
 
             </div>
         </div>
+
+        
         <h1>Meet Our Page</h1>
         <div class="pers"></div>
 
@@ -98,12 +94,87 @@
 <p>: 배민 지도가 불편하다는 점과 정보 공유가 안된다는 점이 있으므로 라이더스끼리 커뮤니티를 생성해서 배달 팁이나 경로 팁같은 글을 공유한다면 많은 라이더스들이 모여들 것이다.</p>
         </div>
     </div>
+</div> -->
+
+<div class="container">
+
+    <div class="team__section">
+        <div class="title">Our Team</div>
+        <div class="cards">
+            <div class="person__card">
+
+                <img class="image" src="{% static 'image/p4.jpeg' %}" alt="">
+                <div class="info">
+                    <div class="name text">김태완</div>
+                    <div class="position text">Team Leaders</div>
+                    <div class="univ text">SCH univ</div>
+                    <div class="major text">CSE 19</div>
+                    <div class="github text_"><a href="https://github.com/wwan13"><i class="fab fa-github"></i>
+                            Github</a></div>
+                    <div class="instagram text_"><a href="https://www.instagram.com/_txxwxn/"><i
+                                class="fab fa-instagram-square"></i></i>
+                            Instagram</a></div>
+                </div>
+
+            </div>
+
+            <div class="person__card">
+
+                <img class="image" src="{% static 'image/p2.jpeg' %}" alt="">
+                <div class="info">
+                    <div class="name text">주은지</div>
+                    <div class="position text">full stack developer</div>
+                    <div class="univ text">SCH univ</div>
+                    <div class="major text">BigData 18</div>
+                    <div class="github text_"><a href="https://github.com/junji9072"><i class="fab fa-github"></i>
+                            Github</a></div>
+                </div>
+
+            </div>
+
+            <div class="person__card">
+
+                <img class="image" src="{% static 'image/p1.jpeg' %}" alt="">
+                <div class="info">
+                    <div class="name text">이남준</div>
+                    <div class="position text">full stack developer</div>
+                    <div class="univ text">SCH univ</div>
+                    <div class="major text">CSE 15</div>
+                    <div class="github text_"><a href="https://github.com/ningpop"><i class="fab fa-github"></i>
+                            Github</a></div>
+                    <div class="instagram text_"><a href="https://www.instagram.com/ningpop_/"><i
+                                class="fab fa-instagram-square"></i></i>
+                            Instagram</a></div>
+                </div>
+
+            </div>
+
+            <div class="person__card">
+
+                <img class="image" src="{% static 'image/p3.jpeg' %}" alt="">
+                <div class="info">
+                    <div class="name text">김율희</div>
+                    <div class="position text">full stack developer</div>
+                    <div class="univ text">SCH univ</div>
+                    <div class="major text">IoT 17</div>
+                    <div class="github text_"><a href="https://github.com/yulhee741"><i class="fab fa-github"></i>
+                            Github</a></div>
+                    <div class="instagram text_"><a href="https://www.instagram.com/yulludy/"><i
+                                class="fab fa-instagram-square"></i></i>
+                            Instagram</a></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="service__section">
+
+        <div class="title">Our Service</div>
+    </div>
+
 </div>
 
 
 
 {% endblock %}
-
-
-
-
