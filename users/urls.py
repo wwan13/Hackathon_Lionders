@@ -26,4 +26,5 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(),name='logout'),
     path('mypage/',views.mypage,name='mypage'),
     path('update_user_info/',views.update_user_info,name='update_user_info'),
+    path('education/',views.education,name='education'),
 ]
