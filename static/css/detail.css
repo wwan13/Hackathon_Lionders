@@ -237,3 +237,9 @@
     width: 90%;
     margin-top: 50px;
 }
+
+.youtube__video {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
