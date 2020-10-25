@@ -11,124 +11,60 @@
     <!-- css files -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <script src="https://kit.fontawesome.com/54f85ae94e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estimate_popup.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <script src="{% static 'js/order.js' %}"></script>
 </head>
 
 <body>
 
-    <div class="wrap">
-        <!-- navbar -->
-        <div class="navbar">
-
-            <div class="navbar__logo">
-                <a>
-                    <img src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
-                </a>
+    <div class="container">
+        <div class="box">
+            <div class="inner__box">
+                <div class="title">평가하기</div>
             </div>
+            <div class="under__box">
+                <div class="left__box">
+                    {% if not lionders.image %}
+                    <img class="image" src="{% static 'image/side1.png' %}" alt="side1.png">
+                    {% endif %}
 
-        </div>
+                    {% if lionders.image %}
+                    <img src="{{ user.image.url }}" class="image">
+                    {% endif %}
 
-        <div class="main-content">
-            <div class="container mt-7">
-                <!-- Table -->
-                <div class="row">
-                    <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
-                        <div class="card card-profile shadow">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-3 order-lg-2">
-                                    <div class="card-profile-image">
-                                        <a href="#">
-                                            <img src="https://demos.creative-tim.com/argon-dashboard/assets/img/theme/team-4.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                            </div>
-                            <div class="card-body pt-0 pt-md-4">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card-profile-stats d-flex justify-content-center mt-md-5">
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <h3>
-                                        {{lionders.name}}<span class="font-weight-light"></span>
-                                    </h3>
-                                    <div class="h5 font-weight-300">
-                                        {{lionders.grade}}
-                                    </div>
-                                    <ul class="searchDate">
-                                        <li>
-                                            <span class="chkbox2">
-                                                <input type="radio" name="dateType" id="dateType3" onclick="estimating('1.0')" />
-                                                <label for="dateType3">⭐️</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="chkbox2">
-                                                <input type="radio" name="dateType" id="dateType5" onclick="estimating('2.0')" />
-                                                <label for="dateType5">⭐️⭐️</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="chkbox2">
-                                                <input type="radio" name="dateType" id="dateType6" onclick="estimating('3.0')" />
-                                                <label for="dateType6">⭐️⭐️⭐️</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="chkbox2">
-                                                <input type="radio" name="dateType" id="dateType7" onclick="estimating('4.0')" />
-                                                <label for="dateType7">⭐️⭐️⭐️⭐️</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="chkbox2">
-                                                <input type="radio" name="dateType" id="dateType8" onclick="estimating('5.0')" />
-                                                <label for="dateType8">⭐️⭐️⭐️⭐️⭐️</label>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                    <form method="POST" action="{% url 'estimate_lionders' order.id lionders.id %}">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="estimate" id="estimate" value="0.0" />
-                                        <input type="submit" value="확인"/>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div class="right__box">
+                    <div class="info">라이온더스 {{ user.name }}님</div>
+                    <span class="chkbox2">
+                        <input type="radio" name="dateType" id="dateType3" onclick="estimating('1.0')" />
+                        <label for="dateType3">⭐️</label>
+                    </span>
+                    <span class="chkbox2">
+                        <input type="radio" name="dateType" id="dateType3" onclick="estimating('2.0')" />
+                        <label for="dateType3">⭐️⭐️</label>
+                    </span>
+                    <span class="chkbox2">
+                        <input type="radio" name="dateType" id="dateType3" onclick="estimating('3.0')" />
+                        <label for="dateType3">⭐️⭐️⭐️</label>
+                    </span>
+                    <span class="chkbox2">
+                        <input type="radio" name="dateType" id="dateType3" onclick="estimating('4.0')" />
+                        <label for="dateType3">⭐️⭐️⭐️⭐️</label>
+                    </span>
+                    <span class="chkbox2">
+                        <input type="radio" name="dateType" id="dateType3" onclick="estimating('5.0')" />
+                        <label for="dateType3">⭐️⭐️⭐️⭐️⭐️</label>
+                    </span>
                 </div>
             </div>
-        </div>
-
-        <!-- footer -->
-        <div class="footer">
-
-            <div class="footer__left">
-                <div class="footer__logo">
-                    <img src="{% static 'image/lionders_logo2.png' %}" alt="lionders_logo2.png">
-                </div>
-                <div class="footer__aboutus">
-                    <p>라이온더스는 우리의 팀명이자 서비스명 으로 멋쟁이 사자처럼 + Lotte On + 라이더스를 합쳐서 만들었습니다.<br></p>
-                    <p>팀 라이온더스는 순천향대학교 멋쟁이사자처럼 8기 풀스택 사자들이 모여 제작한 서비스 입니다.</p>
-                </div>
-                <div class="footer__copyright">
-                    <a href="https://github.com/wwan13/Hackathon_Lionders">
-                        https://github.com/wwan13/Hackathon_Lionders <br>
-                    </a>
-                    <p>Copyright @ 2020 TEAM Lionders</p>
-                </div>
-            </div>
-
+            <form method="POST" action="{% url 'estimate_lionders' order.id lionders.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="estimate" id="estimate" value="0.0" />
+                <input class="btn" type="submit" value="확인" />
+            </form>
         </div>
     </div>
 </body>

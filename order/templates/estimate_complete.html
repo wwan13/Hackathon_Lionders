@@ -11,62 +11,45 @@
     <!-- css files -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <script src="https://kit.fontawesome.com/54f85ae94e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popup_complete.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <script src="{% static 'js/order.js' %}"></script>
 </head>
 
 <body>
 
-    <div class="wrap">
-        <!-- navbar -->
-        <div class="navbar">
 
-            <div class="navbar__logo">
-                <a>
-                    <img src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
-                </a>
-            </div>
 
+    <!-- <div class="main-content">
+        <div class="container mt-7">
+            <h1>평가해주셔서 감사합니다.</h1>
+            <h2>고객을 더 생각하여 배달하겠습니다.</h2>
+            <input type="button" value="확인" onclick="closing();" />
+            <script>
+                function closing() {
+                    opener.location.href = "{% url 'order-list' %}";
+                    self.close();
+                }
+            </script>
         </div>
+    </div> -->
 
-        <div class="main-content">
-            <div class="container mt-7">
-                <h1>평가해주셔서 감사합니다.</h1>
-                <h2>고객을 더 생각하여 배달하겠습니다.</h2>
-                <input type="button" value="확인" onclick="closing();" />
-                <script>
-                    function closing() {
-                        opener.location.href = "{% url 'order-list' %}";
-                        self.close();
-                    }
-                </script>
-            </div>
-        </div>
+    <div class="container">
+        <img class="image" src="{% static 'image/thankyou.gif' %}" alt="on_going.gif">
+        <div class="text">갑사합니다!!</div>
+        <div class="text">더욱 노력하는 라이온더스 되겠습니다</div>
+        <input class="btn" type="button" value="확인" onclick="closing();" />
+        <script>
+            function closing() {
+                opener.location.href = "{% url 'order-list' %}";
+                self.close();
+            }
+        </script>
 
-        <!-- footer -->
-        <div class="footer">
-
-            <div class="footer__left">
-                <div class="footer__logo">
-                    <img src="{% static 'image/lionders_logo2.png' %}" alt="lionders_logo2.png">
-                </div>
-                <div class="footer__aboutus">
-                    <p>라이온더스는 우리의 팀명이자 서비스명 으로 멋쟁이 사자처럼 + Lotte On + 라이더스를 합쳐서 만들었습니다.<br></p>
-                    <p>팀 라이온더스는 순천향대학교 멋쟁이사자처럼 8기 풀스택 사자들이 모여 제작한 서비스 입니다.</p>
-                </div>
-                <div class="footer__copyright">
-                    <a href="https://github.com/wwan13/Hackathon_Lionders">
-                        https://github.com/wwan13/Hackathon_Lionders <br>
-                    </a>
-                    <p>Copyright @ 2020 TEAM Lionders</p>
-                </div>
-            </div>
-
-        </div>
     </div>
+
+
 </body>
 
 </html>
