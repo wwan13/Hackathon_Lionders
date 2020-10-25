@@ -89,7 +89,10 @@
     transition: .5s;
     justify-content: center;
     align-items: center;
+}
 
+.mg_top {
+    margin-top: 40px;
 }
 
 .delibery_btn:hover {

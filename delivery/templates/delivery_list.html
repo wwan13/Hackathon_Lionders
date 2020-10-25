@@ -4,81 +4,6 @@
 {% block title %}delivery{% endblock %}
 {% block content %}
 
-
-<!-- <div class="delivery-list">
-    <br>
-    {% for item in deliveries %}
-    {% if item.state == 'On Call' %}
-    <br>
-    <h3>배달 목록{{item.id}}</h3>
-    <p>주소 : {{item.order_sheet.destination}}</p>
-    <p>총 금액 : {{item.order_sheet.total_price}}</p>
-    <p>배달 상태 : {{item.state}}</p>
-    <p><sub>{{item.estimated_time}}</sub></p>
-    <p><sub>{{item.delivery_tips}}</sub></p>
-    {% if request.user.usertype == 'lionders' %}
-    <form action="{% url 'delivery-update' id=item.id %}" name="update" method="post">
-        {% csrf_token %}
-        <button type="submit">배달 완료</button>
-    </form>
-    {% endif %}
-    </form>
-    <form action="{% url 'delivery-delete' id=item.id %}" onsubmit="return getConfirmation()" name="delete"
-        method="post">
-        {% csrf_token %}
-        <script>
-            function getConfirmation() {
-                var retVal = confirm("Do you want to continue ?");
-                if (retVal == true) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        </script>
-        <button type="submit">삭제</button>
-    </form>
-    {% endif %}
-    {% endfor %}
-</div>
-<div style="margin:50px;"></div>
-<div class="delivery-list-completed">
-    <br>
-    {% for item in deliveries %}
-    {% if item.state == 'completed' %}
-    <br>
-    <h3>배달 목록{{item.id}}</h3>
-    <p>주소 : {{item.order_sheet.destination}}</p>
-    <p>총 금액 : {{item.order_sheet.total_price}}</p>
-    <p>배달 상태 : {{item.state}}</p>
-    <p><sub>{{item.estimated_time}}</sub></p>
-    <p><sub>{{item.delivery_tips}}</sub></p>
-    {% if request.user.usertype == 'lionders' %}
-    <form action="{% url 'delivery-update' id=item.id %}" name="update" method="post">
-        {% csrf_token %}
-        <button type="submit">배달 완료</button>
-    </form>
-    {% endif %}
-    </form>
-    <form action="{% url 'delivery-delete' id=item.id %}" onsubmit="return getConfirmation()" name="delete"
-        method="post">
-        {% csrf_token %}
-        <script>
-            function getConfirmation() {
-                var retVal = confirm("Do you want to continue ?");
-                if (retVal == true) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        </script>
-        <button type="submit">삭제</button>
-    </form>
-    {% endif %}
-    {% endfor %}
-</div> -->
-
 <div class="container">
     <img class="delivery-image" src="{% static 'image/delivery_list.gif' %}" alt="community.gif">
     {% for order in orders %}
@@ -117,9 +42,9 @@
                 </div>
                 <div class="right__box">
                     <div>{{ order.destination_road }}</div>
-                    <a class="delibery_btn" href="{% url 'delivery' order.id %}">배달하기</a><br><br>
                 </div>
             </div>
+            <div class="mg_top"><a class="delibery_btn" href="{% url 'delivery' order.id %}">배달하기</a></div>
     </div>
     {% endfor %}
 </div>
