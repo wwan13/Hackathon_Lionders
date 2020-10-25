@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}{% static 'css/community_list.css' %}{% endblock %}
-{% block title %}community{% endblock %}
+{% block title %}라이온더스{% endblock %}
 {% block content %}
 
 
 <div class="entirebox">
-    <img class="community-image" src="{% static 'image/community.gif' %}" alt="community.gif">
+    <div class="community-image">
+        <img class="community-image" src="{% static 'image/community.gif' %}" alt="community.gif">
+    </div>
     <div class="totalbox">
 
         {% if user.is_authenticated %}

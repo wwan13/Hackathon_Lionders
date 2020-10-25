@@ -209,8 +209,10 @@ body {
     margin-top: 50px;
 }
 
-.top__image {
+.delivery-image {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .payment__box {
