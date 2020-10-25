@@ -14,17 +14,17 @@
                     <div>나의 주문목록</div>
 
 
-                {# for lionders in order.delivery_set.all #}
-                {% if delivery.is_estimated == True %}
-                <div style="color:#C83B2B;">별점주기 완료</div>
-                {% else %}
-                <a href="" onclick="estimate_popup();">
-                    <div>라이온더스를 평가해주세요</div>
-                </a>
-                {% endif %}
-                {# endfor #}
-                {% for item in order.items.all %}
-                    </div>
+                    {# for lionders in order.delivery_set.all #}
+                    {% if delivery.is_estimated == True %}
+                    <div style="color:#C83B2B;">별점주기 완료</div>
+                    {% else %}
+                    <a href="" onclick="estimate_popup();">
+                        <div>라이온더스를 평가해주세요</div>
+                    </a>
+                    {% endif %}
+                    {# endfor #}
+                    {% for item in order.items.all %}
+                </div>
                 <div class="item__info">
                     <img src="{{ item.image.url }}">
                     <div class="about__item">
@@ -35,10 +35,10 @@
                     {% endfor %}
                 </div>
                 <div class="total__price2">
-                <div class="item"><strong>주문 총액</strong></div>
-                <div class="item"></div>
-                <div class="item"><strong>{{order.total_price}}</strong></div>
-            </div>
+                    <div class="item"><strong>주문 총액</strong></div>
+                    <div class="item"></div>
+                    <div class="item"><strong>{{order.total_price}}</strong></div>
+                </div>
             </div>
 
         </div>
@@ -48,10 +48,10 @@
 
     {# for lionders in order.delivery_set.all #}
     <script>
-    function estimate_popup(){
-        window.open("{% url 'estimate_lionders' order.id delivery.lionders_info.id %}", "a", "width=800, height=500")
-    }
-
+        function estimate_popup() {
+            window.open("{% url 'estimate_lionders' order.id delivery.lionders_info.id %}", "a",
+                "width=800, height=500")
+        }
     </script>
     {# endfor #}
     {% endblock %}
