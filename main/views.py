@@ -37,11 +37,12 @@ def create_item_objects(requset):
     file = open('main/textfiles/items.txt', mode='rt', encoding='utf-8')
     lists = file.readlines()
     for list in lists:
-        tmp = list.split(' ')
+        tmp = list.split('^')
         item = ordermodel.Item(
             store = tmp[0],
             item_name = tmp[1],
             price = int(tmp[2]),
+            image = str(tmp[3]),
         )
         item.save()
     return redirect("create_objs")
