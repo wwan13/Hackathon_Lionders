@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}{% static 'css/education.css' %}{% endblock %}
+{% block title %}라이온더스{% endblock %}
+{% block content %}
+
+<div class="container">
+    <img class="image" src="{% static 'image/education1.jpg' %}" alt="education1.jpg">
+    <img class="image" src="{% static 'image/education2.jpg' %}" alt="education2.jpg">
+    <img class="image" src="{% static 'image/education3.jpg' %}" alt="education3.jpg">
+    <img class="image" src="{% static 'image/education4.jpg' %}" alt="education4.jpg">
+</div>
+
+
+{% endblock %}

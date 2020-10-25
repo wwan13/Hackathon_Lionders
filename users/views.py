@@ -70,8 +70,12 @@ def signup_lionders(request):
                 address_detail=request.POST['address_detail'],
                 phone=request.POST['phone'])
             auth.login(request, user)
-            return redirect('login')
+            return redirect('../education')
     return render(request, 'signup_lionders.html')
+
+
+def education(request):
+    return render(request,'education.html')
 
 
 def mypage(request):
