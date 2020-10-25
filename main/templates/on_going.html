@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}{% static 'css/on_going.css' %}{% endblock %}
-{% block title %}지금 가고있어용{% endblock %}
+{% block title %}라이온더스{% endblock %}
 {% block content %}
 
 <div class="entirebox">
 
     <div class="middlebox">
+        <div class="delivery-image">
+            <img src="{% static 'image/on_going.gif' %}" alt="on_going.gif">
+        </div>
 
-        <img class="image" src="{% static 'image/on_going.gif' %}" alt="on_going.gif">
         <div class="text">
             상품이 준비되어 고객님께 달려가는중 입니다
         </div>

@@ -13,6 +13,12 @@
     height: auto;
 }
 
+.delivery-image {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
 .delibery_box {
     width: 90%;
     margin-top: 70px;

@@ -124,7 +124,7 @@
     text-align: center;
     padding: 15px;
     border: 0;
-    background: #C83B2B;
+    background:
     color: #fff;
     border-radius: 4px;
     padding: auto;
@@ -191,4 +191,10 @@
 a {
     text-decoration: none;
     color: black;
+}
+
+.community-image {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }

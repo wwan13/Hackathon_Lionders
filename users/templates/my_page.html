@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}{% static 'css/mypage.css' %}{% endblock %}
-{% block title %}delivery{% endblock %}
+{% block title %}라이온더스{% endblock %}
 {% block content %}
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -49,7 +49,8 @@
                                     [{{ user.address_num }}] {{user.address_road}}, {{user.address_detail}}<br>
                                     {{ user.phone }}<br>
                                     {% if user.usertype == 'lionders' %}
-                                    {{user.grade}}
+                                    <p>{{user.grade}}</p>
+                                    <p>평점 평균: {{user.rating}}</p>
                                     {% elif user.usertype == 'consumer' %}
                                     {% if user.is_pro == True %}
                                     구독중

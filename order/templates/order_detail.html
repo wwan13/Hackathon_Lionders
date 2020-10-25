@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}{% static 'css/order_final.css' %}{% endblock %}
-{% block title %}delivery{% endblock %}
+{% block title %}라이온더스{% endblock %}
 {% block content %}
 
 <div class="entirebox">
     <div class="totalbox">
         <div class="container">
-            <img class="top__image" src="{% static 'image/order_list.gif' %}" alt="order_list.gif">
+            <div class="delivery-image">
+                <img class="order-image" src="{% static 'image/order_list.gif' %}" alt="order_list.gif">
+            </div>
             <div class="item__box">
 
                 <div class="title__">
@@ -48,10 +50,12 @@
 
     {# for lionders in order.delivery_set.all #}
     <script>
+
         function estimate_popup() {
             window.open("{% url 'estimate_lionders' order.id delivery.lionders_info.id %}", "a",
                 "width=800, height=500")
         }
+
     </script>
     {# endfor #}
     {% endblock %}

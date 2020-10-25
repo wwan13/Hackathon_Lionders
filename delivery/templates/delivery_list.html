@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}{% static 'css/delivery_list.css' %}{% endblock %}
-{% block title %}delivery{% endblock %}
+{% block title %}라이온더스{% endblock %}
 {% block content %}
 
 <div class="container">
-    <img class="delivery-image" src="{% static 'image/delivery_list.gif' %}" alt="community.gif">
+    <div class="delivery-image">
+        <img src="{% static 'image/delivery_list.gif' %}" alt="delivery_list.gif">
+    </div>
+
     {% for order in orders %}
     <div class="delibery_box">
         <div class="title_">{{order.id}}번 배달 목록 조회</div>

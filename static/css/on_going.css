@@ -41,8 +41,10 @@
     flex-direction: column;
 }
 
-.image {
-    margin-bottom: 20px;
+.delivery-image {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .text {

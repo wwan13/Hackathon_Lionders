@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}{% static 'css/order_final.css' %}{% endblock %}
-{% block title %}delivery{% endblock %}
+{% block title %}라이온더스{% endblock %}
 {% block content %}
 
 <div class="container">
-    <img class="top__image" src="{% static 'image/order_delivery.gif' %}" alt="order_delivery.gif">
+    <div class="delivery-image">
+        <img src="{% static 'image/order_delivery.gif' %}" alt="order_delivery.gif">
+    </div>
     <div class="item__box">
 
         <div class="title__">
