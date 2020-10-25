@@ -50,10 +50,11 @@
 
     {# for lionders in order.delivery_set.all #}
     <script>
-    function estimate_popup(){
-        window.open("{% url 'estimate_lionders' order.id delivery.lionders_info.id %}", "a", "width=800, height=500")
-    }
 
+        function estimate_popup() {
+            window.open("{% url 'estimate_lionders' order.id delivery.lionders_info.id %}", "a",
+                "width=800, height=500")
+        }
 
     </script>
     {# endfor #}
