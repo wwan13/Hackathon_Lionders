@@ -1,51 +1,57 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% static 'css/order.css' %}{% endblock %}
+{% block style %}{% static 'css/order_final.css' %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
 
-<table class="searchBox">
-    <div class="entirebox">
-        <div class="totalbox">
+<div class="entirebox">
+    <div class="totalbox">
+        <div class="container">
+            <img class="top__image" src="{% static 'image/order_list.gif' %}" alt="order_list.gif">
+            <div class="item__box">
 
-            <h1 class="box__title">나의 주문목록</h1>
+                <div class="title__">
+                    <div>나의 주문목록</div>
 
-            <div class="about__items">
-                <div class="item">가게</div>
-                <div class="item">상품명</div>
-                <div class="item">가격</div>
-            </div>
-            {% for item in order.items.all %}
-            <div class="about__items">
-                <div class="item">{{item.store}}</div>
-                <div class="item">{{item.item_name}}</div>
-                <div class="item">{{item.price}}</div>
-            </div>
-            {% endfor %}
-            <div class="about__items">
+
+                {# for lionders in order.delivery_set.all #}
+                {% if delivery.is_estimated == True %}
+                <div style="color:#C83B2B;">별점주기 완료</div>
+                {% else %}
+                <a href="" onclick="estimate_popup();">
+                    <div>라이온더스를 평가해주세요</div>
+                </a>
+                {% endif %}
+                {# endfor #}
+                {% for item in order.items.all %}
+                    </div>
+                <div class="item__info">
+                    <img src="{{ item.image.url }}">
+                    <div class="about__item">
+                        <div class="item__text">{{ item.item_name }}</div>
+                        <div class="item__text">{{ item.store }}</div>
+                        <div class="item__text">{{ item.price }}원</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="total__price2">
                 <div class="item"><strong>주문 총액</strong></div>
                 <div class="item"></div>
                 <div class="item"><strong>{{order.total_price}}</strong></div>
             </div>
+            </div>
+
         </div>
 
-        <div>
-            <div><strong>담당 라이온더스 평가하기</strong></div>
-            {# for lionders in order.delivery_set.all #}
-            {% if delivery.is_estimated == True %}
-            <div class="">별점주기 완료</div>
-            {% else %}
-            <a href="" onclick="estimate_popup();"><div class="">라이온더스를 평가해주세요</div></a>
-            {% endif %}
-            {# endfor #}
-        </div>
+
     </div>
-</table>
-{# for lionders in order.delivery_set.all #}
-<script>
+
+    {# for lionders in order.delivery_set.all #}
+    <script>
     function estimate_popup(){
         window.open("{% url 'estimate_lionders' order.id delivery.lionders_info.id %}", "a", "width=800, height=500")
     }
-</script>
-{# endfor #}
-{% endblock %}
+
+    </script>
+    {# endfor #}
+    {% endblock %}
