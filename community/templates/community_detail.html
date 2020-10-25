@@ -24,9 +24,9 @@
     </div>
 
     <div class="comment">
-        <p>댓글달기</p>
+        <p class="comment__title">댓글달기</p>
         {% if user.is_authenticated %}
-        <form class="cooment-form" method="POST" action="{% url 'create_comment' community.id %}">
+        <form class="comment-form" method="POST" action="{% url 'create_comment' community.id %}">
             {% csrf_token %}
             <input class="comment-input" type="text" name="comment">
             <input class="comment-submit" type="submit" value="확인">
@@ -34,19 +34,24 @@
         {% endif %}
 
         {% for comment in community.comment_set.all %}
-        <div class="user-id">
-            {{ comment.author }} 🔊
+        <div class="comment__box">
+            <div class="comment_box_left">
+                <div class="user-id">
+                    {{ comment.author }} 🔊
+                </div>
+                <div class="user-comment">{{ comment.content|linebreaksbr }}</div>
+                <sub class="comment-date">{{ comment.created_at }}</sub>
+            </div>
+            {% if user == comment.author %}
+            <div class="">
+                <a href="{% url 'delete_comment' community.id comment.id %}" class="text-right">
+                    <button class="comment-submit2">삭제</button>
+                </a>
+            </div>
+            {% else %}
+            <div> </div>
+            {% endif %}
         </div>
-        <div class="user-comment">{{ comment.content|linebreaksbr }}</div>
-        {% if user == comment.author %}
-        <div class="">
-            <a href="{% url 'delete_comment' community.id comment.id %}" class="text-right">
-                <button class="comment-submit2">삭제</button>
-            </a>
-        </div>
-        {% endif %}
-        <sub class="comment-date">{{ comment.created_at }}</sub>
-        <hr>
         {% endfor %}
     </div>
 
