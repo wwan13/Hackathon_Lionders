@@ -1,33 +1,56 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: "montserrat",sans-serif;
 }
-.testimonials{
+
+@font-face {
+    font-family: 'LotteMartDream';
+    font-style: normal;
+    /* font-weight: 400; */
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+}
+
+:root {
+    --lotte-red: #C83B2B;
+    --lotte-gray: #54585A;
+    --lotte-black: #000000;
+    --lotte-silver: #8F9090;
+    --lotte-shampagne-gold: #85766B;
+}
+
+.lottemartdream * {
+    font-family: 'LotteMartDream', sans-serif;
+}
+
+.testimonials {
     padding: 40px 0;
     background: #fff;
     color: #434343;
     text-align: center;
-    margin-top:5px;
+    margin-top: 5px;
 }
-.inner{
+
+.inner {
     max-width: 1200px;
     margin: auto;
     overflow: hidden;
     padding: 0 20px;
 }
-.border{
+
+.border {
     width: 160px;
     height: 5px;
     background: #C83B2B;
     margin: 26px auto;
 }
-.row{
+
+.row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.col{
+
+.col {
     flex: 33.33%;
     max-width: 23%;
     box-sizing: border-box;
@@ -38,32 +61,39 @@
     transition: 0.5s;
 
 }
-.col:hover{
+
+.col:hover {
     transform: scale(1.05);
 }
 
-.testimonial{
+.testimonial {
     background: #fff;
 }
-.testimonial img{
+
+.testimonial img {
     width: 100%;
     height: 280px;
 }
-.name{
+
+.name {
     font-size: 20px;
     text-transform: uppercase;
-    margin: 20px 0;
+    margin: 20px;
 }
-.order__btn{
+
+.order__btn {
     color: #C83B2B;
     font-size: 17px;
     transition: .3s;
+    margin-bottom: 20px;
 }
-.detail1{
+
+.detail1 {
     font-size: 18px;
     color: #C83B2B;
 }
-.detail2{
+
+.detail2 {
     font-size: 15px;
 }
 
@@ -86,31 +116,6 @@
     border-bottom: 1px solid var(--lotte-shampagne-gold);
 }
 
-.about__items {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--lotte-shampagne-gold);
-}
-
-.items {
-    text-align: center;
-    font-size: 15px;
-    width: 25%;
-}
-
-.item {
-    text-align: center;
-    width: 25%;
-}
-
-.about__item {
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-}
 
 .btnbox {
     display: flex;
@@ -144,4 +149,72 @@
 
 .delete {
     color: var(--lotte-red);
+}
+
+.item__info {
+    border-bottom: 2px solid rgb(240, 240, 240);
+    display: flex;
+}
+
+.item__info img {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    color: white;
+    margin: 20px 20px 20px 50px;
+}
+
+.about__item {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 140px;
+    justify-content: center;
+    padding-left: 70px;
+    align-items: baseline;
+    /* background-color: antiquewhite; */
+}
+
+.item__text {
+    padding: 5px 0px;
+}
+
+.delete {
+    color: var(--lotte-red);
+    /* align-items: center; */
+    display: flex;
+    align-items: center;
+    /* margin-left: 100px; */
+}
+
+.delete div {
+    margin-left: 80px;
+}
+
+.item__box {
+    width: 90%;
+    margin-top: 50px;
+    /* background-color: antiquewhite; */
+}
+
+.title {
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    color: rgb(130, 130, 130);
+    border-bottom: 3px solid rgb(215, 215, 215);
+}
+
+.title__ {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    color: rgb(130, 130, 130);
+    border-bottom: 3px solid rgb(215, 215, 215);
+}
+
+.mg_t_b {
+    margin: 5px 0px;
 }

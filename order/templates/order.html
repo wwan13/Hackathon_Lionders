@@ -19,14 +19,16 @@
                 <div class="testimonial">
                     <img src="{{ item.image.url }}">
                     <h3 class="name">{{ item.item_name }}</h3>
-                    <div class="detail1">
+                    <div class="detail1 mg_t_b">
                         <p><strong>{{ item.store }}</strong></p>
                     </div>
-                    <div class="detail2">
+                    <div class="detail2 mg_t_b">
                         <p><sup>₩</sup>{{ item.price }}</p>
                     </div>
 
-                    <a href="{% url 'add_item' order.id item.id %}" class="order__btn">추가하기</a>
+                    <a href="{% url 'add_item' order.id item.id %}" class="order__btn">
+                        <div class="order__btn">추가하기</div>
+                    </a>
 
                 </div>
             </div>
@@ -39,25 +41,24 @@
 
     <div class="totalbox">
 
-        <div class="box__title">목록</div>
+        <div class="item__box">
 
-        <div class="about__items">
-            <div class="item">상품 이름</div>
-            <div class="item">매장</div>
-            <div class="item">가격</div>
-            <div class="item"></div>
+            <div class="title__">
+                <div>주문정보</div>
+            </div>
+            {% for item in ordered_items %}
+
+            <div class="item__info">
+                <img src="{{ item.image.url }}">
+                <div class="about__item">
+                    <div class="item__text">{{ item.item_name }}</div>
+                    <div class="item__text">{{ item.store }}</div>
+                    <div class="item__text">{{ item.price }}원</div>
+                </div>
+                <a class="items delete" href="{% url 'remove_item' order.id item.id %}">삭제</a>
+            </div>
+            {% endfor %}
         </div>
-
-        {% for item in ordered_items %}
-        <div class="about__item">
-            <div class="items">{{ item.item_name }}</div>
-            <div class="items">{{ item.store }}</div>
-            <div class="items">{{ item.price }}₩</div>
-            <a class="items delete" href="{% url 'remove_item' order.id item.id %}">삭제</a>
-        </div>
-
-        {% endfor %}
-
         <div class="btnbox">
             <a class="total__price" href="{% url 'order_final' order.id %}">
                 {{ order.total_price }} 원 주문하기
