@@ -4,7 +4,7 @@
 {% block title %}delivery{% endblock %}
 {% block content %}
 
-<div class="entirebox">
+{% comment %} <div class="entirebox">
     
     <div class="middlebox">
         <img class="image" src="{% static 'image/side3.png' %}" alt="side3.png">
@@ -14,6 +14,24 @@
         <div class="text txt2">
             {{ delivery.estimated_time }} <br>
             {{ delivery.delivery_tips }}<br>
+        </div>
+        <div class="go_home">
+            <a href="{% url 'home' %}">홈으로</a>
+        </div>
+    </div>
+
+</div> {% endcomment %}
+
+<div class="entirebox">
+
+    <div class="middlebox">
+
+        <img class="image" src="{% static 'image/on_going.gif' %}" alt="on_going.gif">
+        <div class="text">
+        {{ delivery.order_sheet.normal_user_info.name }} 님의 상품을 배송하는 중입니다
+        </div>
+        <div class="text txt2">
+            안전사고에 유의하세요!
         </div>
         <div class="go_home">
             <a href="{% url 'home' %}">홈으로</a>
