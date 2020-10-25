@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+.container{
+    margin:auto;
+    width: 80vw;
+    margin-top: 20px;
+}
+.image{
+    width: 100%;
+    height: auto;
+}
