@@ -1,7 +1,7 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: "montserrat",sans-serif;
+    font-family: "montserrat", sans-serif;
 }
 
 .box__title {
@@ -12,7 +12,7 @@
     border-bottom: 1px solid var(--lotte-shampagne-gold);
 }
 
-.border{
+.border {
     width: 90vw;
     height: 3px;
     background: #C83B2B;
@@ -24,19 +24,21 @@
     width: 20%;
 }
 
-.item-id{
+.item-id {
     text-align: center;
     width: 10%;
 }
-.item-price{
+
+.item-price {
     text-align: center;
     width: 15%;
 }
 
-.item-des{
+.item-des {
     text-align: center;
     width: 25%;
 }
+
 .about__items {
     display: flex;
     justify-content: space-around;
@@ -56,40 +58,40 @@
     /* background-color: aquamarine; */
 }
 
-.img-box{
-    margin-top:10px
-    display:flex;
-    justify-content:center;
+.img-box {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
-.searchBox{
+.searchBox {
     width: 20%;
     border-collapse: collapse;
-    margin:auto;
+    margin: auto;
     width: 90vw;
     margin-top: 25px;
 }
 
-.searchBox td{
-    padding:12px 15px;
-    border:1px solid #f1f1f1;
+.searchBox td {
+    padding: 12px 15px;
+    border: 1px solid #f1f1f1;
 
 }
 
-.searchBox th{
+.searchBox th {
     background-color: #f1f1f1;
-    padding:12px 15px;
-    border:1px solid #f1f1f1;
+    padding: 12px 15px;
+    border: 1px solid #f1f1f1;
     text-align: center;
 }
 
-.searchDate{
-   display: flex;
-   padding: 10px;
-   margin: 0 20px;
+.searchDate {
+    display: flex;
+    padding: 10px;
+    margin: 0 20px;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     width: 100%;
     color: #C83B2B;
     border: 0;
@@ -104,5 +106,5 @@ input[type="submit"]{
 }
 
 a {
-  color: black;
+    color: black;
 }
