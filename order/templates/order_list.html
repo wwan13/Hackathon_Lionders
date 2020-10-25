@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}{% static 'css/order.css' %}{% endblock %}
+{% block style %}{% static 'css/order_detail.css' %}{% endblock %}
 {% block title %}delivery{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
@@ -10,51 +10,10 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
 <script src="{% static 'js/order.js' %}"></script>
 
-
-<!-- <link rel="stylesheet" href="{% static 'css/order.css' %}">
-주문하는 목록
-<div class="order-list">
-    <br>
-    <a href="{% url 'order' %}">주문서 작성하러가기</a>
-    <br>
-    {% for order in orders %}
-    <br>
-    <h3>{{order.normal_user_info.name}}님의 {{ order.ordered_time|date:'m/d (D)' }} 주문서</h3>
-    <p>주소 : {{order.destination}}</p>
-    <h4>배달 품목</h4>
-    {% for item in order.items.all %}
-    <hr>
-    <p>매장: {{item.store}}</p>
-    <p>물품명: {{item.item_name}}</p>
-    <p>가격: {{item.price}}</p>
-    {% endfor %}
-    <hr>
-    <p>총 금액 : {{order.total_price}}</p>
-    <p><sub>주문일시: {{order.ordered_time | date:'Y년 m월 d일 A f'}}</sub></p>
-    <p><sub>주문번호: {{order.id}}</sub></p>
-    <form action="{% url 'order-update' %}?id={{ order.id }}" name="update" method="post">
-        {% csrf_token %}
-        <button type="submit">주문서 수정하기</button>
-    </form>
-
-    </form>
-    <form action="{% url 'order-delete' id=order.id %}" onsubmit="return getConfirmation()" name="delete" method="post">
-        {% csrf_token %}
-        <script>
-            function getConfirmation() {
-                var retVal = confirm("Do you want to continue ?");
-                if (retVal == true) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        </script>
-        <button type="submit">삭제</button>
-    </form>
-
-    {% endfor %} -->
 <table class="searchBox">
+    <div class="img-box">
+           <img class="order-image" src="{% static 'image/order_list.gif' %}" alt="order_list.gif">
+        </div>
     <colgroup>
         <col width="123px">
         <col width="*">
@@ -63,32 +22,32 @@
         <tr>
             <th>조회기간</th>
             <td>
-                <ul class="searchDate">
-                    <li>
+                <div class="searchDate">
+                    <div>
                         <span class="chkbox2">
                             <input type="radio" name="dateType" id="dateType3" onclick="setSearchDate('1w')" />
-                            <label for="dateType3">1주</label>
+                            <label for="dateType3">1주 이내</label>
                         </span>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <span class="chkbox2">
                             <input type="radio" name="dateType" id="dateType5" onclick="setSearchDate('1m')" />
-                            <label for="dateType5">1개월</label>
+                            <label for="dateType5">1개월 이내</label>
                         </span>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <span class="chkbox2">
                             <input type="radio" name="dateType" id="dateType6" onclick="setSearchDate('3m')" />
-                            <label for="dateType6">3개월</label>
+                            <label for="dateType6">3개월 이내</label>
                         </span>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <span class="chkbox2">
                             <input type="radio" name="dateType" id="dateType7" onclick="setSearchDate('6m')" />
-                            <label for="dateType7">6개월</label>
+                            <label for="dateType7">6개월 이내</label>
                         </span>
-                    </li>
-                </ul>
+                    </div>
+                </div>
 
                 <!-- 사용자의 기간 설정 -->
                 <form method="POST" action="{% url 'order-list' %}">
@@ -102,14 +61,12 @@
 </table>
 <div class="entirebox">
     <div class="totalbox">
-
-        <h1 class="box__title">나의 주문목록</h1>
-
+            <div class="border"></div>
         <div class="about__items">
-            <div class="item">주문번호</div>
-            <div class="item">주문총액</div>
+            <div class="item-id">주문번호</div>
+            <div class="item-price">주문총액</div>
             <div class="item">주문일자</div>
-            <div class="item">배달주소</div>
+            <div class="item-des">배달주소</div>
             <div class="item">담당 라이온더스</div>
             <div class="item">별점 작성</div>
         </div>
@@ -120,10 +77,10 @@
         <a href="{% url 'order-detail' order.id %}">
             <div class="about__items">
                 <!-- <div class="item">{{item.store}}<br><strong>{{item.item_name}}</strong></div> -->
-                <div class="item">{{order.id}}</div>
-                <div class="item">{{order.total_price}}</div>
+                <div class="item-id">{{order.id}}</div>
+                <div class="item-price">{{order.total_price}}</div>
                 <div class="item">{{order.ordered_time}}</div>
-                <div class="item">{{order.short_destination}}</div>
+                <div class="item-des">{{order.short_destination}}</div>
                 {% for lionders in order.delivery_set.all %}
                 {% if forloop.first %}
                 <div class="item">{{lionders.lionders_info}}</div>
@@ -132,9 +89,9 @@
                 {% for lionders in order.delivery_set.all %}
                 {% if forloop.first %}
                 {% if lionders.is_estimated == True %}
-                <div class="item">별점주기 완료</div>
+                <div class="item" style="color:#666666;">별점주기 완료</div>
                 {% else %}
-                <div class="item">라이온더스를 평가해주세요</div>
+                <div class="item" style="color:#C83B2B;">라이온더스를 평가해주세요</div>
                 {% endif %}
                 {% endif %}
                 {% endfor %}

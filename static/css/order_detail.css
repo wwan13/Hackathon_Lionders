@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat",sans-serif;
+}
+
+.box__title {
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 30px;
+    border-bottom: 1px solid var(--lotte-shampagne-gold);
+}
+
+.border{
+    width: 90vw;
+    height: 3px;
+    background: #C83B2B;
+    margin: 26px auto;
+}
+
+.item {
+    text-align: center;
+    width: 20%;
+}
+
+.item-id{
+    text-align: center;
+    width: 10%;
+}
+.item-price{
+    text-align: center;
+    width: 15%;
+}
+
+.item-des{
+    text-align: center;
+    width: 25%;
+}
+.about__items {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--lotte-shampagne-gold);
+}
+
+.totalbox {
+    display: block;
+    /* justify-content: center; */
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    /* background-color: aquamarine; */
+}
+
+.img-box{
+    margin-top:10px
+    display:flex;
+    justify-content:center;
+}
+
+.searchBox{
+    width: 20%;
+    border-collapse: collapse;
+    margin:auto;
+    width: 90vw;
+    margin-top: 25px;
+}
+
+.searchBox td{
+    padding:12px 15px;
+    border:1px solid #f1f1f1;
+
+}
+
+.searchBox th{
+    background-color: #f1f1f1;
+    padding:12px 15px;
+    border:1px solid #f1f1f1;
+    text-align: center;
+}
+
+.searchDate{
+   display: flex;
+   padding: 10px;
+   margin: 0 20px;
+}
+
+input[type="submit"]{
+    width: 100%;
+    color: #C83B2B;
+    border: 0;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 17px;
+}
+
+.chkbox2 {
+    padding: 90px;
+    font-size: 18px;
+}
+
+a {
+  color: black;
+}
