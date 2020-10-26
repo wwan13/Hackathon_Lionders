@@ -17,27 +17,27 @@
         <img class="login__logo" src="{% static 'image/lionders_logo.jpeg' %}" alt="lionders_logo.jpeg">
     </a>
 
-    <form class="signupbox" method="POST" action="{% url 'signup_consumer' %}">
+    <form class="signupbox" method="POST" action="{% url 'signup_consumer' %}" onsubmit="return chkRegister();">
         {% csrf_token %}
         <h1 class="signupbox__title">일반 회원가입</h1>
 
         <div class="signupbox__textbox">
-            <input type="text" name="username">
+            <input type="text" name="username" id="username">
             <span data-placeholder="아이디"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="password" name="password">
+            <input type="password" name="password" id="password">
             <span data-placeholder="비밀번호"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="password" name="confirm">
+            <input type="password" name="confirm" id="confirm">
             <span data-placeholder="비밀번호 확인"></span>
         </div>
 
         <div class="signupbox__textbox">
-            <input type="text" name="name">
+            <input type="text" name="name" id="name">
             <span data-placeholder="이름"></span>
         </div>
 
@@ -81,6 +81,38 @@
         $(function () {
             $("#postcodify_search_button").postcodifyPopUp();
         });
+
+        function chkRegister() {
+            // 아이디 체크
+            var userId = document.getElementById('username');
+            if(userId.value == "" || userId.value.length < 3) {
+                alert('아이디를 입력하세요.');
+                userId.focus();
+                return false;
+            }
+        
+            // 비밀번호 체크
+            var pwd = document.getElementById('password');
+            if(pwd.value.length < 3 || pwd.value.length > 13) {
+                alert('비밀번호는 3자이상 12자이하로 입력하세요.');
+                pwd.select();
+                return false;
+            }
+            // 비밀번호 확인 체크
+            var pwCfm = document.getElementById('confirm');
+            if(pwd.value != pwCfm.value) {
+                alert('암호가 다릅니다. 다시 입력하세요.');
+                pwd.select();
+                pwCfm.value = "";
+            }
+            // 이름 체크
+            var userName = document.getElementById('name');
+            if(userName.value.length < 2 || userName.value.length > 6) {
+                alert('이름 2자이상 5자이하로 입력하세요.');
+                userName.select();
+                return false;
+            }
+        }
     </script>
 </body>
 
