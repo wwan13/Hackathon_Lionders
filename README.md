@@ -2,6 +2,8 @@
 
 🦁 Likelion 8th + Lotte Hackathon 👍
 
+배포 주소 >> http://13.124.16.21:8000
+
 ## Contributor
 ### Team Leader
 - 김태완 [![Github Badge](https://img.shields.io/badge/wwan13-black?style=flat-square&logo=github&link=https://github.com/wwan13)](https://github.com/wwan13)
