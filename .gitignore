@@ -149,3 +149,6 @@ dmypy.json
 .pytype/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+
+# deploy Pem key
+pem/
